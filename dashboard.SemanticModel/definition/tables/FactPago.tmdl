@@ -1,0 +1,44 @@
+table FactPago
+	lineageTag: f68acd15-fc02-4166-bb70-7b08dc24f1fe
+
+	column IdFactura
+		dataType: string
+		lineageTag: ae1f1dc8-5682-498b-8524-a2dbde7af6d9
+		summarizeBy: none
+		sourceColumn: IdFactura
+
+		annotation SummarizationSetBy = Automatic
+
+	column MedioPago
+		dataType: string
+		lineageTag: de8d50a1-5d0a-40c0-a5a7-dd733a66566f
+		summarizeBy: none
+		sourceColumn: MedioPago
+
+		annotation SummarizationSetBy = Automatic
+
+	column MontoPagado
+		dataType: double
+		formatString: \$\ #,0;-\$\ #,0;\$\ #,0
+		lineageTag: d132274a-7500-4829-b6c8-f7459cd9167c
+		summarizeBy: sum
+		sourceColumn: MontoPagado
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	partition FactPago = m
+		mode: import
+		queryGroup: 'Fact Tables'
+		source =
+				let
+				    Source = _FactPagoBase,
+				    #"Appended Query" = Table.Combine({Source, _FacturasSinMedioDePago})
+				in
+				    #"Appended Query"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

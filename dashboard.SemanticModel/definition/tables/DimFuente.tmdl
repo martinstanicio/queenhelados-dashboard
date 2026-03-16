@@ -1,0 +1,45 @@
+table DimFuente
+	lineageTag: ab123d1f-e78f-4324-a61d-8d71987fc7d4
+
+	column IdFuente
+		dataType: string
+		isKey
+		lineageTag: ed3695b2-5364-4897-8ae7-7f14df192edf
+		summarizeBy: none
+		sourceColumn: IdFuente
+
+		annotation SummarizationSetBy = Automatic
+
+	column NombreFuente
+		dataType: string
+		lineageTag: a6828d75-6286-4e06-aaf5-ae1d751ec97b
+		isDefaultLabel
+		summarizeBy: none
+		sourceColumn: NombreFuente
+
+		annotation SummarizationSetBy = Automatic
+
+	column IdSucursal
+		dataType: string
+		lineageTag: 5a59ce20-bf08-49a2-83d6-c086e9be587f
+		summarizeBy: none
+		sourceColumn: IdSucursal
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimFuente = m
+		mode: import
+		queryGroup: 'Dimension Tables'
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents(Text.Combine({SourceFolder, "\fuentes.xlsx"})), null, true),
+				    Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"IdFuente", type text}, {"NombreFuente", type text}, {"IdSucursal", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

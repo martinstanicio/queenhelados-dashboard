@@ -1,0 +1,35 @@
+table DimTiempo
+	lineageTag: 30957579-6781-4f99-9b3d-3e963fdc2b41
+
+	column Hora
+		dataType: dateTime
+		formatString: Short Time
+		lineageTag: 0a67d952-eae7-4f4b-8ad3-6776c00d4fcb
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Hora]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column FranjaHoraria
+		lineageTag: 4e37df05-ef3b-44c8-9e28-09ec15c42655
+		isDefaultLabel
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [FranjaHoraria]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimTiempo = calculated
+		mode: import
+		source =
+				SELECTCOLUMNS(
+				    GENERATESERIES(0, 23, 1),
+				    "Hora", TIME([Value], 0, 0),
+				    "FranjaHoraria", FORMAT(TIME([Value], 0, 0), "HH:mm") & " a " & FORMAT(TIME([Value] + 1, 0, 0), "HH:mm")
+				)
+
+	annotation PBI_Id = 5dc7f118ef444e1a9b30f0744560296f
+

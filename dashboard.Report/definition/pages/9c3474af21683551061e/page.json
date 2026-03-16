@@ -1,0 +1,128 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "9c3474af21683551061e",
+  "displayName": "Ventas de la semana",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "68573258f640c8d6411e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCalendario"
+              }
+            },
+            "Property": "Fecha"
+          }
+        },
+        "type": "RelativeDate",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DimCalendario",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Between": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "d"
+                        }
+                      },
+                      "Property": "Fecha"
+                    }
+                  },
+                  "LowerBound": {
+                    "DateSpan": {
+                      "Expression": {
+                        "DateAdd": {
+                          "Expression": {
+                            "DateAdd": {
+                              "Expression": {
+                                "DateAdd": {
+                                  "Expression": {
+                                    "Now": {}
+                                  },
+                                  "Amount": -1,
+                                  "TimeUnit": 0
+                                }
+                              },
+                              "Amount": 1,
+                              "TimeUnit": 0
+                            }
+                          },
+                          "Amount": -7,
+                          "TimeUnit": 0
+                        }
+                      },
+                      "TimeUnit": 0
+                    }
+                  },
+                  "UpperBound": {
+                    "DateSpan": {
+                      "Expression": {
+                        "DateAdd": {
+                          "Expression": {
+                            "Now": {}
+                          },
+                          "Amount": -1,
+                          "TimeUnit": 0
+                        }
+                      },
+                      "TimeUnit": 0
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
+  },
+  "visibility": "HiddenInViewMode",
+  "visualInteractions": [
+    {
+      "source": "c38a8eb7e8004585ba0c",
+      "target": "41e13880561a580c5727",
+      "type": "DataFilter"
+    },
+    {
+      "source": "c38a8eb7e8004585ba0c",
+      "target": "e213cb65d5bd8308790a",
+      "type": "DataFilter"
+    },
+    {
+      "source": "41e13880561a580c5727",
+      "target": "c38a8eb7e8004585ba0c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "41e13880561a580c5727",
+      "target": "e213cb65d5bd8308790a",
+      "type": "DataFilter"
+    },
+    {
+      "source": "e213cb65d5bd8308790a",
+      "target": "41e13880561a580c5727",
+      "type": "DataFilter"
+    },
+    {
+      "source": "e213cb65d5bd8308790a",
+      "target": "c38a8eb7e8004585ba0c",
+      "type": "DataFilter"
+    }
+  ]
+}

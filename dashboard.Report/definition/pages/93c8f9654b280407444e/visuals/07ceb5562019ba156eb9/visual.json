@@ -1,0 +1,42 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "07ceb5562019ba156eb9",
+  "position": {
+    "x": 0,
+    "y": 96.291793313069917,
+    "z": 5000,
+    "height": 47.659574468085111,
+    "width": 1280,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "En caso de seleccionar un rango de fechas (como un mes o un año), solo se mostrará el stock valorizado del último día."
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "El stock máximo que muestra el indicador de cada sucursal es el stock valorizado máximo histórico. La barra negra es el indicador del stock crítico."
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

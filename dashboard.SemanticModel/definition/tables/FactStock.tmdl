@@ -1,0 +1,107 @@
+table FactStock
+	lineageTag: 9a86a468-32c3-4ce6-83c6-e8e6c4980596
+
+	measure 'Stock Valorizado (Diario)' =
+			CALCULATE(
+			    SUM(FactStock[Subtotal]),
+			    LASTDATE(DimCalendario[Fecha])
+			)
+		formatString: \$\ #,0;-\$\ #,0;\$\ #,0
+		lineageTag: 61b6dd02-e928-4200-a9c0-5325c661f464
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	measure 'Stock Valorizado (Máximo Histórico)' =
+			CALCULATE(
+			    MAXX(
+			        ALL(DimCalendario[Fecha]),
+			        [Stock Valorizado (Diario)]
+			    )
+			)
+		formatString: \$\ #,0;-\$\ #,0;\$\ #,0
+		lineageTag: 1fcf9943-a219-460e-b5da-1ce519f937a2
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	column Fecha
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a914e2e6-465d-4056-9bc4-c89225c70777
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column IdSucursal
+		dataType: string
+		lineageTag: 0cbb656c-55b9-4309-b8b0-a67d9cf9b384
+		summarizeBy: none
+		sourceColumn: IdSucursal
+
+		annotation SummarizationSetBy = Automatic
+
+	column CodigoProducto
+		dataType: int64
+		formatString: 0
+		lineageTag: fb379888-2936-4164-9d4f-bf6639a13790
+		summarizeBy: none
+		sourceColumn: CodigoProducto
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cantidad
+		dataType: int64
+		formatString: 0
+		lineageTag: cc7103da-5f71-4be0-8de6-f99315cdf093
+		summarizeBy: sum
+		sourceColumn: Cantidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrecioUnitario
+		dataType: double
+		formatString: \$\ #,0;-\$\ #,0;\$\ #,0
+		lineageTag: 92110585-ffc1-4971-9484-4a84fc355e39
+		summarizeBy: sum
+		sourceColumn: PrecioUnitario
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	column Subtotal
+		dataType: double
+		isHidden
+		formatString: \$\ #,0;-\$\ #,0;\$\ #,0
+		lineageTag: 64c24147-05c1-4812-a05f-f184295d17b6
+		summarizeBy: sum
+		sourceColumn: Subtotal
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	partition FactStock = m
+		mode: import
+		queryGroup: 'Fact Tables'
+		source =
+				let
+				    Source = Folder.Files(Text.Combine({SourceFolder, "\stock"})),
+				    #"Filtered Hidden Files" = Table.SelectRows(Source, each [Attributes]?[Hidden]? <> true),
+				    #"Invoke Custom Function" = Table.AddColumn(#"Filtered Hidden Files", "Transform File", each #"Transform StockValorizado File"([Content])),
+				    #"Inserted Text Before Delimiter" = Table.AddColumn(#"Invoke Custom Function", "Fecha", each Text.BeforeDelimiter([Name], "-"), type text),
+				    #"Inserted Text Between Delimiters" = Table.AddColumn(#"Inserted Text Before Delimiter", "IdSucursal", each Text.BetweenDelimiters([Name], "-", "."), type text),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Inserted Text Between Delimiters", {"Fecha", "IdSucursal", "Transform File"}),
+				    #"Expanded Table Column" = Table.ExpandTableColumn(#"Removed Other Columns", "Transform File", Table.ColumnNames(#"Transform StockValorizado File"(#"StockValorizado Sample File"))),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Table Column",{{"Fecha", type date}, {"CodigoProducto", Int64.Type}, {"Cantidad", Int64.Type}, {"PrecioUnitario", type number}, {"Subtotal", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

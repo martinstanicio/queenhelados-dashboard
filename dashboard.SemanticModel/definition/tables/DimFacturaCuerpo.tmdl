@@ -1,0 +1,76 @@
+table DimFacturaCuerpo
+	lineageTag: 547e881e-575a-414c-9f63-cf4ea00db19f
+
+	column IdFactura
+		dataType: string
+		lineageTag: 6c8e7eec-1b56-4de6-90d6-4d79fac41233
+		summarizeBy: none
+		sourceColumn: IdFactura
+
+		annotation SummarizationSetBy = Automatic
+
+	column CodigoProducto
+		dataType: int64
+		formatString: 0
+		lineageTag: c70f6e94-f469-4958-a1d8-397138af3dc8
+		summarizeBy: none
+		sourceColumn: CodigoProducto
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cantidad
+		dataType: int64
+		formatString: 0
+		lineageTag: 64571f23-d1d1-4929-8a76-5b51fd9aae7c
+		summarizeBy: sum
+		sourceColumn: Cantidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrecioUnitario
+		dataType: double
+		formatString: \$\ #,0;-\$\ #,0;\$\ #,0
+		lineageTag: 1b2b46f0-c872-4e17-bd05-a48709b46a64
+		summarizeBy: sum
+		sourceColumn: PrecioUnitario
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	column SubtotalNeto
+		dataType: double
+		formatString: \$\ #,0;-\$\ #,0;\$\ #,0
+		lineageTag: c529b135-94c4-4325-8b1c-7603855f8e5b
+		summarizeBy: sum
+		sourceColumn: SubtotalNeto
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	column SubtotalBruto
+		dataType: double
+		formatString: \$\ #,0;-\$\ #,0;\$\ #,0
+		lineageTag: 0d2f41fe-d923-46c5-a37c-50f6c8f8f41e
+		summarizeBy: sum
+		sourceColumn: SubtotalBruto
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	partition DimFacturaCuerpo = m
+		mode: import
+		queryGroup: 'Dimension Tables'
+		source =
+				let
+				    Source = _FactFacturaBase,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"IdFactura", "CodigoProducto", "Cantidad", "PrecioUnitario", "SubtotalNeto", "SubtotalBruto"})
+				in
+				    #"Removed Other Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

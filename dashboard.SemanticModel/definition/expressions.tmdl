@@ -1,0 +1,309 @@
+expression 'Parameter (VentasPorArticulo)' = #"VentasPorArticulo Sample File" meta [IsParameterQuery=true, BinaryIdentifier=#"VentasPorArticulo Sample File", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: 1ba9a8c7-c747-4006-8455-46d72c1f101a
+	queryGroup: 'Transform File from VentasPorArticulo\Helper Queries'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Binary
+
+expression _FactFacturaBase =
+		let
+		    Source = Folder.Files(Text.Combine({SourceFolder, "\ventas-por-articulo"})),
+		    #"Filtered Hidden Files" = Table.SelectRows(Source, each [Attributes]?[Hidden]? <> true),
+		    #"Invoke Custom Function" = Table.AddColumn(#"Filtered Hidden Files", "Transform File", each #"Transform VentasPorArticulo File"([Content])),
+		    #"Select Transform File Column" = Table.SelectColumns(#"Invoke Custom Function", {"Transform File"}),
+		    #"Expanded Table Column" = Table.ExpandTableColumn(#"Select Transform File Column", "Transform File", Table.ColumnNames(#"Transform VentasPorArticulo File"(#"VentasPorArticulo Sample File"))),
+		    #"Inserted IdFactura Column" = Table.AddColumn(#"Expanded Table Column", "IdFactura", each Text.Combine({[CondicionFiscal], Text.PadStart(Text.From([PuntoVenta], "es-AR"), 5, "0"), "-", Text.PadStart(Text.From([NumeroFactura], "es-AR"), 8, "0")}), type text),
+		    #"Merged Queries" = Table.NestedJoin(#"Inserted IdFactura Column", {"PuntoVenta"}, DimPuntoVenta, {"PuntoVenta"}, "DimPuntoVenta", JoinKind.Inner),
+		    #"Expanded DimPuntoVenta" = Table.ExpandTableColumn(#"Merged Queries", "DimPuntoVenta", {"IdSucursal"}, {"IdSucursal"}),
+		    #"Inserted CodigoSucursalCliente Column" = Table.AddColumn(#"Expanded DimPuntoVenta", "CodigoSucursalCliente", each Text.Combine({[IdSucursal], "-", Text.From([NumeroCliente])}), type text),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Inserted CodigoSucursalCliente Column",{"IdFactura", "Fecha", "Hora", "CondicionFiscal", "PuntoVenta", "NumeroFactura", "CodigoSucursalCliente", "NumeroCliente", "NombreCliente", "CodigoProducto", "Cantidad", "PrecioUnitario", "SubtotalNeto", "SubtotalBruto"}),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Removed Other Columns",{{"Fecha", type date}, {"Hora", type time}, {"CondicionFiscal", type text}, {"PuntoVenta", Int64.Type}, {"NumeroFactura", Int64.Type}, {"NumeroCliente", Int64.Type}, {"NombreCliente", type text}, {"CodigoProducto", Int64.Type}, {"Cantidad", Int64.Type}, {"PrecioUnitario", type number}, {"SubtotalNeto", type number}, {"SubtotalBruto", type number}})
+		in
+		    #"Changed Type"
+	lineageTag: 29626059-987c-47b3-ba4d-7d59730fd2b7
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Transform VentasPorArticulo Sample File' =
+		let
+		    Source = Excel.Workbook(#"Parameter (VentasPorArticulo)", null, true),
+		    Sheet = Source{[Name="Sheet1"]}[Data],
+		    #"Removed Top Rows" = Table.Skip(Sheet,3),
+		    #"Removed Bottom Rows" = Table.RemoveLastN(#"Removed Top Rows",2),
+		    #"Filtered Rows" = Table.SelectRows(#"Removed Bottom Rows", each ([Column8] = "FAC.") and ([Column13] <> "2" and [Column13] <> "7" and  [Column13] <> "9" and [Column13] <> "11" and [Column13] <> "13" and [Column13] <> "14" and [Column13] <> "15" and [Column13] <> "17")),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows",{"Column1", "Column2", "Column9", "Column10", "Column12", "Column13", "Column14", "Column3", "Column5", "Column6", "Column7"}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Removed Other Columns",{{"Column1", "Fecha"}, {"Column2", "Hora"}, {"Column9", "CondicionFiscal"}, {"Column10", "PuntoVenta"}, {"Column12", "NumeroFactura"}, {"Column13", "NumeroCliente"}, {"Column14", "NombreCliente"}, {"Column3", "CodigoProducto"}, {"Column5", "Cantidad"}, {"Column6", "PrecioUnitario"}, {"Column7", "SubtotalNeto"}}),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"Fecha", type date}, {"Hora", type time}, {"PuntoVenta", Int64.Type}, {"NumeroFactura", Int64.Type}, {"NumeroCliente", Int64.Type}, {"CodigoProducto", Int64.Type}, {"Cantidad", Int64.Type}, {"PrecioUnitario", type number}, {"SubtotalNeto", type number}}),
+		    #"Added SubtotalBruto" = Table.AddColumn(#"Changed Type", "SubtotalBruto", each if [CondicionFiscal] = "B" then [SubtotalNeto] * 1.21 else [SubtotalNeto]),
+		    #"Changed SubtotalBruto Type" = Table.TransformColumnTypes(#"Added SubtotalBruto",{{"SubtotalBruto", type number}})
+		in
+		    #"Changed SubtotalBruto Type"
+	lineageTag: 831a5a52-aac1-4822-b539-56496e469bb9
+	queryGroup: 'Transform File from VentasPorArticulo'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'VentasPorArticulo Sample File' =
+		let
+		    Source = Folder.Files(Text.Combine({SourceFolder, "\ventas-por-articulo"})),
+		    Navigation1 = Source{0}[Content]
+		in
+		    Navigation1
+	lineageTag: 22fe4d7e-833b-464b-9ce5-f7216881bd79
+	queryGroup: 'Transform File from VentasPorArticulo\Helper Queries'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transform VentasPorArticulo File' =
+		let
+		    Source = (#"Parameter (VentasPorArticulo)" as binary) => let
+		    Source = Excel.Workbook(#"Parameter (VentasPorArticulo)", null, true),
+		    Sheet = Source{[Name="Sheet1"]}[Data],
+		    #"Removed Top Rows" = Table.Skip(Sheet,3),
+		    #"Removed Bottom Rows" = Table.RemoveLastN(#"Removed Top Rows",2),
+		    #"Filtered Rows" = Table.SelectRows(#"Removed Bottom Rows", each ([Column8] = "FAC.") and ([Column13] <> "2" and [Column13] <> "7" and  [Column13] <> "9" and [Column13] <> "11" and [Column13] <> "13" and [Column13] <> "14" and [Column13] <> "15" and [Column13] <> "17")),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows",{"Column1", "Column2", "Column9", "Column10", "Column12", "Column13", "Column14", "Column3", "Column5", "Column6", "Column7"}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Removed Other Columns",{{"Column1", "Fecha"}, {"Column2", "Hora"}, {"Column9", "CondicionFiscal"}, {"Column10", "PuntoVenta"}, {"Column12", "NumeroFactura"}, {"Column13", "NumeroCliente"}, {"Column14", "NombreCliente"}, {"Column3", "CodigoProducto"}, {"Column5", "Cantidad"}, {"Column6", "PrecioUnitario"}, {"Column7", "SubtotalNeto"}}),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"Fecha", type date}, {"Hora", type time}, {"PuntoVenta", Int64.Type}, {"NumeroFactura", Int64.Type}, {"NumeroCliente", Int64.Type}, {"CodigoProducto", Int64.Type}, {"Cantidad", Int64.Type}, {"PrecioUnitario", type number}, {"SubtotalNeto", type number}}),
+		    #"Added SubtotalBruto" = Table.AddColumn(#"Changed Type", "SubtotalBruto", each if [CondicionFiscal] = "B" then [SubtotalNeto] * 1.21 else [SubtotalNeto]),
+		    #"Changed SubtotalBruto Type" = Table.TransformColumnTypes(#"Added SubtotalBruto",{{"SubtotalBruto", type number}})
+		in
+		    #"Changed SubtotalBruto Type"
+		in
+		    Source
+	lineageTag: 5463ac69-938f-4b69-8349-e15dfcb472cc
+	queryGroup: 'Transform File from VentasPorArticulo\Helper Queries'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Function
+
+expression 'Parameter (MovimientosDelDia)' = #"MovimientosDelDia Sample File" meta [IsParameterQuery=true, BinaryIdentifier=#"MovimientosDelDia Sample File", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: 254ea4d2-ef71-4125-91c2-67da4e4e9846
+	queryGroup: 'Transform File from MovimientosDelDia\Helper Queries'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transform MovimientosDelDia Sample File' =
+		let
+		    Source = Excel.Workbook(#"Parameter (MovimientosDelDia)", null, true),
+		    Sheet = Source{[Name="Sheet1"]}[Data],
+		    #"Removed Top Rows" = Table.Skip(Sheet,1),
+		    #"Added Index" = Table.AddIndexColumn(#"Removed Top Rows", "Index", 0, 1, Int64.Type),
+		    #"Removed 'Totales' Rows" = Table.SelectRows(#"Added Index", each [Index] < List.PositionOf(#"Added Index"[Column1], "TOTALES -->") - 1),
+		    #"Filtered Rows" = Table.SelectRows(#"Removed 'Totales' Rows", each ([Column1] = "FAC.") and ([Column9] <> "" and [Column9] <> "DELIVERY")),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows",{"Column2", "Column3", "Column5", "Column9", "Column8"}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Removed Other Columns",{{"Column2", "CondicionFiscal"}, {"Column3", "PuntoVenta"}, {"Column5", "NumeroFactura"}, {"Column9", "MedioPago"}, {"Column8", "MontoPagado"}}),
+		    #"Replaced MedioPago EFECTIVO SUCURSAL" = Table.ReplaceValue(#"Renamed Columns","EFECTIVO SUCURSAL","EFECTIVO",Replacer.ReplaceText,{"MedioPago"}),
+		    #"Replaced MedioPago EFECTIVO PEDIDO YA" = Table.ReplaceValue(#"Replaced MedioPago EFECTIVO SUCURSAL","EFECTIVO PEDIDO YA","EFECTIVO",Replacer.ReplaceText,{"MedioPago"}),
+		    #"Replaced MedioPago EFECIVO CAJA 2" = Table.ReplaceValue(#"Replaced MedioPago EFECTIVO PEDIDO YA","EFECIVO CAJA 2","EFECTIVO",Replacer.ReplaceText,{"MedioPago"}),
+		    #"Replaced MedioPago DELIVERY EFECTIVO" = Table.ReplaceValue(#"Replaced MedioPago EFECIVO CAJA 2","DELIVERY EFECTIVO","EFECTIVO",Replacer.ReplaceText,{"MedioPago"}),
+		    #"Replaced MedioPago DELIVERY MERCADO PAGO" = Table.ReplaceValue(#"Replaced MedioPago DELIVERY EFECTIVO","DELIVERY MERCADO PAGO","MERCADO PAGO",Replacer.ReplaceText,{"MedioPago"}),
+		    #"Replaced MedioPago DEBITO TARJETA" = Table.ReplaceValue(#"Replaced MedioPago DELIVERY MERCADO PAGO","DEBITO TARJETA","DÉBITO",Replacer.ReplaceText,{"MedioPago"}),
+		    #"Replaced MedioPago DEBITO PEDIDOS YA" = Table.ReplaceValue(#"Replaced MedioPago DEBITO TARJETA","DEBITO PEDIDOS YA","DÉBITO",Replacer.ReplaceText,{"MedioPago"}),
+		    #"Replaced MedioPago CUPONES PEDIDO YA" = Table.ReplaceValue(#"Replaced MedioPago DEBITO PEDIDOS YA","CUPONES PEDIDO YA","CUPONES",Replacer.ReplaceText,{"MedioPago"}),
+		    #"Capitalized Each Word" = Table.TransformColumns(#"Replaced MedioPago CUPONES PEDIDO YA",{{"MedioPago", Text.Proper, type text}})
+		in
+		    #"Capitalized Each Word"
+	lineageTag: e3421771-b816-4031-aa2f-fbb1675cd302
+	queryGroup: 'Transform File from MovimientosDelDia'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'MovimientosDelDia Sample File' =
+		let
+		    Source = Folder.Files(Text.Combine({SourceFolder, "\movimientos-del-dia"})),
+		    Navigation1 = Source{0}[Content]
+		in
+		    Navigation1
+	lineageTag: 9eb44c62-953a-409d-af03-32c6a4093e7b
+	queryGroup: 'Transform File from MovimientosDelDia\Helper Queries'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transform MovimientosDelDia File' =
+		let
+		    Source = (#"Parameter (MovimientosDelDia)" as binary) => let
+		    Source = Excel.Workbook(#"Parameter (MovimientosDelDia)", null, true),
+		    Sheet = Source{[Name="Sheet1"]}[Data],
+		    #"Removed Top Rows" = Table.Skip(Sheet,1),
+		    #"Added Index" = Table.AddIndexColumn(#"Removed Top Rows", "Index", 0, 1, Int64.Type),
+		    #"Removed 'Totales' Rows" = Table.SelectRows(#"Added Index", each [Index] < List.PositionOf(#"Added Index"[Column1], "TOTALES -->") - 1),
+		    #"Filtered Rows" = Table.SelectRows(#"Removed 'Totales' Rows", each ([Column1] = "FAC.") and ([Column9] <> "" and [Column9] <> "DELIVERY")),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows",{"Column2", "Column3", "Column5", "Column9", "Column8"}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Removed Other Columns",{{"Column2", "CondicionFiscal"}, {"Column3", "PuntoVenta"}, {"Column5", "NumeroFactura"}, {"Column9", "MedioPago"}, {"Column8", "MontoPagado"}}),
+		    #"Replaced MedioPago EFECTIVO SUCURSAL" = Table.ReplaceValue(#"Renamed Columns","EFECTIVO SUCURSAL","EFECTIVO",Replacer.ReplaceText,{"MedioPago"}),
+		    #"Replaced MedioPago EFECTIVO PEDIDO YA" = Table.ReplaceValue(#"Replaced MedioPago EFECTIVO SUCURSAL","EFECTIVO PEDIDO YA","EFECTIVO",Replacer.ReplaceText,{"MedioPago"}),
+		    #"Replaced MedioPago EFECIVO CAJA 2" = Table.ReplaceValue(#"Replaced MedioPago EFECTIVO PEDIDO YA","EFECIVO CAJA 2","EFECTIVO",Replacer.ReplaceText,{"MedioPago"}),
+		    #"Replaced MedioPago DELIVERY EFECTIVO" = Table.ReplaceValue(#"Replaced MedioPago EFECIVO CAJA 2","DELIVERY EFECTIVO","EFECTIVO",Replacer.ReplaceText,{"MedioPago"}),
+		    #"Replaced MedioPago DELIVERY MERCADO PAGO" = Table.ReplaceValue(#"Replaced MedioPago DELIVERY EFECTIVO","DELIVERY MERCADO PAGO","MERCADO PAGO",Replacer.ReplaceText,{"MedioPago"}),
+		    #"Replaced MedioPago DEBITO TARJETA" = Table.ReplaceValue(#"Replaced MedioPago DELIVERY MERCADO PAGO","DEBITO TARJETA","DÉBITO",Replacer.ReplaceText,{"MedioPago"}),
+		    #"Replaced MedioPago DEBITO PEDIDOS YA" = Table.ReplaceValue(#"Replaced MedioPago DEBITO TARJETA","DEBITO PEDIDOS YA","DÉBITO",Replacer.ReplaceText,{"MedioPago"}),
+		    #"Replaced MedioPago CUPONES PEDIDO YA" = Table.ReplaceValue(#"Replaced MedioPago DEBITO PEDIDOS YA","CUPONES PEDIDO YA","CUPONES",Replacer.ReplaceText,{"MedioPago"}),
+		    #"Capitalized Each Word" = Table.TransformColumns(#"Replaced MedioPago CUPONES PEDIDO YA",{{"MedioPago", Text.Proper, type text}})
+		in
+		    #"Capitalized Each Word"
+		in
+		    Source
+	lineageTag: 8a601532-b3a2-44d9-8db8-ad827ee4c237
+	queryGroup: 'Transform File from MovimientosDelDia\Helper Queries'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Function
+
+expression 'Parameter (StockValorizado)' = #"StockValorizado Sample File" meta [IsParameterQuery=true, BinaryIdentifier=#"StockValorizado Sample File", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: b3d57f56-62bf-403e-9e0d-f2ef9ec4b19c
+	queryGroup: 'Transform File from StockValorizado\Helper Queries'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transform StockValorizado Sample File' =
+		let
+		    Source = Excel.Workbook(#"Parameter (StockValorizado)", null, true),
+		    Sheet = Source{[Name="Sheet1"]}[Data],
+		    #"Removed Top Rows" = Table.Skip(Sheet,15),
+		    #"Removed Bottom Rows" = Table.RemoveLastN(#"Removed Top Rows",2),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Removed Bottom Rows",{{"Column1", Int64.Type}}),
+		    #"Merged Queries" = Table.NestedJoin(#"Changed Type", {"Column1"}, DimProducto, {"CodigoProducto"}, "DimProducto", JoinKind.Inner),
+		    #"Removed Columns" = Table.RemoveColumns(#"Merged Queries",{"Column2", "DimProducto"}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns",{{"Column1", "CodigoProducto"}, {"Column3", "Cantidad"}, {"Column4", "PrecioUnitario"}, {"Column5", "Subtotal"}})
+		in
+		    #"Renamed Columns"
+	lineageTag: 15c366cb-286b-45d2-950f-5d40c21ae2bd
+	queryGroup: 'Transform File from StockValorizado'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'StockValorizado Sample File' =
+		let
+		    Source = Folder.Files(Text.Combine({SourceFolder, "\stock"})),
+		    Navigation1 = Source{0}[Content]
+		in
+		    Navigation1
+	lineageTag: 5c0b88b3-18f9-4aa0-be6b-761c84e1b6d7
+	queryGroup: 'Transform File from StockValorizado\Helper Queries'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transform StockValorizado File' =
+		let
+		    Source = (#"Parameter (StockValorizado)" as binary) => let
+		    Source = Excel.Workbook(#"Parameter (StockValorizado)", null, true),
+		    Sheet = Source{[Name="Sheet1"]}[Data],
+		    #"Removed Top Rows" = Table.Skip(Sheet,15),
+		    #"Removed Bottom Rows" = Table.RemoveLastN(#"Removed Top Rows",2),
+		    #"Removed Columns" = Table.RemoveColumns(#"Removed Bottom Rows",{"Column2"}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns",{{"Column1", "CodigoProducto"}, {"Column3", "Cantidad"}, {"Column4", "PrecioUnitario"}, {"Column5", "Subtotal"}})
+		in
+		    #"Renamed Columns"
+		in
+		    Source
+	lineageTag: d729b7a4-d551-41ce-99fe-52ab6264c201
+	queryGroup: 'Transform File from StockValorizado\Helper Queries'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Function
+
+expression _FacturasSinMedioDePago =
+		let
+		    Source = _FactFacturaBase,
+		    #"Grouped Rows" = Table.Group(Source, {"IdFactura"}, {{"MontoPagado", each List.Sum([SubtotalBruto]), type nullable number}}),
+		    #"Merged Queries" = Table.NestedJoin(#"Grouped Rows", {"IdFactura"}, _FactPagoBase, {"IdFactura"}, "FactPago", JoinKind.LeftAnti),
+		    #"Expanded FactPago" = Table.ExpandTableColumn(#"Merged Queries", "FactPago", {"MedioPago"}, {"MedioPago"}),
+		    #"Replaced Value" = Table.ReplaceValue(#"Expanded FactPago",null,"Desconocido",Replacer.ReplaceValue,{"MedioPago"})
+		in
+		    #"Replaced Value"
+	lineageTag: 9899cce9-4a1d-4dc9-8fee-330b34bc5689
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression _FactPagoBase =
+		let
+		    Source = Folder.Files(Text.Combine({SourceFolder, "\movimientos-del-dia"})),
+		    #"Filtered Hidden Files" = Table.SelectRows(Source, each [Attributes]?[Hidden]? <> true),
+		    #"Invoke Custom Function" = Table.AddColumn(#"Filtered Hidden Files", "Transform File", each #"Transform MovimientosDelDia File"([Content])),
+		    #"Select Transform File Column" = Table.SelectColumns(#"Invoke Custom Function", {"Transform File"}),
+		    #"Expanded Table Column" = Table.ExpandTableColumn(#"Select Transform File Column", "Transform File", Table.ColumnNames(#"Transform MovimientosDelDia File"(#"MovimientosDelDia Sample File"))),
+		    #"Inserted IdFactura Column" = Table.AddColumn(#"Expanded Table Column", "IdFactura", each Text.Combine({[CondicionFiscal], Text.PadStart(Text.From([PuntoVenta], "es-AR"), 5, "0"), "-", Text.PadStart(Text.From([NumeroFactura], "es-AR"), 8, "0")}), type text),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Inserted IdFactura Column",{"IdFactura", "MedioPago", "MontoPagado"}),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Removed Other Columns",{{"MedioPago", type text}, {"MontoPagado", type number}})
+		in
+		    #"Changed Type"
+	lineageTag: 59938219-326f-4191-844a-c5b5a2a25d2a
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+/// Carpeta donde se encuentran los archivos que se desea analizar:
+/// .
+/// ├── movimientos-del-dia/ (Movimientos de caja/banco > Movimientos del día)
+/// │   ├── aaaammdd-sucursal.XLS
+/// │   ├── 20260101-delviso.XLS
+/// │   └── ...
+/// ├── stock/ (Submenu de archivos > Listado de stock valorizado)
+/// │   ├── aaaammdd-sucursal.XLS
+/// │   ├── 20260128-escobar.XLS
+/// │   └── ...
+/// ├── ventas-por-articulo/ (Submenu de ventas > Detalle de ventas por artículo)
+/// │   ├── aaaammdd-sucursal.XLS
+/// │   ├── 20260221-savio.XLS
+/// │   └── ...
+/// ├── dashboard.pbix
+/// ├── productos.xlsx
+/// ├── puntos-de-venta.xlsx
+/// └── sucursales.xlsx
+expression SourceFolder = "G:\.shortcut-targets-by-id\17YrBDwe-4c3RmadJZaDkFZX7Q_mL-wbd\Dashboard" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: c29aa8c6-830d-46b5-8b31-75d3f2d50d46
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Text
+
+expression _FactRedesSociales =
+		let
+		    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1KDrKnYIkcLPNAPET1Da2BFJ-WWldO6POFETmDLR3fi8/view"),
+		    #"Respuestas de formulario 1_Table" = Source{[name="Sheet 1",ItemKind="Table"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Respuestas de formulario 1_Table", [PromoteAllScalars=true]),
+		    #"Added Custom" = Table.AddColumn(#"Promoted Headers", "Interacciones en TikTok", each [Likes en TikTok] + [Comentarios en TikTok] + [Compartidos en TikTok]),
+		    #"Sorted Rows" = Table.Buffer(Table.Sort(#"Added Custom",{{"Marca temporal", Order.Descending}})),
+		    #"Removed Duplicates" = Table.Distinct(#"Sorted Rows", {"Fecha", "Sucursal"}),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Removed Duplicates",{"Fecha", "Sucursal", "Contactos en WhatsApp", "Seguidores del canal de WhatsApp", "Seguidores en Instagram", "Alcance en Instagram", "Interacciones en Instagram", "Publicaciones en Instagram", "Seguidores en Facebook", "Alcance en Facebook", "Interacciones en Facebook", "Publicaciones en Facebook", "Seguidores en TikTok", "Alcance en TikTok", "Interacciones en TikTok", "Publicaciones en TikTok"}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Removed Other Columns",{{"Sucursal", "IdFuente"}, {"Contactos en WhatsApp", "ContactosWA"}, {"Seguidores del canal de WhatsApp", "SeguidoresCanalWA"}, {"Seguidores en Instagram", "SeguidoresIG"}, {"Alcance en Instagram", "AlcanceIG"}, {"Interacciones en Instagram", "InteraccionesIG"}, {"Publicaciones en Instagram", "PublicacionesIG"}, {"Seguidores en Facebook", "SeguidoresFB"}, {"Alcance en Facebook", "AlcanceFB"}, {"Interacciones en Facebook", "InteraccionesFB"}, {"Publicaciones en Facebook", "PublicacionesFB"}, {"Seguidores en TikTok", "SeguidoresTT"}, {"Alcance en TikTok", "AlcanceTT"}, {"Interacciones en TikTok", "InteraccionesTT"}, {"Publicaciones en TikTok", "PublicacionesTT"}}),
+		    #"Lowercased Text" = Table.TransformColumns(#"Renamed Columns",{{"IdFuente", Text.Lower, type text}}),
+		    #"Replaced Whitespace" = Table.ReplaceValue(#"Lowercased Text"," ","-",Replacer.ReplaceText,{"IdFuente"}),
+		    #"Replaced Special Characters (A)" = Table.ReplaceValue(#"Replaced Whitespace","á","a",Replacer.ReplaceText,{"IdFuente"}),
+		    #"Replaced Special Characters (I)" = Table.ReplaceValue(#"Replaced Special Characters (A)","í","i",Replacer.ReplaceText,{"IdFuente"}),
+		    #"Replaced Del Viso" = Table.ReplaceValue(#"Replaced Special Characters (I)","del-viso","delviso",Replacer.ReplaceText,{"IdFuente"}),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Replaced Del Viso",{{"Fecha", type date}, {"ContactosWA", Int64.Type}, {"SeguidoresCanalWA", Int64.Type}, {"SeguidoresIG", Int64.Type}, {"AlcanceIG", Int64.Type}, {"InteraccionesIG", Int64.Type}, {"PublicacionesIG", Int64.Type}, {"SeguidoresFB", Int64.Type}, {"AlcanceFB", Int64.Type}, {"InteraccionesFB", Int64.Type}, {"PublicacionesFB", Int64.Type}, {"SeguidoresTT", Int64.Type}, {"AlcanceTT", Int64.Type}, {"InteraccionesTT", Int64.Type}, {"PublicacionesTT", Int64.Type}})
+		in
+		    #"Changed Type"
+	lineageTag: 0f1f6211-1b01-4fcf-9112-9ea260c85672
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

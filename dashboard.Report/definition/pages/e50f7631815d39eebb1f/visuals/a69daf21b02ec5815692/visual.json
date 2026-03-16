@@ -1,0 +1,34 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "a69daf21b02ec5815692",
+  "position": {
+    "x": 0,
+    "y": 96.603773584905653,
+    "z": 11000,
+    "height": 31.913746630727761,
+    "width": 1280,
+    "tabOrder": 11000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "El stock máximo que muestra el indicador de cada sucursal es el stock valorizado máximo histórico. La barra negra es el indicador del stock crítico."
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

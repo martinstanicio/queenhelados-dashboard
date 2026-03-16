@@ -1,0 +1,62 @@
+table DimProducto
+	lineageTag: 564680d4-d298-4732-a5cf-001190595ef7
+
+	column CodigoProducto
+		dataType: int64
+		isKey
+		formatString: 0
+		lineageTag: 1da3ba10-1938-4b4d-8f6b-86bc910a6c80
+		summarizeBy: none
+		sourceColumn: CodigoProducto
+
+		annotation SummarizationSetBy = Automatic
+
+	column NombreProducto
+		dataType: string
+		lineageTag: f7bc4390-688b-4ef3-b27f-a29096ad1e14
+		isDefaultLabel
+		summarizeBy: none
+		sourceColumn: NombreProducto
+
+		annotation SummarizationSetBy = Automatic
+
+	column Presentacion
+		dataType: string
+		lineageTag: 4405a31a-b0c8-4e3b-ae08-2e233170b631
+		summarizeBy: none
+		sourceColumn: Presentacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column Categoria
+		dataType: string
+		lineageTag: 4f5f60a4-e604-42b0-886f-196ee2f8a4ed
+		summarizeBy: none
+		sourceColumn: Categoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marca
+		dataType: string
+		lineageTag: 2c466390-f57f-4dc1-8184-d6cddeeab43b
+		summarizeBy: none
+		sourceColumn: Marca
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimProducto = m
+		mode: import
+		queryGroup: 'Dimension Tables'
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents(Text.Combine({SourceFolder, "\productos.xlsx"})), null, true),
+				    Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"CodigoProducto", Int64.Type}, {"NombreProducto", type text}, {"Presentacion", type text}, {"Categoria", type text}, {"Marca", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

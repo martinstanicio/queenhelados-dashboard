@@ -1,0 +1,77 @@
+table FactWhatsApp
+	lineageTag: 43927ec9-b192-44f5-8190-8a74304e5309
+
+	measure 'Contactos (Diario)' =
+			CALCULATE(
+			    SUM(FactWhatsApp[Contactos]),
+			    LASTDATE(DimCalendario[Fecha])
+			)
+		formatString: 0
+		lineageTag: 55aa1222-0ffd-4c09-9376-95e68931a9d6
+
+	measure 'SeguidoresCanal (Diario)' =
+			CALCULATE(
+			    SUM(FactWhatsApp[SeguidoresCanal]),
+			    LASTDATE(DimCalendario[Fecha])
+			)
+		formatString: #,0
+		lineageTag: 1c7121ad-1934-4b6c-8dfe-7ecd09c4d2df
+
+	column Fecha
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 983257f9-6b22-4a49-858e-443cd87f3832
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column IdFuente
+		dataType: string
+		lineageTag: 59b70882-5e81-4d31-ae72-8a1c3b1f9313
+		summarizeBy: none
+		sourceColumn: IdFuente
+
+		annotation SummarizationSetBy = Automatic
+
+	column Contactos
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 365d285f-50ae-48de-b5e4-34dff59eb4bf
+		summarizeBy: sum
+		sourceColumn: Contactos
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SeguidoresCanal
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 493bbb20-6ad8-4d21-bd14-abecea420efc
+		summarizeBy: sum
+		sourceColumn: SeguidoresCanal
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactWhatsApp = m
+		mode: import
+		queryGroup: 'Fact Tables'
+		source =
+				let
+				    Source = _FactRedesSociales,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"Fecha", "IdFuente", "ContactosWA", "SeguidoresCanalWA"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Other Columns",{{"ContactosWA", "Contactos"}, {"SeguidoresCanalWA", "SeguidoresCanal"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

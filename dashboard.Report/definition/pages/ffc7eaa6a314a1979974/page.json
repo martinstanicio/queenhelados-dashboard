@@ -1,0 +1,206 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "ffc7eaa6a314a1979974",
+  "displayName": "Ventas",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "441e3d537b4b0a25855c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCalendario"
+              }
+            },
+            "Property": "Fecha"
+          }
+        },
+        "type": "RelativeDate",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DimCalendario",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Between": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "d"
+                        }
+                      },
+                      "Property": "Fecha"
+                    }
+                  },
+                  "LowerBound": {
+                    "DateSpan": {
+                      "Expression": {
+                        "DateAdd": {
+                          "Expression": {
+                            "DateAdd": {
+                              "Expression": {
+                                "Now": {}
+                              },
+                              "Amount": 1,
+                              "TimeUnit": 0
+                            }
+                          },
+                          "Amount": -100,
+                          "TimeUnit": 3
+                        }
+                      },
+                      "TimeUnit": 0
+                    }
+                  },
+                  "UpperBound": {
+                    "DateSpan": {
+                      "Expression": {
+                        "Now": {}
+                      },
+                      "TimeUnit": 0
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
+  },
+  "visibility": "HiddenInViewMode",
+  "visualInteractions": [
+    {
+      "source": "283a36900321942d0eb3",
+      "target": "71894e7a7de13188a4f8",
+      "type": "DataFilter"
+    },
+    {
+      "source": "717bb05967ecb7ab0efd",
+      "target": "50d0b6ea0606527a8c4e",
+      "type": "DataFilter"
+    },
+    {
+      "source": "717bb05967ecb7ab0efd",
+      "target": "eceaa70983ae8c9e373a",
+      "type": "DataFilter"
+    },
+    {
+      "source": "717bb05967ecb7ab0efd",
+      "target": "ae0d78a2088e3fb20b0b",
+      "type": "DataFilter"
+    },
+    {
+      "source": "717bb05967ecb7ab0efd",
+      "target": "71894e7a7de13188a4f8",
+      "type": "DataFilter"
+    },
+    {
+      "source": "50d0b6ea0606527a8c4e",
+      "target": "717bb05967ecb7ab0efd",
+      "type": "DataFilter"
+    },
+    {
+      "source": "50d0b6ea0606527a8c4e",
+      "target": "71894e7a7de13188a4f8",
+      "type": "DataFilter"
+    },
+    {
+      "source": "50d0b6ea0606527a8c4e",
+      "target": "eceaa70983ae8c9e373a",
+      "type": "DataFilter"
+    },
+    {
+      "source": "50d0b6ea0606527a8c4e",
+      "target": "ae0d78a2088e3fb20b0b",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ae0d78a2088e3fb20b0b",
+      "target": "50d0b6ea0606527a8c4e",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ae0d78a2088e3fb20b0b",
+      "target": "717bb05967ecb7ab0efd",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ae0d78a2088e3fb20b0b",
+      "target": "71894e7a7de13188a4f8",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ae0d78a2088e3fb20b0b",
+      "target": "eceaa70983ae8c9e373a",
+      "type": "DataFilter"
+    },
+    {
+      "source": "eceaa70983ae8c9e373a",
+      "target": "ae0d78a2088e3fb20b0b",
+      "type": "DataFilter"
+    },
+    {
+      "source": "eceaa70983ae8c9e373a",
+      "target": "71894e7a7de13188a4f8",
+      "type": "DataFilter"
+    },
+    {
+      "source": "eceaa70983ae8c9e373a",
+      "target": "50d0b6ea0606527a8c4e",
+      "type": "DataFilter"
+    },
+    {
+      "source": "eceaa70983ae8c9e373a",
+      "target": "717bb05967ecb7ab0efd",
+      "type": "DataFilter"
+    },
+    {
+      "source": "eceaa70983ae8c9e373a",
+      "target": "4904c5270473d75e6a8c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "50d0b6ea0606527a8c4e",
+      "target": "4904c5270473d75e6a8c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "4904c5270473d75e6a8c",
+      "target": "50d0b6ea0606527a8c4e",
+      "type": "DataFilter"
+    },
+    {
+      "source": "4904c5270473d75e6a8c",
+      "target": "717bb05967ecb7ab0efd",
+      "type": "DataFilter"
+    },
+    {
+      "source": "4904c5270473d75e6a8c",
+      "target": "eceaa70983ae8c9e373a",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ae0d78a2088e3fb20b0b",
+      "target": "4904c5270473d75e6a8c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "717bb05967ecb7ab0efd",
+      "target": "4904c5270473d75e6a8c",
+      "type": "DataFilter"
+    }
+  ]
+}

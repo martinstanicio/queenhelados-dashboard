@@ -1,0 +1,95 @@
+table FactRedesSociales
+	lineageTag: 569273fb-8595-4184-96e0-cd1c561e5f78
+
+	measure 'Seguidores (Diario)' =
+			CALCULATE(
+			    SUM(FactRedesSociales[Seguidores]),
+			    LASTDATE(DimCalendario[Fecha])
+			)
+		formatString: #,0
+		lineageTag: b1b9b05f-9d91-44df-ae1e-ad5fe52fddde
+
+	column Fecha
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: cdd320dc-0c1e-4d34-9c9a-cc7afaa6fe45
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column IdFuente
+		dataType: string
+		lineageTag: 723ba00e-1679-4397-9e05-1516e26d08df
+		summarizeBy: none
+		sourceColumn: IdFuente
+
+		annotation SummarizationSetBy = Automatic
+
+	column RedSocial
+		dataType: string
+		lineageTag: d545d22a-7409-419a-b2d8-4540a15737c7
+		summarizeBy: none
+		sourceColumn: RedSocial
+
+		annotation SummarizationSetBy = Automatic
+
+	column Seguidores
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: c402ea1a-c98d-48a1-ab18-548e2e98b37a
+		summarizeBy: sum
+		sourceColumn: Seguidores
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Alcance
+		dataType: int64
+		formatString: #,0
+		lineageTag: 89eebce9-b107-492e-b812-4a39ec58b991
+		summarizeBy: sum
+		sourceColumn: Alcance
+
+		annotation SummarizationSetBy = Automatic
+
+	column Interacciones
+		dataType: int64
+		formatString: #,0
+		lineageTag: acd1f3d8-5148-43f2-b657-c01063a4ab83
+		summarizeBy: sum
+		sourceColumn: Interacciones
+
+		annotation SummarizationSetBy = Automatic
+
+	column Publicaciones
+		dataType: int64
+		formatString: #,0
+		lineageTag: 0d184bf1-a30f-41c4-bfe2-46fcc9013220
+		summarizeBy: sum
+		sourceColumn: Publicaciones
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactRedesSociales = m
+		mode: import
+		queryGroup: 'Fact Tables'
+		source =
+				let
+				    Source = _FactRedesSociales,
+				    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(Source, {"Fecha", "IdFuente", "ContactosWA", "SeguidoresCanalWA"}, "Attribute", "Value"),
+				    #"Split Column by Character Transition" = Table.SplitColumn(#"Unpivoted Other Columns", "Attribute", Splitter.SplitTextByCharacterTransition({"a".."z"}, {"A".."Z"}), {"Attribute.1", "Attribute.2"}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Split Column by Character Transition", "RedSocial", each if [Attribute.2] = "IG" then "Instagram" else if [Attribute.2] = "FB" then "Facebook" else if [Attribute.2] = "TT" then "TikTok" else null, type text),
+				    #"Pivoted Column" = Table.Pivot(#"Added Conditional Column", List.Distinct(#"Added Conditional Column"[Attribute.1]), "Attribute.1", "Value"),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Pivoted Column",{"Fecha", "IdFuente", "RedSocial", "Seguidores", "Alcance", "Interacciones", "Publicaciones"})
+				in
+				    #"Removed Other Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

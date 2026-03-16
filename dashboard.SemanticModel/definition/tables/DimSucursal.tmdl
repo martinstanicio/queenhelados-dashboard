@@ -1,0 +1,65 @@
+table DimSucursal
+	lineageTag: 674bf895-d719-420b-9c65-b9d511bbc84d
+
+	column IdSucursal
+		dataType: string
+		isKey
+		lineageTag: 4ade6f32-b161-41f7-a514-b8ec35581bef
+		summarizeBy: none
+		sourceColumn: IdSucursal
+
+		annotation SummarizationSetBy = Automatic
+
+	column NombreSucursal
+		dataType: string
+		lineageTag: 4761a9e1-9c28-42c9-b135-41c0e2c278b5
+		isDefaultLabel
+		summarizeBy: none
+		sourceColumn: NombreSucursal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Direccion
+		dataType: string
+		lineageTag: ef85225b-d150-4148-9a38-ff5041d4dda2
+		dataCategory: Address
+		summarizeBy: none
+		sourceColumn: Direccion
+
+		annotation SummarizationSetBy = Automatic
+
+	column Color
+		dataType: string
+		lineageTag: c779ec42-43cd-45cb-94b6-4cf412376d9c
+		summarizeBy: none
+		sourceColumn: Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Stock Crítico'
+		dataType: double
+		formatString: \$\ #,0;-\$\ #,0;\$\ #,0
+		lineageTag: 8fa824df-8751-4fe6-b3f0-ebaff038b85e
+		summarizeBy: sum
+		sourceColumn: Stock Crítico
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
+
+	partition DimSucursal = m
+		mode: import
+		queryGroup: 'Dimension Tables'
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents(Text.Combine({SourceFolder, "\sucursales.xlsx"})), null, true),
+				    Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"IdSucursal", type text}, {"NombreSucursal", type text}, {"Direccion", type text}, {"Color", type text}, {"Stock Crítico", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

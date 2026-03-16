@@ -1,0 +1,86 @@
+table DimCalendario
+	lineageTag: 7c95a33a-df45-4365-9296-c4e154d2aed0
+	dataCategory: Time
+
+	column Fecha
+		isKey
+		formatString: Short Date
+		lineageTag: d3e764f1-9264-4cad-a4a4-54dfd6cd1cc2
+		isDefaultLabel
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Fecha]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Anio
+		formatString: 0
+		lineageTag: aafd9334-8cdc-4ad3-addb-55ede90a7377
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Anio]
+
+		annotation SummarizationSetBy = User
+
+	column Mes
+		formatString: 0
+		lineageTag: a88b846b-2407-4957-b582-a41ad70aec8f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Mes]
+
+		annotation SummarizationSetBy = User
+
+	column MesNombre
+		lineageTag: b96de56c-95d8-40b3-bb08-4d1cda094c35
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MesNombre]
+		sortByColumn: Mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dia
+		formatString: 0
+		lineageTag: 1fb29a76-306a-442b-b382-9ba26f8bf279
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Dia]
+
+		annotation SummarizationSetBy = User
+
+	column DiaSemana
+		lineageTag: 54612009-507c-4fd9-be88-9542f086f004
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DiaSemana]
+		sortByColumn: DiaSemanaNumero
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiaSemanaNumero
+		formatString: 0
+		lineageTag: 54fae574-c458-4487-abe6-223cbfc2649a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DiaSemanaNumero]
+
+		annotation SummarizationSetBy = User
+
+	partition DimCalendario = calculated
+		mode: import
+		source =
+				ADDCOLUMNS(
+				    SELECTCOLUMNS(CALENDARAUTO(), "Fecha", [Date]),
+				    "Anio", YEAR([Fecha]),
+				    "Mes", MONTH([Fecha]),
+				    "MesNombre", UPPER(LEFT(FORMAT([Fecha], "MMMM", "es-ES"), 1)) & RIGHT(FORMAT([Fecha], "MMMM", "es-ES"), LEN(FORMAT([Fecha], "MMMM", "es-ES")) - 1),
+				    "Dia", DAY([Fecha]),
+				    "DiaSemana", UPPER(LEFT(FORMAT([Fecha], "dddd", "es-ES"), 1)) & RIGHT(FORMAT([Fecha], "dddd", "es-ES"), LEN(FORMAT([Fecha], "dddd", "es-ES")) - 1),
+				    "DiaSemanaNumero", WEEKDAY([Fecha], 2) -- Lunes = 1
+				)
+
+	annotation PBI_Id = 1aa831accee449a9a6c0778eb6bf697e
+

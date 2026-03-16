@@ -1,0 +1,67 @@
+relationship AutoDetected_ff7cd4d9-098c-4e82-b16f-73236820a6a5
+	fromColumn: DimFacturaCuerpo.CodigoProducto
+	toColumn: DimProducto.CodigoProducto
+
+relationship AutoDetected_f9f40c0e-2ec5-49df-bd9d-4b563a6d6681
+	fromColumn: FactFacturaCabecera.CodigoSucursalCliente
+	toColumn: DimCliente.CodigoSucursalCliente
+
+relationship AutoDetected_e5158625-58dd-4ab4-aac2-8e73b414acf4
+	fromColumn: DimFacturaCuerpo.IdFactura
+	toColumn: FactFacturaCabecera.IdFactura
+
+relationship fb24d382-0892-80a1-ec57-b4de8c7d799b
+	fromColumn: FactFacturaCabecera.Hora
+	toColumn: DimTiempo.Hora
+
+relationship AutoDetected_74748b45-20fe-4eab-992c-510f3dddbb00
+	fromColumn: FactStock.CodigoProducto
+	toColumn: DimProducto.CodigoProducto
+
+relationship AutoDetected_90319535-729e-4456-8833-b663d9d57cc5
+	crossFilteringBehavior: bothDirections
+	fromColumn: DimPuntoVenta.IdSucursal
+	toColumn: DimSucursal.IdSucursal
+
+relationship AutoDetected_85822069-5305-4c32-86b5-4f9e65cbb0dc
+	crossFilteringBehavior: bothDirections
+	fromColumn: FactFacturaCabecera.PuntoVenta
+	toColumn: DimPuntoVenta.PuntoVenta
+
+relationship fc32651a-0913-49bf-b180-16349f26a74c
+	fromColumn: FactStock.IdSucursal
+	toColumn: DimSucursal.IdSucursal
+
+relationship 361d1216-8c3e-26da-f3f0-3b44c6edcf4f
+	crossFilteringBehavior: bothDirections
+	fromColumn: FactPago.IdFactura
+	toColumn: FactFacturaCabecera.IdFactura
+
+relationship eea5223d-761a-698f-11df-22e05ef8d416
+	fromColumn: FactFacturaCabecera.Fecha
+	toColumn: DimCalendario.Fecha
+
+relationship 022d4386-d484-024d-d2a2-63eb647a29e0
+	fromColumn: FactStock.Fecha
+	toColumn: DimCalendario.Fecha
+
+relationship AutoDetected_4da6552e-2835-4b8e-86ea-dcfd67d43cfd
+	fromColumn: DimFuente.IdSucursal
+	toColumn: DimSucursal.IdSucursal
+
+relationship 9c91d3a5-99e6-4ec3-6be8-a9bc21e896d5
+	fromColumn: FactRedesSociales.Fecha
+	toColumn: DimCalendario.Fecha
+
+relationship 6a90da61-a5b5-b2f6-ee7d-42f8deb2bbe2
+	fromColumn: FactWhatsApp.Fecha
+	toColumn: DimCalendario.Fecha
+
+relationship 387a4d61-68cd-b6ec-f45a-b31556ba5791
+	fromColumn: FactWhatsApp.IdFuente
+	toColumn: DimFuente.IdFuente
+
+relationship f74b0d7d-0e6b-f310-dd8e-7cdeb8272401
+	fromColumn: FactRedesSociales.IdFuente
+	toColumn: DimFuente.IdFuente
+

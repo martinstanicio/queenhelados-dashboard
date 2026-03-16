@@ -1,0 +1,85 @@
+table FactFacturaCabecera
+	lineageTag: 12629bd6-50b5-4710-822c-6374d4ee6534
+
+	column IdFactura
+		dataType: string
+		isKey
+		lineageTag: a924ffd1-1ad2-4703-9433-c469dd051210
+		isDefaultLabel
+		summarizeBy: count
+		sourceColumn: IdFactura
+
+		annotation SummarizationSetBy = User
+
+	column Fecha
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 5343d7bd-d308-4593-99be-94763ce46294
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Hora
+		dataType: dateTime
+		formatString: Short Time
+		lineageTag: 33a12bdc-5730-469b-9516-411182b39e85
+		summarizeBy: none
+		sourceColumn: Hora
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column CondicionFiscal
+		dataType: string
+		lineageTag: 14fb69e0-e962-4e08-9ef1-6b4cb9ff5b9c
+		summarizeBy: none
+		sourceColumn: CondicionFiscal
+
+		annotation SummarizationSetBy = Automatic
+
+	column PuntoVenta
+		dataType: int64
+		formatString: 0
+		lineageTag: ac102a1e-42b0-43d9-90a2-33639ccef321
+		summarizeBy: none
+		sourceColumn: PuntoVenta
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumeroFactura
+		dataType: int64
+		formatString: 0
+		lineageTag: 83ae716e-a6dc-4f7a-a5e7-4ef2a6eca747
+		summarizeBy: none
+		sourceColumn: NumeroFactura
+
+		annotation SummarizationSetBy = User
+
+	column CodigoSucursalCliente
+		dataType: string
+		lineageTag: dd8f5450-5655-41ca-8d5a-9096a87ebf14
+		summarizeBy: none
+		sourceColumn: CodigoSucursalCliente
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactFacturaCabecera = m
+		mode: import
+		queryGroup: 'Fact Tables'
+		source =
+				let
+				    Source = _FactFacturaBase,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"IdFactura", "Fecha", "Hora", "CondicionFiscal", "PuntoVenta", "NumeroFactura", "CodigoSucursalCliente"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns", {"IdFactura"}),
+				    #"Calculated Start of Hour" = Table.TransformColumns(#"Removed Duplicates",{{"Hora", Time.StartOfHour, type time}})
+				in
+				    #"Calculated Start of Hour"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,87 @@
+table DimCliente
+	lineageTag: 32ab42d7-631c-451f-9a56-d9f9791b1f1a
+
+	measure ColorSucursalCliente = SELECTEDVALUE(DimSucursal[Color])
+		lineageTag: c1840017-3f0b-4b75-b19c-076743d8f20f
+
+	column CodigoSucursalCliente
+		dataType: string
+		isKey
+		lineageTag: e8e0a78e-0b63-4e68-a996-648e2498c959
+		summarizeBy: none
+		sourceColumn: CodigoSucursalCliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumeroCliente
+		dataType: int64
+		formatString: 0
+		lineageTag: ec25e797-4b15-4ba3-8147-d4135fe018a8
+		summarizeBy: none
+		sourceColumn: NumeroCliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column NombreCliente
+		dataType: string
+		lineageTag: e83c8045-bc27-4a04-9ac3-34d53c3b8a7d
+		isDefaultLabel
+		summarizeBy: none
+		sourceColumn: NombreCliente
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"DimCliente","TableItemName":"Categoría","ObjectType":4},"LinkType":"UsedInGroup"}]
+
+	column Categoría =
+			SWITCH(
+				TRUE,
+				ISBLANK('DimCliente'[NombreCliente]),
+				"(Blank)",
+				'DimCliente'[NombreCliente] IN {"CONSUMIDOR FINAL"},
+				"1 Consumidor Final",
+				'DimCliente'[NombreCliente] IN {"MAYORISTAS"},
+				"10 Mayoristas",
+				'DimCliente'[NombreCliente] IN {"PEDIDOS YA"},
+				"4 Pedidos Ya",
+				"Otros"
+			)
+		lineageTag: dc2a1d20-9bd4-44e4-9ec6-1d55bbeb9796
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "DimCliente"
+				          }
+				        },
+				        "Property": "NombreCliente"
+				      }
+				    }
+				  ]
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"d","Entity":"DimCliente"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"NombreCliente"}}],"GroupItems":[{"DisplayName":"(Blank)","BlankDefaultPlaceholder":true},{"DisplayName":"1 Consumidor Final","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"NombreCliente"}}],"Values":[[{"Literal":{"Value":"'CONSUMIDOR FINAL'"}}]]}}},{"DisplayName":"10 Mayoristas","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"NombreCliente"}}],"Values":[[{"Literal":{"Value":"'MAYORISTAS'"}}]]}}},{"DisplayName":"4 Pedidos Ya","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"NombreCliente"}}],"Values":[[{"Literal":{"Value":"'PEDIDOS YA'"}}]]}}},{"DisplayName":"Otros"}]}
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCliente = m
+		mode: import
+		queryGroup: 'Dimension Tables'
+		source =
+				let
+				    Source = _FactFacturaBase,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"CodigoSucursalCliente", "NumeroCliente", "NombreCliente"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns", {"CodigoSucursalCliente"})
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

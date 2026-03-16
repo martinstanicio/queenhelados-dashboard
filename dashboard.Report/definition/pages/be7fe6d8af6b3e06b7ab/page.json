@@ -1,0 +1,156 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "be7fe6d8af6b3e06b7ab",
+  "displayName": "Productos",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "51c37d7bdc08a98a53e7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCalendario"
+              }
+            },
+            "Property": "Fecha"
+          }
+        },
+        "type": "RelativeDate",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DimCalendario",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Between": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "d"
+                        }
+                      },
+                      "Property": "Fecha"
+                    }
+                  },
+                  "LowerBound": {
+                    "DateSpan": {
+                      "Expression": {
+                        "DateAdd": {
+                          "Expression": {
+                            "DateAdd": {
+                              "Expression": {
+                                "Now": {}
+                              },
+                              "Amount": 1,
+                              "TimeUnit": 0
+                            }
+                          },
+                          "Amount": -100,
+                          "TimeUnit": 3
+                        }
+                      },
+                      "TimeUnit": 0
+                    }
+                  },
+                  "UpperBound": {
+                    "DateSpan": {
+                      "Expression": {
+                        "Now": {}
+                      },
+                      "TimeUnit": 0
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
+  },
+  "visibility": "HiddenInViewMode",
+  "visualInteractions": [
+    {
+      "source": "caff778c607f6f5e3826",
+      "target": "d503f4a3099255eb0984",
+      "type": "DataFilter"
+    },
+    {
+      "source": "caff778c607f6f5e3826",
+      "target": "c01cb61900aa51e00c94",
+      "type": "NoFilter"
+    },
+    {
+      "source": "caff778c607f6f5e3826",
+      "target": "ed2cfcc4f179d7caf112",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d503f4a3099255eb0984",
+      "target": "caff778c607f6f5e3826",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ae06c15a20fe8d3ae79d",
+      "target": "d503f4a3099255eb0984",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ae06c15a20fe8d3ae79d",
+      "target": "caff778c607f6f5e3826",
+      "type": "DataFilter"
+    },
+    {
+      "source": "caff778c607f6f5e3826",
+      "target": "ae06c15a20fe8d3ae79d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d503f4a3099255eb0984",
+      "target": "7a34d642a9845db8bcc3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d503f4a3099255eb0984",
+      "target": "ae06c15a20fe8d3ae79d",
+      "type": "NoFilter"
+    },
+    {
+      "source": "caff778c607f6f5e3826",
+      "target": "7a34d642a9845db8bcc3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "7a34d642a9845db8bcc3",
+      "target": "caff778c607f6f5e3826",
+      "type": "DataFilter"
+    },
+    {
+      "source": "7a34d642a9845db8bcc3",
+      "target": "ae06c15a20fe8d3ae79d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "7a34d642a9845db8bcc3",
+      "target": "d503f4a3099255eb0984",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ae06c15a20fe8d3ae79d",
+      "target": "7a34d642a9845db8bcc3",
+      "type": "DataFilter"
+    }
+  ]
+}
