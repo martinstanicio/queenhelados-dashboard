@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
-  "name": "272d5a6f652a29e0b200",
+  "name": "19b526fe11de0103bb6a",
   "position": {
-    "x": 960,
+    "x": 320,
     "y": 0,
-    "z": 3000,
-    "height": 96,
+    "z": 2000,
+    "height": 96.291793313069917,
     "width": 320,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "card",
@@ -17,23 +17,18 @@
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "FactRedesSociales"
-                        }
-                      },
-                      "Property": "Alcance"
+                    "SourceRef": {
+                      "Entity": "FactWhatsApp"
                     }
                   },
-                  "Function": 0
+                  "Property": "Contactos (Diario)"
                 }
               },
-              "queryRef": "Sum(FactRedesSociales.Alcance)",
-              "nativeQueryRef": "Alcance Total",
-              "displayName": "Alcance Total"
+              "queryRef": "FactWhatsApp.Contactos (Diario)",
+              "nativeQueryRef": "Cantidad de Contactos",
+              "displayName": "Cantidad de Contactos"
             }
           ]
         }
@@ -42,18 +37,13 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "Measure": {
                 "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "FactRedesSociales"
-                      }
-                    },
-                    "Property": "Alcance"
+                  "SourceRef": {
+                    "Entity": "FactWhatsApp"
                   }
                 },
-                "Function": 0
+                "Property": "Contactos (Diario)"
               }
             },
             "direction": "Descending"

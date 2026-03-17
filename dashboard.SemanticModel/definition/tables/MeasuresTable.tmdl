@@ -1,0 +1,71 @@
+table MeasuresTable
+	lineageTag: f54daf9a-7d54-48c1-9680-4ce8920fed58
+
+	measure 'Score Queen' = ```
+			
+			VAR VentasActual =
+			    SUM ( DimFacturaCuerpo[SubtotalBruto] )
+			VAR MaxVentas =
+			    MAXX (
+			        ALLSELECTED ( DimSucursal ),
+			        CALCULATE (
+			            SUM ( DimFacturaCuerpo[SubtotalBruto] )
+			        )
+			    )
+			VAR VentasScore =
+			    DIVIDE (
+			        VentasActual,
+			        MaxVentas,
+			        0
+			    ) * 40 -- 1. Ventas (40%)
+			VAR CrecimientoRedes = [CrecimientoAcumuladoSeguidores]
+			VAR MaxCrecimiento =
+			    MAXX (
+			        ALLSELECTED ( DimSucursal ),
+			        [CrecimientoAcumuladoSeguidores]
+			    )
+			VAR SeguidoresScore =
+			    DIVIDE (
+			        CrecimientoRedes,
+			        MaxCrecimiento,
+			        0
+			    ) * 15 -- 2. Nuevos seguidores (15%)
+			VAR InteraccionesActual =
+			    SUM ( FactRedesSociales[Interacciones] )
+			VAR MaxInteracciones =
+			    MAXX (
+			        ALLSELECTED ( DimSucursal ),
+			        CALCULATE (
+			            SUM ( FactRedesSociales[Interacciones] )
+			        )
+			    )
+			VAR InteraccionesScore =
+			    DIVIDE (
+			        InteraccionesActual,
+			        MaxInteracciones,
+			        0
+			    ) * 15 -- 3. Interacciones (15%)
+			VAR PubliScore = [% Cumplimiento Publicaciones] * 15 -- 4. Cumplimiento de publicaciones diarias (15%)
+			VAR WA_Score = [% Seguidores del Canal] * 15 -- 5. Conversión al canal de WhatsApp (15%)
+			RETURN
+			    ( VentasScore + SeguidoresScore + InteraccionesScore + PubliScore + WA_Score )
+			
+			```
+		lineageTag: f5304c5a-d2b1-4dac-8bdd-4ca4e8ea8ed6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition MeasuresTable = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

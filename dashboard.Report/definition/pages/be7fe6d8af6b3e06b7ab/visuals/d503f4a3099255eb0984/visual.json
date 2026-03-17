@@ -672,7 +672,7 @@
                     ],
                     "OrderBy": [
                       {
-                        "Direction": 1,
+                        "Direction": 2,
                         "Expression": {
                           "Aggregation": {
                             "Expression": {
@@ -727,8 +727,7 @@
               }
             }
           ]
-        },
-        "howCreated": "User"
+        }
       },
       {
         "name": "2dbec00010ac751aa73c",

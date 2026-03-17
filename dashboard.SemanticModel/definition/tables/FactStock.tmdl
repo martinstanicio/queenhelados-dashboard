@@ -1,23 +1,29 @@
 table FactStock
 	lineageTag: 9a86a468-32c3-4ce6-83c6-e8e6c4980596
 
-	measure 'Stock Valorizado (Diario)' =
-			CALCULATE(
-			    SUM(FactStock[Subtotal]),
-			    LASTDATE(DimCalendario[Fecha])
+	measure 'Stock Valorizado (Diario)' = ```
+			
+			CALCULATE (
+			    SUM ( FactStock[Subtotal] ),
+			    LASTDATE ( DimCalendario[Fecha] )
 			)
+			
+			```
 		formatString: \$\ #,0;-\$\ #,0;\$\ #,0
 		lineageTag: 61b6dd02-e928-4200-a9c0-5325c661f464
 
 		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
 
-	measure 'Stock Valorizado (Máximo Histórico)' =
-			CALCULATE(
-			    MAXX(
-			        ALL(DimCalendario[Fecha]),
+	measure 'Stock Valorizado (Máximo Histórico)' = ```
+			
+			CALCULATE (
+			    MAXX (
+			        ALL ( DimCalendario[Fecha] ),
 			        [Stock Valorizado (Diario)]
 			    )
 			)
+			
+			```
 		formatString: \$\ #,0;-\$\ #,0;\$\ #,0
 		lineageTag: 1fcf9943-a219-460e-b5da-1ce519f937a2
 

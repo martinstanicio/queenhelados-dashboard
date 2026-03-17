@@ -1,7 +1,11 @@
 table DimCliente
 	lineageTag: 32ab42d7-631c-451f-9a56-d9f9791b1f1a
 
-	measure ColorSucursalCliente = SELECTEDVALUE(DimSucursal[Color])
+	measure ColorSucursalCliente = ```
+			
+			SELECTEDVALUE ( DimSucursal[Color] )
+			
+			```
 		lineageTag: c1840017-3f0b-4b75-b19c-076743d8f20f
 
 	column CodigoSucursalCliente

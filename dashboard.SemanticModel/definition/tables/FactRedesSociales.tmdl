@@ -1,13 +1,127 @@
 table FactRedesSociales
 	lineageTag: 569273fb-8595-4184-96e0-cd1c561e5f78
 
-	measure 'Seguidores (Diario)' =
-			CALCULATE(
-			    SUM(FactRedesSociales[Seguidores]),
-			    LASTDATE(DimCalendario[Fecha])
+	measure 'Seguidores (Diario)' = ```
+			
+			SUMX (
+			    VALUES ( DimFuente[IdFuente] ),
+			    VAR UltimaFecha =
+			        CALCULATE (
+			            MAX ( FactRedesSociales[Fecha] )
+			        )
+			    RETURN
+			        CALCULATE (
+			            SUM ( FactRedesSociales[Seguidores] ),
+			            FactRedesSociales[Fecha] = UltimaFecha
+			        )
 			)
+			
+			```
 		formatString: #,0
 		lineageTag: b1b9b05f-9d91-44df-ae1e-ad5fe52fddde
+
+	measure CrecimientoAcumuladoSeguidores = ```
+			
+			VAR FechaEje =
+			    MAX ( DimCalendario[Fecha] )
+			VAR FechaInicioSlicer =
+			    CALCULATE (
+			        MIN ( DimCalendario[Fecha] ),
+			        ALLSELECTED ( DimCalendario )
+			    )
+			VAR SeguidoresBase =
+			    CALCULATE (
+			        SUM ( FactRedesSociales[Seguidores] ),
+			        TOPN (
+			            1,
+			            FILTER (
+			                ALL ( DimCalendario ),
+			                DimCalendario[Fecha] <= FechaInicioSlicer
+			                    && NOT ISBLANK (
+			                        CALCULATE (
+			                            SUM ( FactRedesSociales[Seguidores] )
+			                        )
+			                    )
+			            ),
+			            DimCalendario[Fecha], DESC
+			        )
+			    )
+			VAR UltimaFechaConDatos =
+			    CALCULATE (
+			        MAX ( FactRedesSociales[Fecha] ),
+			        FILTER (
+			            ALL ( DimCalendario ),
+			            DimCalendario[Fecha] <= FechaEje
+			                && NOT ISBLANK (
+			                    CALCULATE (
+			                        SUM ( FactRedesSociales[Seguidores] )
+			                    )
+			                )
+			        )
+			    )
+			VAR SeguidoresHoy =
+			    CALCULATE (
+			        SUM ( FactRedesSociales[Seguidores] ),
+			        FILTER (
+			            ALL ( DimCalendario ),
+			            DimCalendario[Fecha] = UltimaFechaConDatos
+			        )
+			    )
+			VAR Resultado = SeguidoresHoy - SeguidoresBase
+			RETURN
+			    IF (
+			        ISBLANK ( UltimaFechaConDatos ),
+			        0,
+			        Resultado
+			    )
+			
+			```
+		formatString: #,0
+		lineageTag: 58b93c17-3516-4e30-8914-e856f8217eae
+
+	measure PublicacionesObjetivo = ```
+			
+			VAR DiasContados =
+			    COUNTROWS ( DimCalendario )
+			VAR CantidadFuentes =
+			    DISTINCTCOUNT ( DimFuente[IdFuente] )
+			VAR CantidadRedes =
+			    DISTINCTCOUNT ( FactRedesSociales[RedSocial] )
+			RETURN
+			    DiasContados * CantidadFuentes * CantidadRedes
+			
+			```
+		formatString: #,0
+		lineageTag: d368d3b3-3100-4064-be92-71f8bd9db4fe
+
+	measure '% Cumplimiento Publicaciones' = ```
+			
+			DIVIDE (
+			    SUM ( FactRedesSociales[Publicaciones] ),
+			    [PublicacionesObjetivo],
+			    0
+			)
+			
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 00e46128-42da-486e-a2cb-33420bc64777
+
+	measure ColorCumplimientoPublicaciones = ```
+			
+			VAR Cumplimiento = [% Cumplimiento Publicaciones]
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        -- Verde
+			        Cumplimiento >= 0.50, "#2ECC71",
+			        -- Amarillo
+			        Cumplimiento >= 0.25, "#F1C40F",
+			        -- Rojo
+			        "#E74C3C"
+			    )
+			
+			```
+		lineageTag: a8d95854-a097-4114-8fcc-aa22d00988de
 
 	column Fecha
 		dataType: dateTime

@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
-  "name": "272d5a6f652a29e0b200",
+  "name": "25402c4d5c49844ed270",
   "position": {
     "x": 960,
     "y": 0,
-    "z": 3000,
+    "z": 1000,
     "height": 96,
     "width": 320,
-    "tabOrder": 3000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "card",
@@ -17,23 +17,18 @@
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "FactRedesSociales"
-                        }
-                      },
-                      "Property": "Alcance"
+                    "SourceRef": {
+                      "Entity": "FactRedesSociales"
                     }
                   },
-                  "Function": 0
+                  "Property": "% Cumplimiento Publicaciones"
                 }
               },
-              "queryRef": "Sum(FactRedesSociales.Alcance)",
-              "nativeQueryRef": "Alcance Total",
-              "displayName": "Alcance Total"
+              "queryRef": "FactRedesSociales.% Cumplimiento Publicaciones",
+              "nativeQueryRef": "Cumplimiento de Publicaciones Diarias",
+              "displayName": "Cumplimiento de Publicaciones Diarias"
             }
           ]
         }
@@ -42,18 +37,13 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "Measure": {
                 "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "FactRedesSociales"
-                      }
-                    },
-                    "Property": "Alcance"
+                  "SourceRef": {
+                    "Entity": "FactRedesSociales"
                   }
                 },
-                "Function": 0
+                "Property": "% Cumplimiento Publicaciones"
               }
             },
             "direction": "Descending"
@@ -85,5 +75,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "8ea71ff899c062780096",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactRedesSociales"
+              }
+            },
+            "Property": "% Cumplimiento Publicaciones"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

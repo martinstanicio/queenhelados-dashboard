@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
   "name": "739abb0ab64c3092acc1",
   "position": {
-    "x": 640,
-    "y": 0,
+    "x": 0,
+    "y": 511.61094224924017,
     "z": 1000,
-    "height": 359.87841945288756,
+    "height": 208.14589665653497,
     "width": 640,
     "tabOrder": 1000
   },
   "visual": {
-    "visualType": "barChart",
+    "visualType": "columnChart",
     "query": {
       "queryState": {
         "Category": {
@@ -81,24 +81,18 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "Column": {
                 "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "FactRedesSociales"
-                      }
-                    },
-                    "Property": "Alcance"
+                  "SourceRef": {
+                    "Entity": "DimFuente"
                   }
                 },
-                "Function": 0
+                "Property": "NombreFuente"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
-        ],
-        "isDefaultSort": true
+        ]
       }
     },
     "objects": {
@@ -263,6 +257,20 @@
                   "Value": "false"
                 }
               }
+            },
+            "showGradientLegend": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
@@ -274,6 +282,13 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -303,6 +318,13 @@
                   "Value": "0L"
                 }
               }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
@@ -313,7 +335,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -364,6 +386,19 @@
             }
           }
         }
+      ],
+      "totals": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -380,7 +415,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Alcance por Red Social'"
+                  "Value": "'Alcance'"
                 }
               }
             }

@@ -2159,6 +2159,16 @@ cultureInfo en-US
 			            "State": "Generated",
 			            "Weight": 0.75
 			          }
+			        },
+			        {
+			          "Cantidad de Seguidores": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -2421,6 +2431,16 @@ cultureInfo en-US
 			            "State": "Generated",
 			            "Weight": 0.75
 			          }
+			        },
+			        {
+			          "Cantidad de Contactos": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -2446,6 +2466,16 @@ cultureInfo en-US
 			        },
 			        {
 			          "Seguidores del Canal": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Seguidores de los Canales": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -2639,6 +2669,644 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "fact_redes_sociale.crecimiento_acumulado_seguidores": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FactRedesSociales",
+			          "ConceptualProperty": "CrecimientoAcumuladoSeguidores"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "crecimiento acumulado seguidores": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "CrecimientoAcumuladoSeguidores": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "Aumento de Seguidores": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fact_whats_app.crecimiento_acumulado_contactos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FactWhatsApp",
+			          "ConceptualProperty": "CrecimientoAcumuladoContactos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "crecimiento acumulado contactos": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "CrecimientoAcumuladoContactos": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "Aumento de Contactos": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fact_whats_app.crecimiento_acumulado_seguidores_canal": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FactWhatsApp",
+			          "ConceptualProperty": "CrecimientoAcumuladoSeguidoresCanal"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "crecimiento acumulado seguidores canal": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "CrecimientoAcumuladoSeguidoresCanal": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "crecimiento acumulado seguidore waterway": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "crecimiento acumulado seguidore seaway": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "crecimiento acumulado seguidore channel": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "crecimiento acumulado seguidore vessel": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.489
+			          }
+			        },
+			        {
+			          "crecimiento acumulado seguidore duct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.474
+			          }
+			        },
+			        {
+			          "crecimiento acumulado seguidore tube": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.474
+			          }
+			        },
+			        {
+			          "crecimiento acumulado seguidore passage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.474
+			          }
+			        },
+			        {
+			          "Aumento de Seguidores del Canal": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fact_whats_app.seguidores_del_canal": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FactWhatsApp",
+			          "ConceptualProperty": "% Seguidores del Canal"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% seguidores del canal": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage seguidore del canal": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "pct seguidore del canal": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "% seguidore del waterway": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "% seguidore del seaway": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "% seguidore del channel": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "% seguidore del vessel": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.489
+			          }
+			        },
+			        {
+			          "% seguidore del duct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.474
+			          }
+			        },
+			        {
+			          "% seguidore del tube": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.474
+			          }
+			        },
+			        {
+			          "% seguidore del passage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.474
+			          }
+			        },
+			        {
+			          "% de Contactos Siguen al Canal": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fact_redes_sociale.publicaciones_objetivo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FactRedesSociales",
+			          "ConceptualProperty": "PublicacionesObjetivo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "publicaciones objetivo": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PublicacionesObjetivo": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "Objetivo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fact_redes_sociale.cumplimiento_publicaciones": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FactRedesSociales",
+			          "ConceptualProperty": "% Cumplimiento Publicaciones"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% cumplimiento publicaciones": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage cumplimiento publicacione": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "pct cumplimiento publicacione": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "Cumplimiento de Publicaciones Diarias": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fact_redes_sociale.color_cumplimiento_publicaciones": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FactRedesSociales",
+			          "ConceptualProperty": "ColorCumplimientoPublicaciones"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "color cumplimiento publicaciones": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ColorCumplimientoPublicaciones": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "measures_table": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MeasuresTable"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "measures table": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "measure table": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "MeasuresTable": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "measure tabletop": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "measure bench": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "measure board": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "measure counter": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "measure stand": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "measure slab": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "measure desk": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "measure stall": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "measure table top": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "measure spreadsheet": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        }
+			      ]
+			    },
+			    "measures_table.score_queen": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MeasuresTable",
+			          "ConceptualProperty": "Score Queen"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "score queen": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "queen": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "score monarch": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "score ruler": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "score empress": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "monarch": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "ruler": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "empress": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "score sovereign": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "sovereign": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "score icon": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "score doyenne": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
@@ -2780,6 +3448,666 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "fact_whats_app_has_measures_table_score_queen": {
+			      "Binding": {
+			        "ConceptualEntity": "FactWhatsApp"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_whats_app": {
+			          "Target": {
+			            "Entity": "fact_whats_app"
+			          }
+			        },
+			        "measures_table.score_queen": {
+			          "Target": {
+			            "Entity": "measures_table.score_queen"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_whats_app"
+			            },
+			            "Object": {
+			              "Role": "measures_table.score_queen"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_whats_apps_have_score_queen"
+			        }
+			      ]
+			    },
+			    "fact_redes_sociale_has_measures_table_score_queen": {
+			      "Binding": {
+			        "ConceptualEntity": "FactRedesSociales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_redes_sociale": {
+			          "Target": {
+			            "Entity": "fact_redes_sociale"
+			          }
+			        },
+			        "measures_table.score_queen": {
+			          "Target": {
+			            "Entity": "measures_table.score_queen"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_redes_sociale"
+			            },
+			            "Object": {
+			              "Role": "measures_table.score_queen"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_redes_sociales_have_score_queen"
+			        }
+			      ]
+			    },
+			    "dim_sucursal_has_measures_table_score_queen": {
+			      "Binding": {
+			        "ConceptualEntity": "DimSucursal"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_sucursal": {
+			          "Target": {
+			            "Entity": "dim_sucursal"
+			          }
+			        },
+			        "measures_table.score_queen": {
+			          "Target": {
+			            "Entity": "measures_table.score_queen"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_sucursal"
+			            },
+			            "Object": {
+			              "Role": "measures_table.score_queen"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_sucursals_have_score_queen"
+			        }
+			      ]
+			    },
+			    "dim_fuente_has_measures_table_score_queen": {
+			      "Binding": {
+			        "ConceptualEntity": "DimFuente"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_fuente": {
+			          "Target": {
+			            "Entity": "dim_fuente"
+			          }
+			        },
+			        "measures_table.score_queen": {
+			          "Target": {
+			            "Entity": "measures_table.score_queen"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_fuente"
+			            },
+			            "Object": {
+			              "Role": "measures_table.score_queen"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_fuentes_have_score_queen"
+			        }
+			      ]
+			    },
+			    "dim_factura_cuerpo_has_measures_table_score_queen": {
+			      "Binding": {
+			        "ConceptualEntity": "DimFacturaCuerpo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_factura_cuerpo": {
+			          "Target": {
+			            "Entity": "dim_factura_cuerpo"
+			          }
+			        },
+			        "measures_table.score_queen": {
+			          "Target": {
+			            "Entity": "measures_table.score_queen"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_factura_cuerpo"
+			            },
+			            "Object": {
+			              "Role": "measures_table.score_queen"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_factura_cuerpos_have_score_queen"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_measures_table_score_queen": {
+			      "Binding": {
+			        "ConceptualEntity": "DimCalendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "measures_table.score_queen": {
+			          "Target": {
+			            "Entity": "measures_table.score_queen"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "measures_table.score_queen"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_score_queen"
+			        }
+			      ]
+			    },
+			    "fact_redes_sociale_has_color_cumplimiento_publicaciones": {
+			      "Binding": {
+			        "ConceptualEntity": "FactRedesSociales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_redes_sociale": {
+			          "Target": {
+			            "Entity": "fact_redes_sociale"
+			          }
+			        },
+			        "fact_redes_sociale.color_cumplimiento_publicaciones": {
+			          "Target": {
+			            "Entity": "fact_redes_sociale.color_cumplimiento_publicaciones"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_redes_sociale"
+			            },
+			            "Object": {
+			              "Role": "fact_redes_sociale.color_cumplimiento_publicaciones"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_redes_sociales_have_color_cumplimiento_publicaciones"
+			        }
+			      ]
+			    },
+			    "dim_fuente_has_fact_redes_sociale_color_cumplimiento_publicaciones": {
+			      "Binding": {
+			        "ConceptualEntity": "DimFuente"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_fuente": {
+			          "Target": {
+			            "Entity": "dim_fuente"
+			          }
+			        },
+			        "fact_redes_sociale.color_cumplimiento_publicaciones": {
+			          "Target": {
+			            "Entity": "fact_redes_sociale.color_cumplimiento_publicaciones"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_fuente"
+			            },
+			            "Object": {
+			              "Role": "fact_redes_sociale.color_cumplimiento_publicaciones"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_fuentes_have_color_cumplimiento_publicaciones"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_fact_redes_sociale_color_cumplimiento_publicaciones": {
+			      "Binding": {
+			        "ConceptualEntity": "DimCalendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "fact_redes_sociale.color_cumplimiento_publicaciones": {
+			          "Target": {
+			            "Entity": "fact_redes_sociale.color_cumplimiento_publicaciones"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "fact_redes_sociale.color_cumplimiento_publicaciones"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_color_cumplimiento_publicaciones"
+			        }
+			      ]
+			    },
+			    "fact_redes_sociale_has_cumplimiento_publicaciones": {
+			      "Binding": {
+			        "ConceptualEntity": "FactRedesSociales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_redes_sociale": {
+			          "Target": {
+			            "Entity": "fact_redes_sociale"
+			          }
+			        },
+			        "fact_redes_sociale.cumplimiento_publicaciones": {
+			          "Target": {
+			            "Entity": "fact_redes_sociale.cumplimiento_publicaciones"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_redes_sociale"
+			            },
+			            "Object": {
+			              "Role": "fact_redes_sociale.cumplimiento_publicaciones"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_redes_sociales_have__cumplimiento_publicaciones"
+			        }
+			      ]
+			    },
+			    "dim_fuente_has_fact_redes_sociale_cumplimiento_publicaciones": {
+			      "Binding": {
+			        "ConceptualEntity": "DimFuente"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_fuente": {
+			          "Target": {
+			            "Entity": "dim_fuente"
+			          }
+			        },
+			        "fact_redes_sociale.cumplimiento_publicaciones": {
+			          "Target": {
+			            "Entity": "fact_redes_sociale.cumplimiento_publicaciones"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_fuente"
+			            },
+			            "Object": {
+			              "Role": "fact_redes_sociale.cumplimiento_publicaciones"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_fuentes_have__cumplimiento_publicaciones"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_fact_redes_sociale_cumplimiento_publicaciones": {
+			      "Binding": {
+			        "ConceptualEntity": "DimCalendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "fact_redes_sociale.cumplimiento_publicaciones": {
+			          "Target": {
+			            "Entity": "fact_redes_sociale.cumplimiento_publicaciones"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "fact_redes_sociale.cumplimiento_publicaciones"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have__cumplimiento_publicaciones"
+			        }
+			      ]
+			    },
+			    "fact_redes_sociale_has_publicaciones_objetivo": {
+			      "Binding": {
+			        "ConceptualEntity": "FactRedesSociales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_redes_sociale": {
+			          "Target": {
+			            "Entity": "fact_redes_sociale"
+			          }
+			        },
+			        "fact_redes_sociale.publicaciones_objetivo": {
+			          "Target": {
+			            "Entity": "fact_redes_sociale.publicaciones_objetivo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_redes_sociale"
+			            },
+			            "Object": {
+			              "Role": "fact_redes_sociale.publicaciones_objetivo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_redes_sociales_have_publicaciones_objetivo"
+			        }
+			      ]
+			    },
+			    "dim_fuente_has_fact_redes_sociale_publicaciones_objetivo": {
+			      "Binding": {
+			        "ConceptualEntity": "DimFuente"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_fuente": {
+			          "Target": {
+			            "Entity": "dim_fuente"
+			          }
+			        },
+			        "fact_redes_sociale.publicaciones_objetivo": {
+			          "Target": {
+			            "Entity": "fact_redes_sociale.publicaciones_objetivo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_fuente"
+			            },
+			            "Object": {
+			              "Role": "fact_redes_sociale.publicaciones_objetivo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_fuentes_have_publicaciones_objetivo"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_fact_redes_sociale_publicaciones_objetivo": {
+			      "Binding": {
+			        "ConceptualEntity": "DimCalendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "fact_redes_sociale.publicaciones_objetivo": {
+			          "Target": {
+			            "Entity": "fact_redes_sociale.publicaciones_objetivo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "fact_redes_sociale.publicaciones_objetivo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_publicaciones_objetivo"
+			        }
+			      ]
+			    },
+			    "fact_whats_app_has_seguidores_del_canal": {
+			      "Binding": {
+			        "ConceptualEntity": "FactWhatsApp"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_whats_app": {
+			          "Target": {
+			            "Entity": "fact_whats_app"
+			          }
+			        },
+			        "fact_whats_app.seguidores_del_canal": {
+			          "Target": {
+			            "Entity": "fact_whats_app.seguidores_del_canal"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_whats_app"
+			            },
+			            "Object": {
+			              "Role": "fact_whats_app.seguidores_del_canal"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_whats_apps_have__seguidores_del_canal"
+			        }
+			      ]
+			    },
+			    "dim_fuente_has_fact_whats_app_seguidores_del_canal": {
+			      "Binding": {
+			        "ConceptualEntity": "DimFuente"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_fuente": {
+			          "Target": {
+			            "Entity": "dim_fuente"
+			          }
+			        },
+			        "fact_whats_app.seguidores_del_canal": {
+			          "Target": {
+			            "Entity": "fact_whats_app.seguidores_del_canal"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_fuente"
+			            },
+			            "Object": {
+			              "Role": "fact_whats_app.seguidores_del_canal"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_fuentes_have__seguidores_del_canal"
+			        }
+			      ]
+			    },
+			    "fact_whats_app_has_crecimiento_acumulado_seguidores_canal": {
+			      "Binding": {
+			        "ConceptualEntity": "FactWhatsApp"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_whats_app": {
+			          "Target": {
+			            "Entity": "fact_whats_app"
+			          }
+			        },
+			        "fact_whats_app.crecimiento_acumulado_seguidores_canal": {
+			          "Target": {
+			            "Entity": "fact_whats_app.crecimiento_acumulado_seguidores_canal"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_whats_app"
+			            },
+			            "Object": {
+			              "Role": "fact_whats_app.crecimiento_acumulado_seguidores_canal"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_whats_apps_have_crecimiento_acumulado_seguidores_canal"
+			        }
+			      ]
+			    },
+			    "fact_whats_app_has_crecimiento_acumulado_contactos": {
+			      "Binding": {
+			        "ConceptualEntity": "FactWhatsApp"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_whats_app": {
+			          "Target": {
+			            "Entity": "fact_whats_app"
+			          }
+			        },
+			        "fact_whats_app.crecimiento_acumulado_contactos": {
+			          "Target": {
+			            "Entity": "fact_whats_app.crecimiento_acumulado_contactos"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_whats_app"
+			            },
+			            "Object": {
+			              "Role": "fact_whats_app.crecimiento_acumulado_contactos"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_whats_apps_have_crecimiento_acumulado_contactos"
+			        }
+			      ]
+			    },
+			    "fact_redes_sociale_has_crecimiento_acumulado_seguidores": {
+			      "Binding": {
+			        "ConceptualEntity": "FactRedesSociales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_redes_sociale": {
+			          "Target": {
+			            "Entity": "fact_redes_sociale"
+			          }
+			        },
+			        "fact_redes_sociale.crecimiento_acumulado_seguidores": {
+			          "Target": {
+			            "Entity": "fact_redes_sociale.crecimiento_acumulado_seguidores"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_redes_sociale"
+			            },
+			            "Object": {
+			              "Role": "fact_redes_sociale.crecimiento_acumulado_seguidores"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_redes_sociales_have_crecimiento_acumulado_seguidores"
+			        }
+			      ]
+			    },
 			    "dim_fuente_has_nombre_fuente": {
 			      "Binding": {
 			        "ConceptualEntity": "DimFuente"
@@ -2892,6 +4220,39 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "dim_fuente_has_fact_whats_app_SeguidoresCanal_diario": {
+			      "Binding": {
+			        "ConceptualEntity": "DimFuente"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_fuente": {
+			          "Target": {
+			            "Entity": "dim_fuente"
+			          }
+			        },
+			        "fact_whats_app.SeguidoresCanal_diario": {
+			          "Target": {
+			            "Entity": "fact_whats_app.SeguidoresCanal_diario"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_fuente"
+			            },
+			            "Object": {
+			              "Role": "fact_whats_app.SeguidoresCanal_diario"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_fuentes_have_SeguidoresCanal_diario"
+			        }
+			      ]
+			    },
 			    "fact_whats_app_has_contactos_diario": {
 			      "Binding": {
 			        "ConceptualEntity": "FactWhatsApp"
@@ -2922,6 +4283,39 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_whats_apps_have_contactos_diario"
+			        }
+			      ]
+			    },
+			    "dim_fuente_has_fact_whats_app_contactos_diario": {
+			      "Binding": {
+			        "ConceptualEntity": "DimFuente"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_fuente": {
+			          "Target": {
+			            "Entity": "dim_fuente"
+			          }
+			        },
+			        "fact_whats_app.contactos_diario": {
+			          "Target": {
+			            "Entity": "fact_whats_app.contactos_diario"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_fuente"
+			            },
+			            "Object": {
+			              "Role": "fact_whats_app.contactos_diario"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_fuentes_have_contactos_diario"
 			        }
 			      ]
 			    },
@@ -2988,6 +4382,39 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_redes_sociales_have_seguidores_diario"
+			        }
+			      ]
+			    },
+			    "dim_fuente_has_fact_redes_sociale_seguidores_diario": {
+			      "Binding": {
+			        "ConceptualEntity": "DimFuente"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_fuente": {
+			          "Target": {
+			            "Entity": "dim_fuente"
+			          }
+			        },
+			        "fact_redes_sociale.seguidores_diario": {
+			          "Target": {
+			            "Entity": "fact_redes_sociale.seguidores_diario"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_fuente"
+			            },
+			            "Object": {
+			              "Role": "fact_redes_sociale.seguidores_diario"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_fuentes_have_seguidores_diario"
 			        }
 			      ]
 			    },

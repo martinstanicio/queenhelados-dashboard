@@ -1,21 +1,173 @@
 table FactWhatsApp
 	lineageTag: 43927ec9-b192-44f5-8190-8a74304e5309
 
-	measure 'Contactos (Diario)' =
-			CALCULATE(
-			    SUM(FactWhatsApp[Contactos]),
-			    LASTDATE(DimCalendario[Fecha])
+	measure 'Contactos (Diario)' = ```
+			
+			SUMX (
+			    VALUES ( DimFuente[IdFuente] ),
+			    VAR UltimaFechaPorFuente =
+			        CALCULATE (
+			            MAX ( FactWhatsApp[Fecha] )
+			        )
+			    RETURN
+			        CALCULATE (
+			            SUM ( FactWhatsApp[Contactos] ),
+			            FactWhatsApp[Fecha] = UltimaFechaPorFuente
+			        )
 			)
-		formatString: 0
+			
+			```
+		formatString: #,0
 		lineageTag: 55aa1222-0ffd-4c09-9376-95e68931a9d6
 
-	measure 'SeguidoresCanal (Diario)' =
-			CALCULATE(
-			    SUM(FactWhatsApp[SeguidoresCanal]),
-			    LASTDATE(DimCalendario[Fecha])
+	measure 'SeguidoresCanal (Diario)' = ```
+			
+			SUMX (
+			    VALUES ( DimFuente[IdFuente] ),
+			    VAR UltimaFechaPorFuente =
+			        CALCULATE (
+			            MAX ( FactWhatsApp[Fecha] )
+			        )
+			    RETURN
+			        CALCULATE (
+			            SUM ( FactWhatsApp[SeguidoresCanal] ),
+			            FactWhatsApp[Fecha] = UltimaFechaPorFuente
+			        )
 			)
+			
+			```
 		formatString: #,0
 		lineageTag: 1c7121ad-1934-4b6c-8dfe-7ecd09c4d2df
+
+	measure CrecimientoAcumuladoContactos = ```
+			
+			VAR FechaEje =
+			    MAX ( DimCalendario[Fecha] )
+			VAR FechaInicioSlicer =
+			    CALCULATE (
+			        MIN ( DimCalendario[Fecha] ),
+			        ALLSELECTED ( DimCalendario )
+			    )
+			VAR ValorBase =
+			    CALCULATE (
+			        SUM ( FactWhatsApp[Contactos] ),
+			        TOPN (
+			            1,
+			            FILTER (
+			                ALL ( DimCalendario ),
+			                DimCalendario[Fecha] <= FechaInicioSlicer
+			                    && NOT ISBLANK (
+			                        CALCULATE (
+			                            SUM ( FactWhatsApp[Contactos] )
+			                        )
+			                    )
+			            ),
+			            DimCalendario[Fecha], DESC
+			        )
+			    )
+			VAR UltimaFechaConDatos =
+			    CALCULATE (
+			        MAX ( FactWhatsApp[Fecha] ),
+			        FILTER (
+			            ALL ( DimCalendario ),
+			            DimCalendario[Fecha] <= FechaEje
+			                && NOT ISBLANK (
+			                    CALCULATE (
+			                        SUM ( FactWhatsApp[Contactos] )
+			                    )
+			                )
+			        )
+			    )
+			VAR ValorHoy =
+			    CALCULATE (
+			        SUM ( FactWhatsApp[Contactos] ),
+			        FILTER (
+			            ALL ( DimCalendario ),
+			            DimCalendario[Fecha] = UltimaFechaConDatos
+			        )
+			    )
+			VAR Resultado = ValorHoy - ValorBase
+			RETURN
+			    IF (
+			        ISBLANK ( UltimaFechaConDatos ),
+			        0,
+			        Resultado
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: 2c1e58a9-fff1-4a6c-bb9c-925c5f9df6e2
+
+	measure CrecimientoAcumuladoSeguidoresCanal = ```
+			
+			VAR FechaEje =
+			    MAX ( DimCalendario[Fecha] )
+			VAR FechaInicioSlicer =
+			    CALCULATE (
+			        MIN ( DimCalendario[Fecha] ),
+			        ALLSELECTED ( DimCalendario )
+			    )
+			VAR ValorBase =
+			    CALCULATE (
+			        SUM ( FactWhatsApp[SeguidoresCanal] ),
+			        TOPN (
+			            1,
+			            FILTER (
+			                ALL ( DimCalendario ),
+			                DimCalendario[Fecha] <= FechaInicioSlicer
+			                    && NOT ISBLANK (
+			                        CALCULATE (
+			                            SUM ( FactWhatsApp[SeguidoresCanal] )
+			                        )
+			                    )
+			            ),
+			            DimCalendario[Fecha], DESC
+			        )
+			    )
+			VAR UltimaFechaConDatos =
+			    CALCULATE (
+			        MAX ( FactWhatsApp[Fecha] ),
+			        FILTER (
+			            ALL ( DimCalendario ),
+			            DimCalendario[Fecha] <= FechaEje
+			                && NOT ISBLANK (
+			                    CALCULATE (
+			                        SUM ( FactWhatsApp[SeguidoresCanal] )
+			                    )
+			                )
+			        )
+			    )
+			VAR ValorHoy =
+			    CALCULATE (
+			        SUM ( FactWhatsApp[SeguidoresCanal] ),
+			        FILTER (
+			            ALL ( DimCalendario ),
+			            DimCalendario[Fecha] = UltimaFechaConDatos
+			        )
+			    )
+			VAR Resultado = ValorHoy - ValorBase
+			RETURN
+			    IF (
+			        ISBLANK ( UltimaFechaConDatos ),
+			        0,
+			        Resultado
+			    )
+			
+			```
+		formatString: #,0
+		lineageTag: d0e50e83-2fd9-4fab-b403-b54ba242fd17
+
+	measure '% Seguidores del Canal' = ```
+			
+			DIVIDE (
+			    [SeguidoresCanal (Diario)],
+			    [Contactos (Diario)],
+			    0
+			)
+			
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: aeca8fe2-8051-43fc-90e6-47e69226fc28
 
 	column Fecha
 		dataType: dateTime

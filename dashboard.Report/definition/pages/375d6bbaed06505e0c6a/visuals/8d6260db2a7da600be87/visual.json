@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
-  "name": "505ab54a4934d35a1290",
+  "name": "8d6260db2a7da600be87",
   "position": {
-    "x": 320,
+    "x": 0,
     "y": 0,
-    "z": 2000,
-    "height": 96,
+    "z": 0,
+    "height": 96.291793313069917,
     "width": 640,
-    "tabOrder": 2000
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "textbox",
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Redes sociales (semanal)",
+                    "value": "Publicaciones de la semana",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "36pt"

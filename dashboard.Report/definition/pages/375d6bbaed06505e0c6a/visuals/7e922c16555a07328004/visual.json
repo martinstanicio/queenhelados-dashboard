@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
-  "name": "272d5a6f652a29e0b200",
+  "name": "7e922c16555a07328004",
   "position": {
-    "x": 960,
+    "x": 640,
     "y": 0,
-    "z": 3000,
-    "height": 96,
+    "z": 2000,
+    "height": 96.291793313069917,
     "width": 320,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "card",
@@ -25,15 +25,15 @@
                           "Entity": "FactRedesSociales"
                         }
                       },
-                      "Property": "Alcance"
+                      "Property": "Publicaciones"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(FactRedesSociales.Alcance)",
-              "nativeQueryRef": "Alcance Total",
-              "displayName": "Alcance Total"
+              "queryRef": "Sum(FactRedesSociales.Publicaciones)",
+              "nativeQueryRef": "Cantidad de Publicaciones",
+              "displayName": "Cantidad de Publicaciones"
             }
           ]
         }
@@ -50,7 +50,7 @@
                         "Entity": "FactRedesSociales"
                       }
                     },
-                    "Property": "Alcance"
+                    "Property": "Publicaciones"
                   }
                 },
                 "Function": 0

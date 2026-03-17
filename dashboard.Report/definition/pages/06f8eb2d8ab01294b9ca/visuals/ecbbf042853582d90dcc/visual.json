@@ -1,38 +1,19 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
-  "name": "5ab5551149704dd737ee",
+  "name": "ecbbf042853582d90dcc",
   "position": {
-    "x": 0,
-    "y": 96.291793313069917,
-    "z": 0,
-    "height": 415.31914893617022,
-    "width": 1280,
-    "tabOrder": 0
+    "x": 640,
+    "y": 511.61094224924017,
+    "z": 5000,
+    "height": 208.14589665653497,
+    "width": 640,
+    "tabOrder": 5000
   },
   "visual": {
-    "visualType": "stackedAreaChart",
+    "visualType": "columnChart",
     "query": {
       "queryState": {
         "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DimCalendario"
-                    }
-                  },
-                  "Property": "Fecha"
-                }
-              },
-              "queryRef": "DimCalendario.Fecha",
-              "nativeQueryRef": "Fecha",
-              "active": true
-            }
-          ]
-        },
-        "Rows": {
           "projections": [
             {
               "field": {
@@ -47,6 +28,7 @@
               },
               "queryRef": "DimFuente.NombreFuente",
               "nativeQueryRef": "Fuente",
+              "active": true,
               "displayName": "Fuente"
             }
           ]
@@ -80,12 +62,12 @@
                       "Entity": "FactRedesSociales"
                     }
                   },
-                  "Property": "CrecimientoAcumuladoSeguidores"
+                  "Property": "Seguidores (Diario)"
                 }
               },
-              "queryRef": "FactRedesSociales.CrecimientoAcumulado",
-              "nativeQueryRef": "Aumento de Seguidores",
-              "displayName": "Aumento de Seguidores"
+              "queryRef": "FactRedesSociales.Seguidores (Diario)",
+              "nativeQueryRef": "Seguidores",
+              "displayName": "Seguidores"
             }
           ]
         }
@@ -123,20 +105,6 @@
               "expr": {
                 "Literal": {
                   "Value": "2L"
-                }
-              }
-            },
-            "advancedPaddingOptions": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "gridPadding": {
-              "expr": {
-                "Literal": {
-                  "Value": "12D"
                 }
               }
             }
@@ -274,7 +242,7 @@
             "position": {
               "expr": {
                 "Literal": {
-                  "Value": "'BottomCenter'"
+                  "Value": "'TopCenter'"
                 }
               }
             },
@@ -285,20 +253,14 @@
                 }
               }
             },
-            "show": {
+            "showGradientLegend": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
-            }
-          }
-        }
-      ],
-      "categoryAxis": [
-        {
-          "properties": {
-            "showAxisTitle": {
+            },
+            "show": {
               "expr": {
                 "Literal": {
                   "Value": "false"
@@ -312,41 +274,6 @@
         {
           "properties": {
             "sharedAxis": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "scaleToFit": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "logAxisScale": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "invertAxis": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "gridlineAutoScale": {
               "expr": {
                 "Literal": {
                   "Value": "false"
@@ -367,47 +294,7 @@
                 }
               }
             },
-            "switchAxisPosition": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "lineStyles": [
-        {
-          "properties": {
-            "lineChartType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'linear'"
-                }
-              }
-            },
-            "interpolationSmooth": {
-              "expr": {
-                "Literal": {
-                  "Value": "'cardinal'"
-                }
-              }
-            },
-            "showMarker": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "layout": [
-        {
-          "properties": {
-            "seriesOrderReversed": {
+            "showAxisTitle": {
               "expr": {
                 "Literal": {
                   "Value": "false"
@@ -427,14 +314,52 @@
                 }
               }
             },
-            "optimizeLabelDisplay": {
+            "enableBackground": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             },
-            "enableTitleDataLabel": {
+            "backgroundTransparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "backgroundColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0.2
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableDetailDataLabel": {
               "expr": {
                 "Literal": {
                   "Value": "false"
@@ -444,10 +369,57 @@
           }
         }
       ],
-      "seriesLabels": [
+      "ribbonBands": [
         {
           "properties": {
             "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "totals": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "showAxisTitle": {
               "expr": {
                 "Literal": {
                   "Value": "false"
@@ -472,7 +444,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Aumento de Seguidores'"
+                  "Value": "'Seguidores'"
                 }
               }
             }

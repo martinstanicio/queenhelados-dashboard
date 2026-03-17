@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
-  "name": "9d0f5e90d386e55edd07",
+  "name": "94ba75886b85934dde83",
   "position": {
-    "x": 0,
-    "y": 228.57142857142858,
+    "x": 640,
+    "y": 0,
     "z": 5000,
-    "height": 131.30699088145897,
-    "width": 640,
+    "height": 96.291793313069917,
+    "width": 320,
     "tabOrder": 5000
   },
   "visual": {
@@ -17,23 +17,18 @@
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "FactRedesSociales"
-                        }
-                      },
-                      "Property": "Publicaciones"
+                    "SourceRef": {
+                      "Entity": "FactWhatsApp"
                     }
                   },
-                  "Function": 0
+                  "Property": "SeguidoresCanal (Diario)"
                 }
               },
-              "queryRef": "Sum(FactRedesSociales.Publicaciones)",
-              "nativeQueryRef": "Cantidad de Publicaciones",
-              "displayName": "Cantidad de Publicaciones"
+              "queryRef": "FactWhatsApp.SeguidoresCanal (Diario)",
+              "nativeQueryRef": "Seguidores de los Canales",
+              "displayName": "Seguidores de los Canales"
             }
           ]
         }
@@ -42,18 +37,13 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "Measure": {
                 "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "FactRedesSociales"
-                      }
-                    },
-                    "Property": "Publicaciones"
+                  "SourceRef": {
+                    "Entity": "FactWhatsApp"
                   }
                 },
-                "Function": 0
+                "Property": "SeguidoresCanal (Diario)"
               }
             },
             "direction": "Descending"

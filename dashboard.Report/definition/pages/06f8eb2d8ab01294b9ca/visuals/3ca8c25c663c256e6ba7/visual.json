@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
-  "name": "272d5a6f652a29e0b200",
+  "name": "3ca8c25c663c256e6ba7",
   "position": {
-    "x": 960,
+    "x": 0,
     "y": 0,
-    "z": 3000,
+    "z": 4000,
     "height": 96,
     "width": 320,
-    "tabOrder": 3000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "card",
@@ -17,23 +17,18 @@
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "FactRedesSociales"
-                        }
-                      },
-                      "Property": "Alcance"
+                    "SourceRef": {
+                      "Entity": "FactRedesSociales"
                     }
                   },
-                  "Function": 0
+                  "Property": "Seguidores (Diario)"
                 }
               },
-              "queryRef": "Sum(FactRedesSociales.Alcance)",
-              "nativeQueryRef": "Alcance Total",
-              "displayName": "Alcance Total"
+              "queryRef": "FactRedesSociales.Seguidores (Diario)",
+              "nativeQueryRef": "Cantidad de Seguidores",
+              "displayName": "Cantidad de Seguidores"
             }
           ]
         }
@@ -42,18 +37,13 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "Measure": {
                 "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "FactRedesSociales"
-                      }
-                    },
-                    "Property": "Alcance"
+                  "SourceRef": {
+                    "Entity": "FactRedesSociales"
                   }
                 },
-                "Function": 0
+                "Property": "Seguidores (Diario)"
               }
             },
             "direction": "Descending"

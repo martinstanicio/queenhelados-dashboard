@@ -1,6 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
-  "name": "272d5a6f652a29e0b200",
+  "name": "b7d57e703ab2c11a6173",
   "position": {
     "x": 960,
     "y": 0,
@@ -17,23 +17,18 @@
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "FactRedesSociales"
-                        }
-                      },
-                      "Property": "Alcance"
+                    "SourceRef": {
+                      "Entity": "FactWhatsApp"
                     }
                   },
-                  "Function": 0
+                  "Property": "% Seguidores del Canal"
                 }
               },
-              "queryRef": "Sum(FactRedesSociales.Alcance)",
-              "nativeQueryRef": "Alcance Total",
-              "displayName": "Alcance Total"
+              "queryRef": "FactWhatsApp.% Seguidores del Canal",
+              "nativeQueryRef": "% de Contactos Siguen al Canal",
+              "displayName": "% de Contactos Siguen al Canal"
             }
           ]
         }
@@ -42,18 +37,13 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "Measure": {
                 "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "FactRedesSociales"
-                      }
-                    },
-                    "Property": "Alcance"
+                  "SourceRef": {
+                    "Entity": "FactWhatsApp"
                   }
                 },
-                "Function": 0
+                "Property": "% Seguidores del Canal"
               }
             },
             "direction": "Descending"
