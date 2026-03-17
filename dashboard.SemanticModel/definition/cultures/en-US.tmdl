@@ -3307,101 +3307,194 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "fact_redes_sociale.color_red": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FactRedesSociales",
+			          "ConceptualProperty": "ColorRed"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "color red": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ColorRed": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "red": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "sore": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "pink": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "red-faced": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        },
+			        {
+			          "hearty": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        }
+			      ]
+			    },
+			    "measures_table.legend": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MeasuresTable",
+			          "ConceptualProperty": "Legend"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "legend": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "myth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "tale": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "lore": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "folklore": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "folktale": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "fable": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "fairytale": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "icon": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        },
+			        {
+			          "personality": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        },
+			        {
+			          "prodigy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
-			    "fact_factura_cabecera_has_dim_cliente": {
-			      "Binding": {
-			        "ConceptualEntity": "FactFacturaCabecera"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_factura_cabecera": {
-			          "Target": {
-			            "Entity": "fact_factura_cabecera"
-			          }
-			        },
-			        "dim_cliente": {
-			          "Target": {
-			            "Entity": "dim_cliente"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_factura_cabecera"
-			            },
-			            "Object": {
-			              "Role": "dim_cliente"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_factura_cabeceras_have_dim_clientes"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_cliente"
-			            },
-			            "Object": {
-			              "Role": "fact_factura_cabecera"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_clientes_have_fact_factura_cabeceras"
-			        }
-			      ]
-			    },
-			    "dim_factura_cuerpo_has_fact_factura_cabecera": {
-			      "Binding": {
-			        "ConceptualEntity": "DimFacturaCuerpo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_factura_cuerpo": {
-			          "Target": {
-			            "Entity": "dim_factura_cuerpo"
-			          }
-			        },
-			        "fact_factura_cabecera": {
-			          "Target": {
-			            "Entity": "fact_factura_cabecera"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_factura_cuerpo"
-			            },
-			            "Object": {
-			              "Role": "fact_factura_cabecera"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_factura_cuerpos_have_fact_factura_cabeceras"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_factura_cabecera"
-			            },
-			            "Object": {
-			              "Role": "dim_factura_cuerpo"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_factura_cabeceras_have_dim_factura_cuerpos"
-			        }
-			      ]
-			    },
 			    "dim_factura_cuerpo_has_dim_producto": {
 			      "Binding": {
 			        "ConceptualEntity": "DimFacturaCuerpo"
@@ -3445,6 +3538,72 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_productos_have_dim_factura_cuerpos"
+			        }
+			      ]
+			    },
+			    "measures_table_has_legend": {
+			      "Binding": {
+			        "ConceptualEntity": "MeasuresTable"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "measures_table": {
+			          "Target": {
+			            "Entity": "measures_table"
+			          }
+			        },
+			        "measures_table.legend": {
+			          "Target": {
+			            "Entity": "measures_table.legend"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "measures_table"
+			            },
+			            "Object": {
+			              "Role": "measures_table.legend"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "measures_tables_have_legend"
+			        }
+			      ]
+			    },
+			    "fact_redes_sociale_has_color_red": {
+			      "Binding": {
+			        "ConceptualEntity": "FactRedesSociales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_redes_sociale": {
+			          "Target": {
+			            "Entity": "fact_redes_sociale"
+			          }
+			        },
+			        "fact_redes_sociale.color_red": {
+			          "Target": {
+			            "Entity": "fact_redes_sociale.color_red"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_redes_sociale"
+			            },
+			            "Object": {
+			              "Role": "fact_redes_sociale.color_red"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_redes_sociales_have_color_red"
 			        }
 			      ]
 			    },
@@ -6218,6 +6377,98 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_sucursals_are_in_direccions"
+			        }
+			      ]
+			    },
+			    "dim_factura_cuerpo_has_fact_factura_cabecera": {
+			      "Binding": {
+			        "ConceptualEntity": "DimFacturaCuerpo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_factura_cuerpo": {
+			          "Target": {
+			            "Entity": "dim_factura_cuerpo"
+			          }
+			        },
+			        "fact_factura_cabecera": {
+			          "Target": {
+			            "Entity": "fact_factura_cabecera"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_factura_cuerpo"
+			            },
+			            "Object": {
+			              "Role": "fact_factura_cabecera"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_factura_cuerpos_have_fact_factura_cabeceras"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_factura_cabecera"
+			            },
+			            "Object": {
+			              "Role": "dim_factura_cuerpo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_factura_cabeceras_have_dim_factura_cuerpos"
+			        }
+			      ]
+			    },
+			    "fact_factura_cabecera_has_dim_cliente": {
+			      "Binding": {
+			        "ConceptualEntity": "FactFacturaCabecera"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_factura_cabecera": {
+			          "Target": {
+			            "Entity": "fact_factura_cabecera"
+			          }
+			        },
+			        "dim_cliente": {
+			          "Target": {
+			            "Entity": "dim_cliente"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_factura_cabecera"
+			            },
+			            "Object": {
+			              "Role": "dim_cliente"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_factura_cabeceras_have_dim_clientes"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_cliente"
+			            },
+			            "Object": {
+			              "Role": "fact_factura_cabecera"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_clientes_have_fact_factura_cabeceras"
 			        }
 			      ]
 			    },

@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "505ab54a4934d35a1290",
+  "name": "9f143e6a9886baa5d801",
   "position": {
     "x": 0,
-    "y": 0,
-    "z": 2000,
-    "height": 96.291793313069917,
-    "width": 640,
-    "tabOrder": 2000
+    "y": 96.603773584905653,
+    "z": 11000,
+    "height": 31.913746630727761,
+    "width": 1280,
+    "tabOrder": 11000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,11 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Redes sociales (semanal)",
-                    "textStyle": {
-                      "fontWeight": "bold",
-                      "fontSize": "36pt"
-                    }
+                    "value": "El objetivo de publicaciones es una publicación por día, por cada red social."
                   }
                 ],
                 "horizontalTextAlignment": "center"

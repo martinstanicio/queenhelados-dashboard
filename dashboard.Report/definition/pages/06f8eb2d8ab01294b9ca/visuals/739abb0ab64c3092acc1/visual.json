@@ -1,11 +1,11 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "739abb0ab64c3092acc1",
   "position": {
-    "x": 0,
-    "y": 511.61094224924017,
+    "x": 640,
+    "y": 288.87537993920972,
     "z": 1000,
-    "height": 208.14589665653497,
+    "height": 192,
     "width": 640,
     "tabOrder": 1000
   },
@@ -49,6 +49,30 @@
               "queryRef": "FactRedesSociales.RedSocial",
               "nativeQueryRef": "Red Social",
               "displayName": "Red Social"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FactRedesSociales"
+                        }
+                      },
+                      "Property": "Publicaciones"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(FactRedesSociales.Publicaciones)",
+              "nativeQueryRef": "Publicaciones",
+              "displayName": "Publicaciones"
             }
           ]
         },

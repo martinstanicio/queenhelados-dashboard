@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "ecbbf042853582d90dcc",
+  "name": "56442e5266b0145ced0e",
   "position": {
     "x": 640,
-    "y": 96.291793313069917,
-    "z": 5000,
+    "y": 479.51367781155017,
+    "z": 6000,
     "height": 192.58358662613983,
     "width": 640,
-    "tabOrder": 5000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "columnChart",
@@ -56,18 +56,23 @@
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Aggregation": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "FactRedesSociales"
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FactRedesSociales"
+                        }
+                      },
+                      "Property": "Interacciones"
                     }
                   },
-                  "Property": "Seguidores (Diario)"
+                  "Function": 0
                 }
               },
-              "queryRef": "FactRedesSociales.Seguidores (Diario)",
-              "nativeQueryRef": "Seguidores",
-              "displayName": "Seguidores"
+              "queryRef": "Sum(FactRedesSociales.Interacciones)",
+              "nativeQueryRef": "Interacciones",
+              "displayName": "Interacciones"
             }
           ]
         }
@@ -270,6 +275,26 @@
           }
         }
       ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
       "valueAxis": [
         {
           "properties": {
@@ -358,26 +383,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "enableDetailDataLabel": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "ribbonBands": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
             }
           }
         }
@@ -389,40 +394,6 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
-                }
-              }
-            },
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            },
-            "labelPrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "0L"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "categoryAxis": [
-        {
-          "properties": {
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
                 }
               }
             }
@@ -444,7 +415,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Seguidores'"
+                  "Value": "'Interacciones'"
                 }
               }
             }

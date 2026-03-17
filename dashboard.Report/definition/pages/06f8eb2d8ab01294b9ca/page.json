@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "06f8eb2d8ab01294b9ca",
   "displayName": "Redes Sociales (semanal)",
   "displayOption": "FitToPage",
@@ -49,6 +49,20 @@
                     [
                       {
                         "Literal": {
+                          "Value": "datetime'2026-03-09T00:00:00'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "datetime'2026-03-10T00:00:00'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
                           "Value": "datetime'2026-03-12T00:00:00'"
                         }
                       }
@@ -71,6 +85,13 @@
                       {
                         "Literal": {
                           "Value": "datetime'2026-03-15T00:00:00'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "datetime'2026-03-11T00:00:00'"
                         }
                       }
                     ]

@@ -123,6 +123,22 @@ table FactRedesSociales
 			```
 		lineageTag: a8d95854-a097-4114-8fcc-aa22d00988de
 
+	measure ColorRed = ```
+			
+			VAR Red =
+			    SELECTEDVALUE ( FactRedesSociales[RedSocial] )
+			RETURN
+			    SWITCH (
+			        Red,
+			        "Facebook", "#0866FE",
+			        "Instagram", "#FE0069",
+			        "TikTok", "#9B59B6",
+			        "#D3D3D3"
+			    )
+			
+			```
+		lineageTag: 12590672-a5a5-4b42-9237-2c4fe45b2f3b
+
 	column Fecha
 		dataType: dateTime
 		formatString: Short Date

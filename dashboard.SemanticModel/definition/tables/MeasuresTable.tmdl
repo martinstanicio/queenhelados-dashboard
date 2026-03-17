@@ -55,6 +55,10 @@ table MeasuresTable
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure Legend = 1
+		formatString: 0
+		lineageTag: 276efb4c-fbe1-4013-919f-8b102cb2b734
+
 	partition MeasuresTable = m
 		mode: import
 		source =
