@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "8d4e5cedae74e2e74e3b",
   "position": {
     "x": 0,
@@ -121,6 +121,13 @@
                   "Value": "4L"
                 }
               }
+            },
+            "gridPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
             }
           }
         }
@@ -147,6 +154,53 @@
                   "Value": "false"
                 }
               }
+            },
+            "sharedAxis": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "switchAxisPosition": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            },
+            "gridlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0.2
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -158,6 +212,13 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -239,5 +300,65 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "942a8a9b02700161ee85",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCalendario"
+              }
+            },
+            "Property": "Fecha"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "64b2e669cb97e7010782",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimFuente"
+              }
+            },
+            "Property": "NombreFuente"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "50805e2ee24548cea6da",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactWhatsApp"
+              }
+            },
+            "Property": "CrecimientoAcumuladoContactos"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e4045e528821705d205a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactWhatsApp"
+              }
+            },
+            "Property": "CrecimientoAcumuladoSeguidoresCanal"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

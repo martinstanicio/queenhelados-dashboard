@@ -123,7 +123,7 @@ table FactRedesSociales
 			```
 		lineageTag: a8d95854-a097-4114-8fcc-aa22d00988de
 
-	measure ColorRed = ```
+	measure ColorRedSocial = ```
 			
 			VAR Red =
 			    SELECTEDVALUE ( FactRedesSociales[RedSocial] )

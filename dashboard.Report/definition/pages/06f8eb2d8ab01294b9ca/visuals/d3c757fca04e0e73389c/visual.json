@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "d3c757fca04e0e73389c",
   "position": {
     "x": 0,
@@ -85,7 +85,7 @@
                           "Entity": "FactRedesSociales"
                         }
                       },
-                      "Property": "ColorRed"
+                      "Property": "ColorRedSocial"
                     }
                   }
                 }
@@ -312,6 +312,13 @@
         {
           "properties": {
             "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
               "expr": {
                 "Literal": {
                   "Value": "0D"

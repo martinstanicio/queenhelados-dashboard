@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "b7d57e703ab2c11a6173",
   "position": {
     "x": 960,
@@ -23,12 +23,12 @@
                       "Entity": "FactWhatsApp"
                     }
                   },
-                  "Property": "% Seguidores del Canal"
+                  "Property": "CrecimientoAcumuladoContactos"
                 }
               },
-              "queryRef": "FactWhatsApp.% Seguidores del Canal",
-              "nativeQueryRef": "% de Contactos Siguen al Canal",
-              "displayName": "% de Contactos Siguen al Canal"
+              "queryRef": "FactWhatsApp.CrecimientoAcumuladoContactos",
+              "nativeQueryRef": "Contactos Nuevos",
+              "displayName": "Contactos Nuevos"
             }
           ]
         }
@@ -43,7 +43,7 @@
                     "Entity": "FactWhatsApp"
                   }
                 },
-                "Property": "% Seguidores del Canal"
+                "Property": "CrecimientoAcumuladoContactos"
               }
             },
             "direction": "Descending"
@@ -75,5 +75,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "fae2e98de88c4a9c3b55",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactWhatsApp"
+              }
+            },
+            "Property": "CrecimientoAcumuladoContactos"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

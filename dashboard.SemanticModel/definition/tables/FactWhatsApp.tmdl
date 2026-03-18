@@ -95,7 +95,7 @@ table FactWhatsApp
 			    )
 			
 			```
-		formatString: 0
+		formatString: #,0
 		lineageTag: 2c1e58a9-fff1-4a6c-bb9c-925c5f9df6e2
 
 	measure CrecimientoAcumuladoSeguidoresCanal = ```

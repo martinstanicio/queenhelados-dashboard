@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "283a36900321942d0eb3",
   "position": {
     "x": 480.48632218844989,
@@ -89,7 +89,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'Febrero'"
+                                "Value": "'Enero'"
                               }
                             }
                           ]

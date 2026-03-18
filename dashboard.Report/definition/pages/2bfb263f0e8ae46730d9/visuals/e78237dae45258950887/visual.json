@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "e78237dae45258950887",
   "position": {
     "x": 320,
@@ -559,86 +559,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "5e0f88671daeeb8e2924",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimCalendario"
-              }
-            },
-            "Property": "Dia"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "bc84ccebe6b44104a766",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimCalendario"
-              }
-            },
-            "Property": "DiaSemana"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "122f902ccba0352e07d2",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FactPago"
-              }
-            },
-            "Property": "MedioPago"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "108766c126477129d805",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "FactFacturaCabecera"
-                  }
-                },
-                "Property": "IdFactura"
-              }
-            },
-            "Function": 5
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "5da5fe894ba2729baba5",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "DimFacturaCuerpo"
-                  }
-                },
-                "Property": "SubtotalBruto"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

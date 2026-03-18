@@ -2733,6 +2733,16 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "Contactos Nuevos": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -2941,16 +2951,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.474
-			          }
-			        },
-			        {
-			          "% de Contactos Siguen al Canal": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -3312,7 +3312,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "FactRedesSociales",
-			          "ConceptualProperty": "ColorRed"
+			          "ConceptualProperty": "ColorRedSocial"
 			        }
 			      },
 			      "State": "Generated",
@@ -3495,6 +3495,98 @@ cultureInfo en-US
 			    }
 			  },
 			  "Relationships": {
+			    "fact_factura_cabecera_has_dim_cliente": {
+			      "Binding": {
+			        "ConceptualEntity": "FactFacturaCabecera"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_factura_cabecera": {
+			          "Target": {
+			            "Entity": "fact_factura_cabecera"
+			          }
+			        },
+			        "dim_cliente": {
+			          "Target": {
+			            "Entity": "dim_cliente"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_factura_cabecera"
+			            },
+			            "Object": {
+			              "Role": "dim_cliente"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_factura_cabeceras_have_dim_clientes"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_cliente"
+			            },
+			            "Object": {
+			              "Role": "fact_factura_cabecera"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_clientes_have_fact_factura_cabeceras"
+			        }
+			      ]
+			    },
+			    "dim_factura_cuerpo_has_fact_factura_cabecera": {
+			      "Binding": {
+			        "ConceptualEntity": "DimFacturaCuerpo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_factura_cuerpo": {
+			          "Target": {
+			            "Entity": "dim_factura_cuerpo"
+			          }
+			        },
+			        "fact_factura_cabecera": {
+			          "Target": {
+			            "Entity": "fact_factura_cabecera"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_factura_cuerpo"
+			            },
+			            "Object": {
+			              "Role": "fact_factura_cabecera"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_factura_cuerpos_have_fact_factura_cabeceras"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_factura_cabecera"
+			            },
+			            "Object": {
+			              "Role": "dim_factura_cuerpo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_factura_cabeceras_have_dim_factura_cuerpos"
+			        }
+			      ]
+			    },
 			    "dim_factura_cuerpo_has_dim_producto": {
 			      "Binding": {
 			        "ConceptualEntity": "DimFacturaCuerpo"
@@ -6377,98 +6469,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_sucursals_are_in_direccions"
-			        }
-			      ]
-			    },
-			    "dim_factura_cuerpo_has_fact_factura_cabecera": {
-			      "Binding": {
-			        "ConceptualEntity": "DimFacturaCuerpo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_factura_cuerpo": {
-			          "Target": {
-			            "Entity": "dim_factura_cuerpo"
-			          }
-			        },
-			        "fact_factura_cabecera": {
-			          "Target": {
-			            "Entity": "fact_factura_cabecera"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_factura_cuerpo"
-			            },
-			            "Object": {
-			              "Role": "fact_factura_cabecera"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_factura_cuerpos_have_fact_factura_cabeceras"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_factura_cabecera"
-			            },
-			            "Object": {
-			              "Role": "dim_factura_cuerpo"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_factura_cabeceras_have_dim_factura_cuerpos"
-			        }
-			      ]
-			    },
-			    "fact_factura_cabecera_has_dim_cliente": {
-			      "Binding": {
-			        "ConceptualEntity": "FactFacturaCabecera"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_factura_cabecera": {
-			          "Target": {
-			            "Entity": "fact_factura_cabecera"
-			          }
-			        },
-			        "dim_cliente": {
-			          "Target": {
-			            "Entity": "dim_cliente"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_factura_cabecera"
-			            },
-			            "Object": {
-			              "Role": "dim_cliente"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_factura_cabeceras_have_dim_clientes"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_cliente"
-			            },
-			            "Object": {
-			              "Role": "fact_factura_cabecera"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_clientes_have_fact_factura_cabeceras"
 			        }
 			      ]
 			    },
