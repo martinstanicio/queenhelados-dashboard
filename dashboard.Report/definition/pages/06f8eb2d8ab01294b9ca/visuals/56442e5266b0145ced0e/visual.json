@@ -52,6 +52,30 @@
             }
           ]
         },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FactRedesSociales"
+                        }
+                      },
+                      "Property": "Publicaciones"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(FactRedesSociales.Publicaciones)",
+              "nativeQueryRef": "Publicaciones",
+              "displayName": "Publicaciones"
+            }
+          ]
+        },
         "Y": {
           "projections": [
             {
