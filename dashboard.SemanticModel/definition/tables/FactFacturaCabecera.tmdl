@@ -13,10 +13,13 @@ table FactFacturaCabecera
 
 	column Fecha
 		dataType: dateTime
+		isHidden
 		formatString: Short Date
 		lineageTag: 5343d7bd-d308-4593-99be-94763ce46294
 		summarizeBy: none
 		sourceColumn: Fecha
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -24,10 +27,13 @@ table FactFacturaCabecera
 
 	column Hora
 		dataType: dateTime
+		isHidden
 		formatString: Short Time
 		lineageTag: 33a12bdc-5730-469b-9516-411182b39e85
 		summarizeBy: none
 		sourceColumn: Hora
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -43,10 +49,13 @@ table FactFacturaCabecera
 
 	column PuntoVenta
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: ac102a1e-42b0-43d9-90a2-33639ccef321
 		summarizeBy: none
 		sourceColumn: PuntoVenta
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -61,9 +70,12 @@ table FactFacturaCabecera
 
 	column CodigoSucursalCliente
 		dataType: string
+		isHidden
 		lineageTag: dd8f5450-5655-41ca-8d5a-9096a87ebf14
 		summarizeBy: none
 		sourceColumn: CodigoSucursalCliente
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

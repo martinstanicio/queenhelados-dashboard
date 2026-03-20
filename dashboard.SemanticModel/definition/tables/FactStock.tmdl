@@ -31,10 +31,13 @@ table FactStock
 
 	column Fecha
 		dataType: dateTime
-		formatString: Long Date
+		isHidden
+		formatString: Short Date
 		lineageTag: a914e2e6-465d-4056-9bc4-c89225c70777
 		summarizeBy: none
 		sourceColumn: Fecha
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -42,18 +45,24 @@ table FactStock
 
 	column IdSucursal
 		dataType: string
+		isHidden
 		lineageTag: 0cbb656c-55b9-4309-b8b0-a67d9cf9b384
 		summarizeBy: none
 		sourceColumn: IdSucursal
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
 	column CodigoProducto
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: fb379888-2936-4164-9d4f-bf6639a13790
 		summarizeBy: none
 		sourceColumn: CodigoProducto
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

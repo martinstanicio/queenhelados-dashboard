@@ -21,9 +21,12 @@ table DimFuente
 
 	column IdSucursal
 		dataType: string
+		isHidden
 		lineageTag: 5a59ce20-bf08-49a2-83d6-c086e9be587f
 		summarizeBy: none
 		sourceColumn: IdSucursal
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

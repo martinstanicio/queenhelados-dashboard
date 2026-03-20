@@ -3,9 +3,12 @@ table FactPago
 
 	column IdFactura
 		dataType: string
+		isHidden
 		lineageTag: ae1f1dc8-5682-498b-8524-a2dbde7af6d9
 		summarizeBy: none
 		sourceColumn: IdFactura
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

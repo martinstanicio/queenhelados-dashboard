@@ -3,18 +3,24 @@ table DimFacturaCuerpo
 
 	column IdFactura
 		dataType: string
+		isHidden
 		lineageTag: 6c8e7eec-1b56-4de6-90d6-4d79fac41233
 		summarizeBy: none
 		sourceColumn: IdFactura
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
 	column CodigoProducto
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: c70f6e94-f469-4958-a1d8-397138af3dc8
 		summarizeBy: none
 		sourceColumn: CodigoProducto
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

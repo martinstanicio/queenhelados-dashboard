@@ -14,9 +14,12 @@ table DimPuntoVenta
 
 	column IdSucursal
 		dataType: string
+		isHidden
 		lineageTag: 97530b2e-0caf-4256-8714-1f5f3d9ef1c3
 		summarizeBy: none
 		sourceColumn: IdSucursal
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

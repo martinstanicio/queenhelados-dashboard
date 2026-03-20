@@ -141,10 +141,13 @@ table FactWhatsApp
 
 	column Fecha
 		dataType: dateTime
+		isHidden
 		formatString: Short Date
 		lineageTag: 983257f9-6b22-4a49-858e-443cd87f3832
 		summarizeBy: none
 		sourceColumn: Fecha
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -152,9 +155,12 @@ table FactWhatsApp
 
 	column IdFuente
 		dataType: string
+		isHidden
 		lineageTag: 59b70882-5e81-4d31-ae72-8a1c3b1f9313
 		summarizeBy: none
 		sourceColumn: IdFuente
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

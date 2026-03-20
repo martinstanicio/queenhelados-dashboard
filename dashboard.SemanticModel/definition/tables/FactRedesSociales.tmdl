@@ -131,10 +131,13 @@ table FactRedesSociales
 
 	column Fecha
 		dataType: dateTime
+		isHidden
 		formatString: Short Date
 		lineageTag: cdd320dc-0c1e-4d34-9c9a-cc7afaa6fe45
 		summarizeBy: none
 		sourceColumn: Fecha
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -142,9 +145,12 @@ table FactRedesSociales
 
 	column IdFuente
 		dataType: string
+		isHidden
 		lineageTag: 723ba00e-1679-4397-9e05-1516e26d08df
 		summarizeBy: none
 		sourceColumn: IdFuente
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
