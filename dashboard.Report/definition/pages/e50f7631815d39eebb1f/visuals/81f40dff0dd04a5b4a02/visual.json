@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "81f40dff0dd04a5b4a02",
   "position": {
     "x": 960,
@@ -75,5 +75,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "5c40e4138c1ce099b07e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactStock"
+              }
+            },
+            "Property": "Stock Valorizado (Diario)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

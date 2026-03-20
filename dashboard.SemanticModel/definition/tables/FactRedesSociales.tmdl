@@ -22,58 +22,48 @@ table FactRedesSociales
 
 	measure CrecimientoAcumuladoSeguidores = ```
 			
-			VAR FechaEje =
-			    MAX ( DimCalendario[Fecha] )
-			VAR FechaInicioSlicer =
-			    CALCULATE (
-			        MIN ( DimCalendario[Fecha] ),
-			        ALLSELECTED ( DimCalendario )
-			    )
-			VAR SeguidoresBase =
-			    CALCULATE (
-			        SUM ( FactRedesSociales[Seguidores] ),
-			        TOPN (
-			            1,
+			SUMX (
+			    KEEPFILTERS (
+			        CROSSJOIN (
+			            VALUES ( DimFuente[IdFuente] ),
+			            ALLSELECTED ( FactRedesSociales[RedSocial] )
+			        )
+			    ),
+			    VAR FechaEje =
+			        MAX ( DimCalendario[Fecha] )
+			    VAR FechaInicioSlicer =
+			        CALCULATE ( MIN ( DimCalendario[Fecha] ), ALLSELECTED ( DimCalendario ) )
+			    VAR SeguidoresBase =
+			        CALCULATE (
+			            SUM ( FactRedesSociales[Seguidores] ),
+			            TOPN (
+			                1,
+			                FILTER (
+			                    ALL ( DimCalendario ),
+			                    DimCalendario[Fecha] <= FechaInicioSlicer
+			                        && NOT ISBLANK ( CALCULATE ( SUM ( FactRedesSociales[Seguidores] ) ) )
+			                ),
+			                DimCalendario[Fecha], DESC
+			            )
+			        )
+			    VAR UltimaFechaFuente =
+			        CALCULATE (
+			            MAX ( FactRedesSociales[Fecha] ),
 			            FILTER (
 			                ALL ( DimCalendario ),
-			                DimCalendario[Fecha] <= FechaInicioSlicer
-			                    && NOT ISBLANK (
-			                        CALCULATE (
-			                            SUM ( FactRedesSociales[Seguidores] )
-			                        )
-			                    )
-			            ),
-			            DimCalendario[Fecha], DESC
+			                DimCalendario[Fecha] <= FechaEje
+			                    && NOT ISBLANK ( CALCULATE ( SUM ( FactRedesSociales[Seguidores] ) ) )
+			            )
 			        )
-			    )
-			VAR UltimaFechaConDatos =
-			    CALCULATE (
-			        MAX ( FactRedesSociales[Fecha] ),
-			        FILTER (
+			    VAR SeguidoresHoy =
+			        CALCULATE (
+			            SUM ( FactRedesSociales[Seguidores] ),
 			            ALL ( DimCalendario ),
-			            DimCalendario[Fecha] <= FechaEje
-			                && NOT ISBLANK (
-			                    CALCULATE (
-			                        SUM ( FactRedesSociales[Seguidores] )
-			                    )
-			                )
+			            DimCalendario[Fecha] = UltimaFechaFuente
 			        )
-			    )
-			VAR SeguidoresHoy =
-			    CALCULATE (
-			        SUM ( FactRedesSociales[Seguidores] ),
-			        FILTER (
-			            ALL ( DimCalendario ),
-			            DimCalendario[Fecha] = UltimaFechaConDatos
-			        )
-			    )
-			VAR Resultado = SeguidoresHoy - SeguidoresBase
-			RETURN
-			    IF (
-			        ISBLANK ( UltimaFechaConDatos ),
-			        0,
-			        Resultado
-			    )
+			    RETURN
+			        IF ( ISBLANK ( UltimaFechaFuente ), 0, SeguidoresHoy - SeguidoresBase )
+			)
 			
 			```
 		formatString: #,0

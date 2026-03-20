@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "d503f4a3099255eb0984",
   "position": {
     "x": 640,
@@ -750,7 +750,7 @@
         "type": "Advanced"
       },
       {
-        "name": "4e08275d4bd1606d5d34",
+        "name": "137aabc5c2f773a6e497",
         "ordinal": 5,
         "field": {
           "Aggregation": {
@@ -761,14 +761,13 @@
                     "Entity": "DimFacturaCuerpo"
                   }
                 },
-                "Property": "SubtotalBruto"
+                "Property": "SubtotalNeto"
               }
             },
             "Function": 0
           }
         },
-        "type": "Advanced",
-        "howCreated": "User"
+        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

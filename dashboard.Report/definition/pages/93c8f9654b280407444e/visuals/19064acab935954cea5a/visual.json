@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "19064acab935954cea5a",
   "position": {
     "x": 320,
@@ -150,6 +150,16 @@
                     }
                   ],
                   "isToggled": true
+                },
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Enero'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
                 }
               ]
             }
@@ -229,12 +239,12 @@
                             },
                             {
                               "Literal": {
-                                "Value": "'Marzo'"
+                                "Value": "'Enero'"
                               }
                             },
                             {
                               "Literal": {
-                                "Value": "datetime'2026-03-01T00:00:00'"
+                                "Value": "datetime'2026-01-15T00:00:00'"
                               }
                             }
                           ]
@@ -291,7 +301,7 @@
                                 "1": [
                                   {
                                     "Literal": {
-                                      "Value": "'Marzo'"
+                                      "Value": "'Enero'"
                                     }
                                   }
                                 ]
@@ -300,7 +310,7 @@
                                 "2": [
                                   {
                                     "Literal": {
-                                      "Value": "datetime'2026-03-01T00:00:00'"
+                                      "Value": "datetime'2026-01-15T00:00:00'"
                                     }
                                   }
                                 ]
@@ -349,8 +359,8 @@
                         "valueMap": [
                           {
                             "0": "2026",
-                            "1": "Marzo",
-                            "2": "01/03/2026"
+                            "1": "Enero",
+                            "2": "15/01/2026"
                           }
                         ]
                       }
@@ -377,5 +387,51 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "55d59f4f6af748e337ef",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCalendario"
+              }
+            },
+            "Property": "Anio"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e3b446915c991ee660db",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCalendario"
+              }
+            },
+            "Property": "MesNombre"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "75760aa6bdf0d706c177",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCalendario"
+              }
+            },
+            "Property": "Fecha"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

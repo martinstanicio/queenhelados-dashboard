@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "5ab5551149704dd737ee",
   "position": {
     "x": 0,
@@ -467,5 +467,65 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "32d355bf9f35ad332e6a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCalendario"
+              }
+            },
+            "Property": "Fecha"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "90f92401b3173c8e69f1",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimFuente"
+              }
+            },
+            "Property": "NombreFuente"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a28969aab2318101b010",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactRedesSociales"
+              }
+            },
+            "Property": "RedSocial"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "18646230236d794ea09f",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactRedesSociales"
+              }
+            },
+            "Property": "CrecimientoAcumuladoSeguidores"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

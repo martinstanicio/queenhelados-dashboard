@@ -364,6 +364,39 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "470851a8ff17a2bbf330",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactRedesSociales"
+              }
+            },
+            "Property": "PublicacionesObjetivo"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "87f7a452b52e95438c43",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FactRedesSociales"
+                  }
+                },
+                "Property": "Publicaciones"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

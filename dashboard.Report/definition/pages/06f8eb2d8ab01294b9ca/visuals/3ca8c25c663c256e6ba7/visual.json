@@ -75,5 +75,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c6875151767d7ec6291d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactRedesSociales"
+              }
+            },
+            "Property": "Seguidores (Diario)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

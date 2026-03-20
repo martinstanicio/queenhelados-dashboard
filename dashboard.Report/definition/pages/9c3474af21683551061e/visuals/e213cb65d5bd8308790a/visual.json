@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "e213cb65d5bd8308790a",
   "position": {
     "x": 960,
@@ -185,24 +185,81 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "f3e5d50260eba5326d72",
+        "name": "015b0079001ccaed17e9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactFacturaCabecera"
+              }
+            },
+            "Property": "CondicionFiscal"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6336df0fc9b354c73b12",
         "field": {
           "Aggregation": {
             "Expression": {
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "DimFacturaCuerpo"
+                    "Entity": "FactFacturaCabecera"
                   }
                 },
-                "Property": "SubtotalBruto"
+                "Property": "IdFactura"
               }
             },
-            "Function": 0
+            "Function": 5
           }
         },
-        "type": "Advanced",
-        "howCreated": "User"
+        "type": "Advanced"
+      },
+      {
+        "name": "b104e670aa5bf6f2e5b1",
+        "field": {
+          "Arithmetic": {
+            "Left": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DimFacturaCuerpo"
+                      }
+                    },
+                    "Property": "SubtotalBruto"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "Right": {
+              "ScopedEval": {
+                "Expression": {
+                  "Aggregation": {
+                    "Expression": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimFacturaCuerpo"
+                          }
+                        },
+                        "Property": "SubtotalBruto"
+                      }
+                    },
+                    "Function": 0
+                  }
+                },
+                "Scope": []
+              }
+            },
+            "Operator": 3
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

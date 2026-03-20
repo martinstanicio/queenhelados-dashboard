@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "4118f96a15469335a4a1",
   "position": {
     "x": 640,
@@ -76,5 +76,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "5cf245abbf573de10a1a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimSucursal"
+              }
+            },
+            "Property": "NombreSucursal"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

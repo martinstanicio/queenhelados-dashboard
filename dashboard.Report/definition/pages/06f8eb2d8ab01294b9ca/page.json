@@ -19,7 +19,7 @@
             "Property": "Fecha"
           }
         },
-        "type": "Categorical",
+        "type": "RelativeDate",
         "filter": {
           "Version": 2,
           "From": [
@@ -32,70 +32,57 @@
           "Where": [
             {
               "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "d"
-                          }
-                        },
-                        "Property": "Fecha"
-                      }
+                "Between": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "d"
+                        }
+                      },
+                      "Property": "Fecha"
                     }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "datetime'2026-03-09T00:00:00'"
+                  },
+                  "LowerBound": {
+                    "DateSpan": {
+                      "Expression": {
+                        "DateAdd": {
+                          "Expression": {
+                            "DateAdd": {
+                              "Expression": {
+                                "DateAdd": {
+                                  "Expression": {
+                                    "Now": {}
+                                  },
+                                  "Amount": -1,
+                                  "TimeUnit": 0
+                                }
+                              },
+                              "Amount": 1,
+                              "TimeUnit": 0
+                            }
+                          },
+                          "Amount": -7,
+                          "TimeUnit": 0
                         }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "datetime'2026-03-10T00:00:00'"
+                      },
+                      "TimeUnit": 0
+                    }
+                  },
+                  "UpperBound": {
+                    "DateSpan": {
+                      "Expression": {
+                        "DateAdd": {
+                          "Expression": {
+                            "Now": {}
+                          },
+                          "Amount": -1,
+                          "TimeUnit": 0
                         }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "datetime'2026-03-12T00:00:00'"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "datetime'2026-03-13T00:00:00'"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "datetime'2026-03-14T00:00:00'"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "datetime'2026-03-15T00:00:00'"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "datetime'2026-03-11T00:00:00'"
-                        }
-                      }
-                    ]
-                  ]
+                      },
+                      "TimeUnit": 0
+                    }
+                  }
                 }
               }
             }
@@ -112,5 +99,97 @@
       }
     ]
   },
-  "visibility": "HiddenInViewMode"
+  "visibility": "HiddenInViewMode",
+  "visualInteractions": [
+    {
+      "source": "ecbbf042853582d90dcc",
+      "target": "505ab54a4934d35a1290",
+      "type": "NoFilter"
+    },
+    {
+      "source": "739abb0ab64c3092acc1",
+      "target": "505ab54a4934d35a1290",
+      "type": "NoFilter"
+    },
+    {
+      "source": "56442e5266b0145ced0e",
+      "target": "505ab54a4934d35a1290",
+      "type": "NoFilter"
+    },
+    {
+      "source": "56442e5266b0145ced0e",
+      "target": "739abb0ab64c3092acc1",
+      "type": "HighlightFilter"
+    },
+    {
+      "source": "ecbbf042853582d90dcc",
+      "target": "56442e5266b0145ced0e",
+      "type": "HighlightFilter"
+    },
+    {
+      "source": "5ab5551149704dd737ee",
+      "target": "ecbbf042853582d90dcc",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5ab5551149704dd737ee",
+      "target": "739abb0ab64c3092acc1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5ab5551149704dd737ee",
+      "target": "56442e5266b0145ced0e",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5ab5551149704dd737ee",
+      "target": "d3c757fca04e0e73389c",
+      "type": "NoFilter"
+    },
+    {
+      "source": "739abb0ab64c3092acc1",
+      "target": "d3c757fca04e0e73389c",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ecbbf042853582d90dcc",
+      "target": "d3c757fca04e0e73389c",
+      "type": "NoFilter"
+    },
+    {
+      "source": "56442e5266b0145ced0e",
+      "target": "d3c757fca04e0e73389c",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d3c757fca04e0e73389c",
+      "target": "ecbbf042853582d90dcc",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3c757fca04e0e73389c",
+      "target": "739abb0ab64c3092acc1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3c757fca04e0e73389c",
+      "target": "56442e5266b0145ced0e",
+      "type": "DataFilter"
+    },
+    {
+      "source": "739abb0ab64c3092acc1",
+      "target": "5ab5551149704dd737ee",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ecbbf042853582d90dcc",
+      "target": "5ab5551149704dd737ee",
+      "type": "NoFilter"
+    },
+    {
+      "source": "56442e5266b0145ced0e",
+      "target": "5ab5551149704dd737ee",
+      "type": "NoFilter"
+    }
+  ]
 }

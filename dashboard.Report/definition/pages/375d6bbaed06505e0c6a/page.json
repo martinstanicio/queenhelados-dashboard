@@ -19,7 +19,7 @@
             "Property": "Fecha"
           }
         },
-        "type": "Categorical",
+        "type": "RelativeDate",
         "filter": {
           "Version": 2,
           "From": [
@@ -32,70 +32,57 @@
           "Where": [
             {
               "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "d"
-                          }
-                        },
-                        "Property": "Fecha"
-                      }
+                "Between": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "d"
+                        }
+                      },
+                      "Property": "Fecha"
                     }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "datetime'2026-03-09T00:00:00'"
+                  },
+                  "LowerBound": {
+                    "DateSpan": {
+                      "Expression": {
+                        "DateAdd": {
+                          "Expression": {
+                            "DateAdd": {
+                              "Expression": {
+                                "DateAdd": {
+                                  "Expression": {
+                                    "Now": {}
+                                  },
+                                  "Amount": -1,
+                                  "TimeUnit": 0
+                                }
+                              },
+                              "Amount": 1,
+                              "TimeUnit": 0
+                            }
+                          },
+                          "Amount": -7,
+                          "TimeUnit": 0
                         }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "datetime'2026-03-10T00:00:00'"
+                      },
+                      "TimeUnit": 0
+                    }
+                  },
+                  "UpperBound": {
+                    "DateSpan": {
+                      "Expression": {
+                        "DateAdd": {
+                          "Expression": {
+                            "Now": {}
+                          },
+                          "Amount": -1,
+                          "TimeUnit": 0
                         }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "datetime'2026-03-11T00:00:00'"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "datetime'2026-03-12T00:00:00'"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "datetime'2026-03-13T00:00:00'"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "datetime'2026-03-14T00:00:00'"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "datetime'2026-03-15T00:00:00'"
-                        }
-                      }
-                    ]
-                  ]
+                      },
+                      "TimeUnit": 0
+                    }
+                  }
                 }
               }
             }

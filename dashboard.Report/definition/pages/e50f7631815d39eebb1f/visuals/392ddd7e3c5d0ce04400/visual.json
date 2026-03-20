@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "392ddd7e3c5d0ce04400",
   "position": {
     "x": 853.90835579514817,
@@ -395,6 +395,53 @@
             }
           ]
         }
+      },
+      {
+        "name": "58ce8a812e1555c50bd4",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactStock"
+              }
+            },
+            "Property": "Stock Valorizado (Máximo Histórico)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e62ecc32415708c1eaeb",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DimSucursal"
+                  }
+                },
+                "Property": "Stock Crítico"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "10afc4bdcd21f77df6ea",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactStock"
+              }
+            },
+            "Property": "Stock Valorizado (Diario)"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

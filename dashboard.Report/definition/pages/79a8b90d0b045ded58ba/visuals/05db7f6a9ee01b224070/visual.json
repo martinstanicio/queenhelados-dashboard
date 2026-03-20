@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "05db7f6a9ee01b224070",
   "position": {
     "x": 640,
@@ -263,5 +263,51 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9c01f8f19603e9677efd",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimFuente"
+              }
+            },
+            "Property": "NombreFuente"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9eac8b75c8125b8c5b19",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactWhatsApp"
+              }
+            },
+            "Property": "Contactos (Diario)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8d04b62f64f2d2a839ac",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactWhatsApp"
+              }
+            },
+            "Property": "SeguidoresCanal (Diario)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
