@@ -50,7 +50,8 @@
                 }
               },
               "queryRef": "Sum(DimSucursal.Stock Crítico)",
-              "nativeQueryRef": "Suma de Stock Crítico"
+              "nativeQueryRef": "Stock Crítico",
+              "displayName": "Stock Crítico"
             }
           ]
         },
