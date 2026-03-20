@@ -78,28 +78,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "f7458999c57e3122f9e6",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "DimFacturaCuerpo"
-                  }
-                },
-                "Property": "SubtotalBruto"
-              }
-            },
-            "Function": 6
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

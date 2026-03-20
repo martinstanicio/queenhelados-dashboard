@@ -396,53 +396,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "2140d2b78835d80c4357",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FactStock"
-              }
-            },
-            "Property": "Stock Valorizado (Máximo Histórico)"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "d521444bbb64bdc0bcf3",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "DimSucursal"
-                  }
-                },
-                "Property": "Stock Crítico"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "e2c4bb7879af4ff77b0d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FactStock"
-              }
-            },
-            "Property": "Stock Valorizado (Diario)"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

@@ -75,23 +75,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "0e37357163e1fad14da6",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FactWhatsApp"
-              }
-            },
-            "Property": "Contactos (Diario)"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

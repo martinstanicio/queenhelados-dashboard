@@ -82,7 +82,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "a741d12ef4b0762bdefb",
+        "name": "b2669be917e6a4bd3b95",
         "field": {
           "Aggregation": {
             "Expression": {

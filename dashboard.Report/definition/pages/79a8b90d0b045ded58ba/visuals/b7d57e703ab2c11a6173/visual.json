@@ -75,23 +75,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "71af20eb76072e92478f",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FactWhatsApp"
-              }
-            },
-            "Property": "CrecimientoAcumuladoContactos"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

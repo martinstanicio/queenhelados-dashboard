@@ -75,23 +75,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "a6562543eab4e7fbbdd9",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FactWhatsApp"
-              }
-            },
-            "Property": "SeguidoresCanal (Diario)"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

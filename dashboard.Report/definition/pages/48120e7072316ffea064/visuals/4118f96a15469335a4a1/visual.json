@@ -76,23 +76,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "5cf245abbf573de10a1a",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimSucursal"
-              }
-            },
-            "Property": "NombreSucursal"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }
