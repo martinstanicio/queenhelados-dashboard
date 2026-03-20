@@ -3308,7 +3308,7 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "fact_redes_sociale.color_red": {
+			    "fact_redes_sociale.color_red_social": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "FactRedesSociales",
@@ -3318,25 +3318,25 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "color red": {
+			          "color red social": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "ColorRed": {
+			          "ColorRedSocial": {
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
 			        },
 			        {
-			          "red": {
+			          "social": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
 			        },
 			        {
-			          "sore": {
+			          "community": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -3346,7 +3346,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "pink": {
+			          "common": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -3356,7 +3356,57 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "red-faced": {
+			          "public": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "collective": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "color red party": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        },
+			        {
+			          "color red get-together": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        },
+			        {
+			          "color red gathering": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        },
+			        {
+			          "party": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -3366,7 +3416,17 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "hearty": {
+			          "get-together": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        },
+			        {
+			          "gathering": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -3666,7 +3726,7 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "fact_redes_sociale_has_color_red": {
+			    "fact_redes_sociale_has_color_red_social": {
 			      "Binding": {
 			        "ConceptualEntity": "FactRedesSociales"
 			      },
@@ -3677,9 +3737,9 @@ cultureInfo en-US
 			            "Entity": "fact_redes_sociale"
 			          }
 			        },
-			        "fact_redes_sociale.color_red": {
+			        "fact_redes_sociale.color_red_social": {
 			          "Target": {
-			            "Entity": "fact_redes_sociale.color_red"
+			            "Entity": "fact_redes_sociale.color_red_social"
 			          }
 			        }
 			      },
@@ -3690,12 +3750,12 @@ cultureInfo en-US
 			              "Role": "fact_redes_sociale"
 			            },
 			            "Object": {
-			              "Role": "fact_redes_sociale.color_red"
+			              "Role": "fact_redes_sociale.color_red_social"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_redes_sociales_have_color_red"
+			          "ID": "fact_redes_sociales_have_color_red_social"
 			        }
 			      ]
 			    },
@@ -4293,6 +4353,39 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "dim_fuente_has_fact_whats_app_crecimiento_acumulado_seguidores_canal": {
+			      "Binding": {
+			        "ConceptualEntity": "DimFuente"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_fuente": {
+			          "Target": {
+			            "Entity": "dim_fuente"
+			          }
+			        },
+			        "fact_whats_app.crecimiento_acumulado_seguidores_canal": {
+			          "Target": {
+			            "Entity": "fact_whats_app.crecimiento_acumulado_seguidores_canal"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_fuente"
+			            },
+			            "Object": {
+			              "Role": "fact_whats_app.crecimiento_acumulado_seguidores_canal"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_fuentes_have_crecimiento_acumulado_seguidores_canal"
+			        }
+			      ]
+			    },
 			    "fact_whats_app_has_crecimiento_acumulado_contactos": {
 			      "Binding": {
 			        "ConceptualEntity": "FactWhatsApp"
@@ -4326,6 +4419,39 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "dim_fuente_has_fact_whats_app_crecimiento_acumulado_contactos": {
+			      "Binding": {
+			        "ConceptualEntity": "DimFuente"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_fuente": {
+			          "Target": {
+			            "Entity": "dim_fuente"
+			          }
+			        },
+			        "fact_whats_app.crecimiento_acumulado_contactos": {
+			          "Target": {
+			            "Entity": "fact_whats_app.crecimiento_acumulado_contactos"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_fuente"
+			            },
+			            "Object": {
+			              "Role": "fact_whats_app.crecimiento_acumulado_contactos"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_fuentes_have_crecimiento_acumulado_contactos"
+			        }
+			      ]
+			    },
 			    "fact_redes_sociale_has_crecimiento_acumulado_seguidores": {
 			      "Binding": {
 			        "ConceptualEntity": "FactRedesSociales"
@@ -4356,6 +4482,39 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_redes_sociales_have_crecimiento_acumulado_seguidores"
+			        }
+			      ]
+			    },
+			    "dim_fuente_has_fact_redes_sociale_crecimiento_acumulado_seguidores": {
+			      "Binding": {
+			        "ConceptualEntity": "DimFuente"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_fuente": {
+			          "Target": {
+			            "Entity": "dim_fuente"
+			          }
+			        },
+			        "fact_redes_sociale.crecimiento_acumulado_seguidores": {
+			          "Target": {
+			            "Entity": "fact_redes_sociale.crecimiento_acumulado_seguidores"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_fuente"
+			            },
+			            "Object": {
+			              "Role": "fact_redes_sociale.crecimiento_acumulado_seguidores"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_fuentes_have_crecimiento_acumulado_seguidores"
 			        }
 			      ]
 			    },
