@@ -97,27 +97,6 @@
       "dataPoint": [
         {
           "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Aggregation": {
-                      "Expression": {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "DimSucursal"
-                            }
-                          },
-                          "Property": "Color"
-                        }
-                      },
-                      "Function": 3
-                    }
-                  }
-                }
-              }
-            },
             "target": {
               "solid": {
                 "color": {
@@ -125,6 +104,17 @@
                     "ThemeDataColor": {
                       "ColorId": 1,
                       "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#A7E8D4'"
                     }
                   }
                 }
@@ -255,18 +245,8 @@
             },
             "text": {
               "expr": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "DimSucursal"
-                        }
-                      },
-                      "Property": "NombreSucursal"
-                    }
-                  },
-                  "Function": 3
+                "Literal": {
+                  "Value": "'Savio'"
                 }
               }
             }
@@ -396,6 +376,53 @@
             }
           ]
         }
+      },
+      {
+        "name": "4dee29fd2eca48c89ba5",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactStock"
+              }
+            },
+            "Property": "Stock Valorizado (Máximo Histórico)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "83617340575baebfe65d",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DimSucursal"
+                  }
+                },
+                "Property": "Stock Crítico"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ad4d12c328dfbadf404d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactStock"
+              }
+            },
+            "Property": "Stock Valorizado (Diario)"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

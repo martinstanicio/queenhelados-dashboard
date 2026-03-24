@@ -97,27 +97,6 @@
       "dataPoint": [
         {
           "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Aggregation": {
-                      "Expression": {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "DimSucursal"
-                            }
-                          },
-                          "Property": "Color"
-                        }
-                      },
-                      "Function": 3
-                    }
-                  }
-                }
-              }
-            },
             "target": {
               "solid": {
                 "color": {
@@ -125,6 +104,17 @@
                     "ThemeDataColor": {
                       "ColorId": 1,
                       "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#B4298E'"
                     }
                   }
                 }
@@ -255,18 +245,8 @@
             },
             "text": {
               "expr": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "DimSucursal"
-                        }
-                      },
-                      "Property": "NombreSucursal"
-                    }
-                  },
-                  "Function": 3
+                "Literal": {
+                  "Value": "'Del Viso'"
                 }
               }
             }
