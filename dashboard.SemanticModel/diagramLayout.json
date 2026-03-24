@@ -10,8 +10,8 @@
       "nodes": [
         {
           "location": {
-            "x": 944.737162188232,
-            "y": 738.114447157637
+            "x": 948.24982988226657,
+            "y": 400.90904797240535
           },
           "nodeIndex": "DimCalendario",
           "nodeLineageTag": "7c95a33a-df45-4365-9296-c4e154d2aed0",
@@ -23,8 +23,8 @@
         },
         {
           "location": {
-            "x": 224.16303610799559,
-            "y": 740.44425874109788
+            "x": 50,
+            "y": 414.05407617394189
           },
           "nodeIndex": "DimCliente",
           "nodeLineageTag": "32ab42d7-631c-451f-9a56-d9f9791b1f1a",
@@ -36,8 +36,8 @@
         },
         {
           "location": {
-            "x": 373.02140072433781,
-            "y": 127.16984593816915
+            "x": 687.81906384733361,
+            "y": 106.54237840094561
           },
           "nodeIndex": "DimFacturaCuerpo",
           "nodeLineageTag": "547e881e-575a-414c-9f63-cf4ea00db19f",
@@ -49,8 +49,8 @@
         },
         {
           "location": {
-            "x": 1617.9333854769393,
-            "y": 937.20586933442655
+            "x": 1584.0257901008997,
+            "y": 981.04875701488618
           },
           "nodeIndex": "DimFuente",
           "nodeLineageTag": "ab123d1f-e78f-4324-a61d-8d71987fc7d4",
@@ -62,7 +62,7 @@
         },
         {
           "location": {
-            "x": 662.93177696530313,
+            "x": 977.73578854209063,
             "y": -50
           },
           "nodeIndex": "DimProducto",
@@ -75,8 +75,8 @@
         },
         {
           "location": {
-            "x": 739.06181080847637,
-            "y": 533.14377825088309
+            "x": 658.39291493407211,
+            "y": 604.33142286929433
           },
           "nodeIndex": "DimPuntoVenta",
           "nodeLineageTag": "4007dea7-e5b2-4872-85f9-3a249a6db498",
@@ -88,8 +88,8 @@
         },
         {
           "location": {
-            "x": 1234.6504855612352,
-            "y": 491.73520749973795
+            "x": 1257.8781682064832,
+            "y": 532.08834382874647
           },
           "nodeIndex": "DimSucursal",
           "nodeLineageTag": "674bf895-d719-420b-9c65-b9d511bbc84d",
@@ -101,8 +101,8 @@
         },
         {
           "location": {
-            "x": 50,
-            "y": 558.5290828111149
+            "x": 209.93393509581392,
+            "y": 667.922980286379
           },
           "nodeIndex": "DimTiempo",
           "nodeLineageTag": "30957579-6781-4f99-9b3d-3e963fdc2b41",
@@ -114,8 +114,8 @@
         },
         {
           "location": {
-            "x": 370.85313454754953,
-            "y": 436.67923523083277
+            "x": 371.74588488341158,
+            "y": 364.89886621460926
           },
           "nodeIndex": "FactFacturaCabecera",
           "nodeLineageTag": "12629bd6-50b5-4710-822c-6374d4ee6534",
@@ -127,8 +127,8 @@
         },
         {
           "location": {
-            "x": 83.029756963213231,
-            "y": 354.75358055360539
+            "x": 50.045850290951421,
+            "y": 207.54959140531935
           },
           "nodeIndex": "FactPago",
           "nodeLineageTag": "f68acd15-fc02-4166-bb70-7b08dc24f1fe",
@@ -140,21 +140,21 @@
         },
         {
           "location": {
-            "x": 1279.9480030683221,
-            "y": 1099.3545829297191
+            "x": 1257.8786917033347,
+            "y": 863.38979412486447
           },
           "nodeIndex": "FactRedesSociales",
           "nodeLineageTag": "569273fb-8595-4184-96e0-cd1c561e5f78",
           "size": {
-            "height": 296,
+            "height": 300,
             "width": 234
           },
           "zIndex": 0
         },
         {
           "location": {
-            "x": 944.78477723604135,
-            "y": 205.94163881272516
+            "x": 1237.7323023370047,
+            "y": 205.94561578570165
           },
           "nodeIndex": "FactStock",
           "nodeLineageTag": "9a86a468-32c3-4ce6-83c6-e8e6c4980596",
@@ -166,8 +166,8 @@
         },
         {
           "location": {
-            "x": 1329.3301993751561,
-            "y": 746.2785569040052
+            "x": 1547.5000859431934,
+            "y": 631.635749401441
           },
           "nodeIndex": "FactWhatsApp",
           "nodeLineageTag": "43927ec9-b192-44f5-8190-8a74304e5309",
@@ -179,19 +179,20 @@
         },
         {
           "location": {
-            "x": 1851.9333854769393,
-            "y": 670.67729146485954
+            "x": 567.36877339970511,
+            "y": 860.37515531540942
           },
           "nodeIndex": "MeasuresTable",
+          "nodeLineageTag": "f54daf9a-7d54-48c1-9680-4ce8920fed58",
           "size": {
-            "height": 104,
+            "height": 128,
             "width": 234
           },
           "zIndex": 0
         }
       ],
       "name": "All tables",
-      "zoomValue": 49.894864033186948,
+      "zoomValue": 61.748614434786596,
       "pinKeyFieldsToTop": true,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

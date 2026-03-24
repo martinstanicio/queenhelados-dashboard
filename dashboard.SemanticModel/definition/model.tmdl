@@ -40,7 +40,7 @@ queryGroup 'Transform File from StockValorizado\Helper Queries'
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["DimCliente","DimFacturaCuerpo","DimProducto","DimPuntoVenta","DimSucursal","_FactFacturaBase","_FactPagoBase","_FactRedesSociales","_FacturasSinMedioDePago","Parameter (VentasPorArticulo)","Transform VentasPorArticulo Sample File","VentasPorArticulo Sample File","Transform VentasPorArticulo File","FactFacturaCabecera","FactPago","FactRedesSociales","FactStock","FactWhatsApp","Parameter (MovimientosDelDia)","Transform MovimientosDelDia Sample File","MovimientosDelDia Sample File","Transform MovimientosDelDia File","Parameter (StockValorizado)","Transform StockValorizado Sample File","StockValorizado Sample File","Transform StockValorizado File","SourceFolder","DimFuente","Measures (2)","MeasuresTable"]
+annotation PBI_QueryOrder = ["DimCliente","DimFacturaCuerpo","DimProducto","DimPuntoVenta","DimSucursal","_FactFacturaBase","_FactPagoBase","_FactRedesSociales","_FacturasSinMedioDePago","Parameter (VentasPorArticulo)","Transform VentasPorArticulo Sample File","VentasPorArticulo Sample File","Transform VentasPorArticulo File","FactFacturaCabecera","FactPago","FactRedesSociales","FactStock","FactWhatsApp","Parameter (MovimientosDelDia)","Transform MovimientosDelDia Sample File","MovimientosDelDia Sample File","Transform MovimientosDelDia File","Parameter (StockValorizado)","Transform StockValorizado Sample File","StockValorizado Sample File","Transform StockValorizado File","SourceFolder","DimFuente","MeasuresTable"]
 
 annotation PBI_ProTooling = ["DevMode","DaxQueryView_Desktop"]
 
