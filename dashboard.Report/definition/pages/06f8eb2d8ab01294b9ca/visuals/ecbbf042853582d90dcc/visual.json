@@ -453,51 +453,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "b096ee9821bd402a51a5",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimFuente"
-              }
-            },
-            "Property": "NombreFuente"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "d49745ad4256d94d1b40",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FactRedesSociales"
-              }
-            },
-            "Property": "RedSocial"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "bd9577223a2c24c26fca",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FactRedesSociales"
-              }
-            },
-            "Property": "Seguidores (Diario)"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
