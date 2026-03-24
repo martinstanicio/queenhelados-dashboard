@@ -69,10 +69,10 @@
                         "Column": {
                           "Expression": {
                             "SourceRef": {
-                              "Entity": "DimFacturaCuerpo"
+                              "Entity": "FactPago"
                             }
                           },
-                          "Property": "SubtotalBruto"
+                          "Property": "MontoPagado"
                         }
                       },
                       "Function": 0
@@ -86,10 +86,10 @@
                             "Column": {
                               "Expression": {
                                 "SourceRef": {
-                                  "Entity": "DimFacturaCuerpo"
+                                  "Entity": "FactPago"
                                 }
                               },
-                              "Property": "SubtotalBruto"
+                              "Property": "MontoPagado"
                             }
                           },
                           "Function": 0
@@ -101,8 +101,8 @@
                   "Operator": 3
                 }
               },
-              "queryRef": "Sum(DimFacturaCuerpo.SubtotalBruto)",
-              "nativeQueryRef": "%GT Sum of SubtotalBruto",
+              "queryRef": "Sum(FactPago.MontoPagado)",
+              "nativeQueryRef": "Venta Total",
               "displayName": "Venta Total"
             }
           ]
@@ -181,5 +181,29 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6206e37571536e050b3c",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FactPago"
+                  }
+                },
+                "Property": "MontoPagado"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      }
+    ]
   }
 }

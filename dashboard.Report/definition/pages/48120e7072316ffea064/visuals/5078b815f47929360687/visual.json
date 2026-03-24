@@ -107,16 +107,16 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "DimFacturaCuerpo"
+                          "Entity": "FactPago"
                         }
                       },
-                      "Property": "SubtotalBruto"
+                      "Property": "MontoPagado"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(DimFacturaCuerpo.SubtotalBruto)",
+              "queryRef": "Sum(FactPago.MontoPagado)",
               "nativeQueryRef": "Venta Total",
               "displayName": "Venta Total"
             }
@@ -132,10 +132,10 @@
                   "Column": {
                     "Expression": {
                       "SourceRef": {
-                        "Entity": "DimFacturaCuerpo"
+                        "Entity": "FactPago"
                       }
                     },
-                    "Property": "SubtotalBruto"
+                    "Property": "MontoPagado"
                   }
                 },
                 "Function": 0

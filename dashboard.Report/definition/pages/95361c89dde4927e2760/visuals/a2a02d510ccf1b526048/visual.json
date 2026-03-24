@@ -22,16 +22,16 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "DimFacturaCuerpo"
+                          "Entity": "FactPago"
                         }
                       },
-                      "Property": "SubtotalBruto"
+                      "Property": "MontoPagado"
                     }
                   },
                   "Function": 6
                 }
               },
-              "queryRef": "Sum(DimFacturaCuerpo.SubtotalBruto)",
+              "queryRef": "Sum(FactPago.MontoPagado)",
               "nativeQueryRef": "Ticket Promedio",
               "displayName": "Ticket Promedio"
             }
@@ -47,10 +47,10 @@
                   "Column": {
                     "Expression": {
                       "SourceRef": {
-                        "Entity": "DimFacturaCuerpo"
+                        "Entity": "FactPago"
                       }
                     },
-                    "Property": "SubtotalBruto"
+                    "Property": "MontoPagado"
                   }
                 },
                 "Function": 6

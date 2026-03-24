@@ -195,8 +195,8 @@ Catálogo completo de productos y sus características.
 | 1007           | 360 X 12 DULCE DE LECHE | Caja         | Taza      | Acapulco |
 | ...            | ...                     | ...          | ...       | ...      |
 
-> [!WARNING]
-> El dashboard solo analiza productos que existen en este archivo. Si un producto no está aquí, no aparecerá en el análisis aunque esté en ventas.
+> [!TIP]
+> Solo se deben incluir aquellos productos cuya venta se desea analizar. Si un producto no está en este archivo, no aparecerá en el análisis de la página **Productos**.
 
 ### 5. Archivo de Sucursales (`sucursales.xlsx`)
 
