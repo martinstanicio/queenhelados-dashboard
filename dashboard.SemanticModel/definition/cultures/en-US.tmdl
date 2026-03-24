@@ -629,6 +629,9 @@ cultureInfo en-US
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "fecha": {
@@ -652,6 +655,9 @@ cultureInfo en-US
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "hora": {
@@ -1138,6 +1144,9 @@ cultureInfo en-US
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "fecha": {
@@ -1863,6 +1872,9 @@ cultureInfo en-US
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "fecha": {
@@ -2209,6 +2221,9 @@ cultureInfo en-US
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "fecha": {
@@ -4729,39 +4744,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "fact_whats_app_has_fecha": {
-			      "Binding": {
-			        "ConceptualEntity": "FactWhatsApp"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_whats_app": {
-			          "Target": {
-			            "Entity": "fact_whats_app"
-			          }
-			        },
-			        "fact_whats_app.fecha": {
-			          "Target": {
-			            "Entity": "fact_whats_app.fecha"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_whats_app"
-			            },
-			            "Object": {
-			              "Role": "fact_whats_app.fecha"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_whats_apps_have_fechas"
-			        }
-			      ]
-			    },
 			    "fact_redes_sociale_has_seguidores_diario": {
 			      "Binding": {
 			        "ConceptualEntity": "FactRedesSociales"
@@ -4957,39 +4939,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_redes_sociales_have_red_socials"
-			        }
-			      ]
-			    },
-			    "fact_redes_sociale_has_fecha": {
-			      "Binding": {
-			        "ConceptualEntity": "FactRedesSociales"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_redes_sociale": {
-			          "Target": {
-			            "Entity": "fact_redes_sociale"
-			          }
-			        },
-			        "fact_redes_sociale.fecha": {
-			          "Target": {
-			            "Entity": "fact_redes_sociale.fecha"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_redes_sociale"
-			            },
-			            "Object": {
-			              "Role": "fact_redes_sociale.fecha"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_redes_sociales_have_fechas"
 			        }
 			      ]
 			    },
@@ -5570,39 +5519,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "fact_stock_has_fecha": {
-			      "Binding": {
-			        "ConceptualEntity": "FactStock"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_stock": {
-			          "Target": {
-			            "Entity": "fact_stock"
-			          }
-			        },
-			        "fact_stock.fecha": {
-			          "Target": {
-			            "Entity": "fact_stock.fecha"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_stock"
-			            },
-			            "Object": {
-			              "Role": "fact_stock.fecha"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_stocks_have_fechas"
-			        }
-			      ]
-			    },
 			    "dim_tiempo_has_franja_horaria": {
 			      "Binding": {
 			        "ConceptualEntity": "DimTiempo"
@@ -5976,72 +5892,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_factura_cabeceras_have_condicion_fiscals"
-			        }
-			      ]
-			    },
-			    "fact_factura_cabecera_has_hora": {
-			      "Binding": {
-			        "ConceptualEntity": "FactFacturaCabecera"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_factura_cabecera": {
-			          "Target": {
-			            "Entity": "fact_factura_cabecera"
-			          }
-			        },
-			        "fact_factura_cabecera.hora": {
-			          "Target": {
-			            "Entity": "fact_factura_cabecera.hora"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_factura_cabecera"
-			            },
-			            "Object": {
-			              "Role": "fact_factura_cabecera.hora"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_factura_cabeceras_have_horas"
-			        }
-			      ]
-			    },
-			    "fact_factura_cabecera_has_fecha": {
-			      "Binding": {
-			        "ConceptualEntity": "FactFacturaCabecera"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_factura_cabecera": {
-			          "Target": {
-			            "Entity": "fact_factura_cabecera"
-			          }
-			        },
-			        "fact_factura_cabecera.fecha": {
-			          "Target": {
-			            "Entity": "fact_factura_cabecera.fecha"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_factura_cabecera"
-			            },
-			            "Object": {
-			              "Role": "fact_factura_cabecera.fecha"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_factura_cabeceras_have_fechas"
 			        }
 			      ]
 			    },
