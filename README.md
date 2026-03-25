@@ -103,12 +103,12 @@ El parámetro `SourceFolder` debe apuntar a una carpeta que contenga las siguien
 ```text
 SourceFolder/
 ├── movimientos-del-dia/
-│   ├── 20260315-pilar.XLS
 │   ├── 20260315-escobar.XLS
+│   ├── 20260315-pilar.XLS
 │   └── ...
 ├── stock/
-│   ├── 20260315-pilar.XLS
 │   ├── 20260315-escobar.XLS
+│   ├── 20260315-pilar.XLS
 │   └── ...
 ├── ventas-por-articulo/
 │   ├── 20260301-20260307-escobar.XLS
