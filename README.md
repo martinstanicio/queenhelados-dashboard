@@ -10,6 +10,7 @@ Un tablero completo de Business Intelligence desarrollado en Power BI para anali
 - [Estructura del Proyecto](#estructura-del-proyecto)
 - [Estructura de Datos](#estructura-de-datos)
 - [Características Principales](#características-principales)
+- [Modelo de Datos](#modelo-de-datos)
 - [Flujo de Datos](#flujo-de-datos)
 - [Uso del Dashboard](#uso-del-dashboard)
 - [Notas Importantes](#notas-importantes)
@@ -282,6 +283,130 @@ Estadísticas diarias de redes sociales y WhatsAp, almacenadas en Google Sheets 
 - Análisis de engagement (alcance e interacciones)
 - Cumplimiento del objetivo de publicaciones diarias
 - Crecimiento de contactos y seguidores del canal de WhatsApp
+
+## Modelo de Datos
+
+El modelo utiliza una arquitectura de **esquema snowflake** con tablas de dimensiones y hechos:
+
+```mermaid
+erDiagram
+    DimProducto ||--o{ DimFacturaCuerpo : "CodigoProducto"
+    DimCliente ||--o{ FactFacturaCabecera : "CodigoSucursalCliente"
+    FactFacturaCabecera ||--o{ DimFacturaCuerpo : "IdFactura"
+    DimTiempo ||--o{ FactFacturaCabecera : "Hora"
+    DimProducto ||--o{ FactStock : "CodigoProducto"
+    DimSucursal ||--o{ DimPuntoVenta : "IdSucursal"
+    DimPuntoVenta ||--o{ FactFacturaCabecera : "PuntoVenta"
+    DimSucursal ||--o{ FactStock : "IdSucursal"
+    FactFacturaCabecera ||--o{ FactPago : "IdFactura"
+    DimCalendario ||--o{ FactFacturaCabecera : "Fecha"
+    DimCalendario ||--o{ FactStock : "Fecha"
+    DimSucursal ||--o{ DimFuente : "IdSucursal"
+    DimCalendario ||--o{ FactRedesSociales : "Fecha"
+    DimCalendario ||--o{ FactWhatsApp : "Fecha"
+    DimFuente ||--o{ FactWhatsApp : "IdFuente"
+    DimFuente ||--o{ FactRedesSociales : "IdFuente"
+
+    DimCalendario {
+        date Fecha PK
+        int Anio
+        int Mes
+        string MesNombre
+        int Dia
+        string DiaSemana
+        int DiaSemanaNumero
+    }
+
+    DimCliente {
+        string CodigoSucursalCliente PK
+        int64 NumeroCliente
+        string NombreCliente
+        string Categoria
+    }
+
+    DimFacturaCuerpo {
+        string IdFactura FK
+        int64 CodigoProducto FK
+        int64 Cantidad
+        double PrecioUnitario
+        double SubtotalNeto
+        double SubtotalBruto
+    }
+
+    DimFuente {
+        string IdFuente PK
+        string NombreFuente
+        string IdSucursal FK
+    }
+
+    DimProducto {
+        int64 CodigoProducto PK
+        string NombreProducto
+        string Presentacion
+        string Categoria
+        string Marca
+    }
+
+    DimPuntoVenta {
+        int64 PuntoVenta PK
+        string IdSucursal FK
+    }
+
+    DimSucursal {
+        string IdSucursal PK
+        string NombreSucursal
+        string Direccion
+        string Color
+        double StockCritico
+    }
+
+    DimTiempo {
+        time Hora
+        string FranjaHoraria
+    }
+
+    FactFacturaCabecera {
+        string IdFactura PK
+        dateTime Fecha FK
+        dateTime Hora FK
+        string CondicionFiscal
+        int64 PuntoVenta FK
+        int64 NumeroFactura
+        string CodigoSucursalCliente FK
+    }
+
+    FactPago {
+        string IdFactura FK
+        string MedioPago
+        double MontoPagado
+    }
+
+    FactRedesSociales {
+        dateTime Fecha FK
+        string IdFuente FK
+        string RedSocial
+        int64 Seguidores
+        int64 Alcance
+        int64 Interacciones
+        int64 Publicaciones
+    }
+
+    FactStock {
+        dateTime Fecha FK
+        string IdSucursal FK
+        int64 CodigoProducto FK
+        int64 Cantidad
+        double PrecioUnitario
+        double Subtotal
+    }
+
+    FactWhatsApp {
+        dateTime Fecha FK
+        string IdFuente FK
+        int64 Contactos
+        int64 SeguidoresCanal
+    }
+```
 
 ## Flujo de Datos
 
