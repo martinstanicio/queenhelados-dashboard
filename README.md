@@ -460,6 +460,22 @@ graph LR
 
 ## Uso del Dashboard
 
+### Páginas Principales
+
+El dashboard contiene múltiples páginas para diferentes análisis:
+
+- **Ventas** - Ventas de cualquier período de tiempo que se desee.
+- **Stock** - Stock valorizado de cualquier fecha que se desee.
+- **Stock del día** - Stock valorizado solo del día en curso.
+- **Ventas del día** - Ventas solo del día en curso.
+- **Ventas de la semana** - Ventas solo de la semana anterior.
+- **Ventas del mes** - Ventas solo del mes anterior.
+- **Clientes** - Mejores clientes según su facturación y cómo se comparan con la facturación a consumidor final y Pedidos Ya.
+- **Productos** - Productos más vendidos por categoría, presentación o marca.
+- **WhatsApp (semanal)** - Cantidad total y variación de contactos y seguidores del canal de WhatsApp.
+- **Redes sociales (semanal)** - Cantidad total y variación de seguidores, además del alcance y las interacciones.
+- **Publicaciones (semanal)** - Cuántas publicaciones se subieron en los últimos 7 días y cómo se compara con el objetivo.
+
 ### Interacción con Filtros
 
 Todos los visuales están conectados. Al seleccionar elementos como:
