@@ -91,6 +91,26 @@
               "nativeQueryRef": "Cantidad de Tickets",
               "displayName": "Cantidad de Tickets",
               "format": "#,0"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimCalendario"
+                        }
+                      },
+                      "Property": "Fecha"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(DimCalendario.Fecha)",
+              "nativeQueryRef": "Fecha",
+              "displayName": "Fecha"
             }
           ]
         },
@@ -426,5 +446,108 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b733dcf665e4722f69bb",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCalendario"
+              }
+            },
+            "Property": "Dia"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d5a404b7f8ab43ec57aa",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCalendario"
+              }
+            },
+            "Property": "DiaSemana"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e44698a21dadf15805b7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactPago"
+              }
+            },
+            "Property": "MedioPago"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8019ea79a478c865cee7",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FactFacturaCabecera"
+                  }
+                },
+                "Property": "IdFactura"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "970ddf0e7c3cb642ff00",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FactPago"
+                  }
+                },
+                "Property": "MontoPagado"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7b73ee5658e3083f9f3c",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DimCalendario"
+                  }
+                },
+                "Property": "Fecha"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "2bfb263f0e8ae46730d9",
   "displayName": "Ventas del mes",
   "displayOption": "FitToPage",
@@ -32,8 +32,9 @@
           "Where": [
             {
               "Condition": {
-                "Between": {
-                  "Expression": {
+                "Comparison": {
+                  "ComparisonKind": 0,
+                  "Left": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
@@ -43,44 +44,12 @@
                       "Property": "Fecha"
                     }
                   },
-                  "LowerBound": {
+                  "Right": {
                     "DateSpan": {
                       "Expression": {
-                        "DateAdd": {
-                          "Expression": {
-                            "DateAdd": {
-                              "Expression": {
-                                "DateAdd": {
-                                  "Expression": {
-                                    "Now": {}
-                                  },
-                                  "Amount": -1,
-                                  "TimeUnit": 0
-                                }
-                              },
-                              "Amount": 1,
-                              "TimeUnit": 0
-                            }
-                          },
-                          "Amount": -1,
-                          "TimeUnit": 2
-                        }
+                        "Now": {}
                       },
-                      "TimeUnit": 0
-                    }
-                  },
-                  "UpperBound": {
-                    "DateSpan": {
-                      "Expression": {
-                        "DateAdd": {
-                          "Expression": {
-                            "Now": {}
-                          },
-                          "Amount": -1,
-                          "TimeUnit": 0
-                        }
-                      },
-                      "TimeUnit": 0
+                      "TimeUnit": 2
                     }
                   }
                 }
