@@ -78,28 +78,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "c1c50d4e3536ea2fc92e",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "FactPago"
-                  }
-                },
-                "Property": "MontoPagado"
-              }
-            },
-            "Function": 6
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
