@@ -465,17 +465,71 @@ graph LR
 
 El dashboard contiene múltiples páginas para diferentes análisis:
 
-- **Ventas** - Ventas de cualquier período de tiempo que se desee.
-- **Stock** - Stock valorizado de cualquier fecha que se desee.
-- **Stock del día** - Stock valorizado solo del día en curso.
-- **Ventas del día** - Ventas solo del día en curso.
-- **Ventas de la semana** - Ventas solo de la semana anterior.
-- **Ventas del mes** - Ventas solo del mes anterior.
-- **Clientes** - Mejores clientes según su facturación y cómo se comparan con la facturación a consumidor final y Pedidos Ya.
-- **Productos** - Productos más vendidos por categoría, presentación o marca.
-- **WhatsApp (semanal)** - Cantidad total y variación de contactos y seguidores del canal de WhatsApp.
-- **Redes sociales (semanal)** - Cantidad total y variación de seguidores, además del alcance y las interacciones.
-- **Publicaciones (semanal)** - Cuántas publicaciones se subieron en los últimos 7 días y cómo se compara con el objetivo.
+#### Ventas
+
+Ventas de cualquier período de tiempo que se desee.
+
+![Ventas](public/ventas.jpg)
+
+#### Stock
+
+Stock valorizado de cualquier fecha que se desee.
+
+![Stock](public/stock.jpg)
+
+#### Stock del día
+
+Stock valorizado solo del día en curso.
+
+![Stock del día](public/stock-del-dia.jpg)
+
+#### Ventas del día
+
+Ventas solo del día en curso.
+
+![Ventas del día](public/ventas-del-dia.jpg)
+
+#### Ventas de la semana
+
+Ventas solo de la semana anterior.
+
+![Ventas de la semana](public/ventas-de-la-semana.jpg)
+
+#### Ventas del mes
+
+Ventas solo del mes anterior.
+
+![Ventas del mes](public/ventas-del-mes.jpg)
+
+#### Clientes
+
+Mejores clientes según su facturación y cómo se comparan con la facturación a consumidor final y Pedidos Ya.
+
+![Clientes](public/clientes.jpg)
+
+#### Productos
+
+Productos más vendidos por categoría, presentación o marca.
+
+![Productos](public/productos.jpg)
+
+#### WhatsApp (semanal)
+
+Cantidad total y variación de contactos y seguidores del canal de WhatsApp.
+
+![WhatsApp (semanal)](public/whatsapp-semanal.jpg)
+
+#### Redes sociales (semanal)
+
+Cantidad total y variación de seguidores, además del alcance y las interacciones.
+
+![Redes sociales (semanal)](public/redes-sociales-semanal.jpg)
+
+#### Publicaciones (semanal)
+
+Cuántas publicaciones se subieron en los últimos 7 días y cómo se compara con el objetivo.
+
+![Publicaciones (semanal)](public/publicaciones-semanal.jpg)
 
 ### Interacción con Filtros
 
