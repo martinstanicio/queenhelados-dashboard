@@ -13,6 +13,7 @@ Un tablero completo de Business Intelligence desarrollado en Power BI para anali
 - [Modelo de Datos](#modelo-de-datos)
 - [Flujo de Datos](#flujo-de-datos)
 - [Uso del Dashboard](#uso-del-dashboard)
+- [Errores Comunes y Soluciones](#errores-comunes-y-soluciones)
 - [Notas Importantes](#notas-importantes)
 
 ## Introducción
@@ -492,6 +493,51 @@ Es posible realizar este filtrado con cualquiera de los datos disponibles, lo qu
 Para la fácil visualización del dashboard, sin necesidad de utilizar Power BI Desktop, es posible exportar todas las páginas no ocultas a un archivo PDF (Archivo > Exportar > Exportar como PDF). Sin embargo, este archivo PDF no es interactivo, por lo que no es posible aplicar filtros o interactuar con los visuales.
 
 También es posible exportar los datos detrás de cada visual a un archivo CSV. Para esto, haz clic en los tres puntos (...) de cualquier visual y selecciona "Exportar datos".
+
+## Errores Comunes y Soluciones
+
+La integridad del dashboard depende de la estandarización de los archivos de entrada. Si la actualización falla, verificá los siguientes puntos:
+
+> [!CAUTION]
+> El 90% de los errores de este tablero son de origen humano durante la exportación del sistema de gestión. Verificá siempre que los archivos respeten la estructura mencionada arriba.
+
+### Archivo de origen en carpeta incorrecta
+
+> Se guardó un reporte en una ruta que no le corresponde (por ejemplo, un archivo de `stock` dentro de la carpeta `movimientos-del-dia`).
+
+Verificá el contenido del Excel. Power Query espera una estructura de columnas específica para los archivos de cada carpeta; si los encabezados no coinciden con lo esperado para esa ruta, no podrá cargar los datos y mostrará un error.
+
+### Nomenclatura de archivo fuera de estándar
+
+> El nombre del archivo no sigue el patrón `AAAAMMDD-sucursal.XLS` (ejemplo: `20262103-pilar.XLS` en lugar de `20260321-pilar.XLS`).
+
+Corregí el nombre del archivo manualmente. Power Query utiliza la posición de los caracteres para extraer la fecha y la sucursal; **un solo dígito fuera de lugar** causará que la información sea cargada con valores incorrectos, o que no se cargue en absoluto.
+
+> [!TIP]
+> Internamente, solo los archivos dentro de la carpeta `stock` utilizan la fecha y la sucursal extraídas del nombre del archivo. Para los archivos de `movimientos-del-dia` y `ventas-por-articulo`, la fecha y la sucursal se extraen de los datos dentro del Excel.
+>
+> Sin embargo, es importante mantener la nomenclatura correcta en todas las carpetas para evitar confusiones y garantizar la trazabilidad de los archivos.
+
+### Inconsistencia en Identificadores de Sucursal
+
+> El nombre de la sucursal escrito en el archivo no coincide exactamente con el `IdSucursal` definido en el archivo maestro `sucursales.xlsx` (ejemplo: usar `AAAAMMDD-del-viso.XLS` si el ID configurado es `delviso`).
+
+Asegurate de que el sufijo del archivo coincida con los IDs del sistema, prestando especial atención a las **mayúsculas, minúsculas, guiones, espacios y acentos**.
+
+### Presencia de subcarpetas en directorios de datos
+
+> Existe una carpeta adicional dentro de las rutas de origen (ejemplo: `./movimientos-del-dia/abc/`).
+
+**Eliminá cualquier carpeta** que esté dentro de cualquiera de las tres carpetas de datos (`movimientos-del-dia`, `stock`, `ventas-por-articulo`). La presencia de subcarpetas genera un error en la lectura de archivos.
+
+### Bloqueo de sesión en Google Sheets
+
+> La hoja de cálculo de Google (Google Sheets) que funciona como "puente" para Redes Sociales y WhatsApp está abierta en un navegador durante la actualización del dashboard.
+
+Cerrá la pestaña de Google Sheets. Tener abierta la hoja de cálculo puede bloquear el acceso de Power BI a la misma.
+
+> [!NOTE]
+> Por esta razón se utiliza una hoja de cálculo "puente" que se actualiza automáticamente, para permitir que los usuarios puedan seguir utilizando la hoja de cálculo con las respuestas del formulario.
 
 ## Notas Importantes
 
