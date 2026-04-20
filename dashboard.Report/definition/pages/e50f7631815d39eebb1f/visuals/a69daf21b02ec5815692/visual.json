@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "a69daf21b02ec5815692",
   "position": {
     "x": 0,
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "El stock máximo que muestra el indicador de cada sucursal es el stock valorizado máximo histórico. La barra negra es el indicador del stock crítico."
+                    "value": "El stock máximo que muestra el indicador de cada sucursal es el stock valorizado máximo de los últimos 7 días. La barra negra es el indicador del stock crítico."
                   }
                 ],
                 "horizontalTextAlignment": "center"

@@ -23,11 +23,11 @@
                       "Entity": "FactStock"
                     }
                   },
-                  "Property": "Stock Valorizado (Máximo Histórico)"
+                  "Property": "Stock Valorizado (Máximo 7 Días)"
                 }
               },
-              "queryRef": "FactStock.Stock Valorizado Máximo",
-              "nativeQueryRef": "Stock Valorizado (Máximo Histórico)"
+              "queryRef": "FactStock.Stock Valorizado (Máximo 7 Días)",
+              "nativeQueryRef": "Stock Valorizado (Máximo 7 Días)"
             }
           ]
         },
