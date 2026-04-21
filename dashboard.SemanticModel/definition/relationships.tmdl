@@ -7,6 +7,7 @@ relationship AutoDetected_f9f40c0e-2ec5-49df-bd9d-4b563a6d6681
 	toColumn: DimCliente.CodigoSucursalCliente
 
 relationship AutoDetected_e5158625-58dd-4ab4-aac2-8e73b414acf4
+	crossFilteringBehavior: bothDirections
 	fromColumn: DimFacturaCuerpo.IdFactura
 	toColumn: FactFacturaCabecera.IdFactura
 
@@ -46,6 +47,7 @@ relationship 022d4386-d484-024d-d2a2-63eb647a29e0
 	toColumn: DimCalendario.Fecha
 
 relationship AutoDetected_4da6552e-2835-4b8e-86ea-dcfd67d43cfd
+	isActive: false
 	fromColumn: DimFuente.IdSucursal
 	toColumn: DimSucursal.IdSucursal
 
@@ -63,5 +65,9 @@ relationship 387a4d61-68cd-b6ec-f45a-b31556ba5791
 
 relationship f74b0d7d-0e6b-f310-dd8e-7cdeb8272401
 	fromColumn: FactRedesSociales.IdFuente
+	toColumn: DimFuente.IdFuente
+
+relationship 8a69253e-ef42-c125-160e-be29e3af260d
+	fromColumn: DimFacturaCuerpo.IdFuente
 	toColumn: DimFuente.IdFuente
 

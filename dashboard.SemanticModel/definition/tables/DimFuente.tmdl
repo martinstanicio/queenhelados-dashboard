@@ -30,6 +30,14 @@ table DimFuente
 
 		annotation SummarizationSetBy = Automatic
 
+	column Color
+		dataType: string
+		lineageTag: b8197917-d3f9-44de-a90c-7f77b9251dff
+		summarizeBy: none
+		sourceColumn: Color
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimFuente = m
 		mode: import
 		queryGroup: 'Dimension Tables'
@@ -38,7 +46,7 @@ table DimFuente
 				    Source = Excel.Workbook(File.Contents(Text.Combine({SourceFolder, "\fuentes.xlsx"})), null, true),
 				    Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
 				    #"Promoted Headers" = Table.PromoteHeaders(Sheet, [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"IdFuente", type text}, {"NombreFuente", type text}, {"IdSucursal", type text}})
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"IdFuente", type text}, {"NombreFuente", type text}, {"IdSucursal", type text}, {"Color", type text}})
 				in
 				    #"Changed Type"
 

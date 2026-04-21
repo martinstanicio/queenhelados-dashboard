@@ -3445,23 +3445,111 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "dim_factura_cuerpo.id_fuente": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DimFacturaCuerpo",
+			          "ConceptualProperty": "IdFuente"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "id fuente": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "IdFuente": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "identification fuente": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identity fuente": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identifier fuente": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "credential fuente": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "fact_stock.stock_valorizado_máximo_7_días": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FactStock",
+			          "ConceptualProperty": "Stock Valorizado (Máximo 7 Días)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "stock valorizado (máximo 7 días)": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "stock valorizado": {
+			            "State": "Generated",
+			            "Weight": 0.75
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
-			    "fact_factura_cabecera_has_dim_cliente": {
+			    "dim_factura_cuerpo_has_dim_fuente": {
 			      "Binding": {
-			        "ConceptualEntity": "FactFacturaCabecera"
+			        "ConceptualEntity": "DimFacturaCuerpo"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "fact_factura_cabecera": {
+			        "dim_factura_cuerpo": {
 			          "Target": {
-			            "Entity": "fact_factura_cabecera"
+			            "Entity": "dim_factura_cuerpo"
 			          }
 			        },
-			        "dim_cliente": {
+			        "dim_fuente": {
 			          "Target": {
-			            "Entity": "dim_cliente"
+			            "Entity": "dim_fuente"
 			          }
 			        }
 			      },
@@ -3469,28 +3557,28 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "fact_factura_cabecera"
+			              "Role": "dim_factura_cuerpo"
 			            },
 			            "Object": {
-			              "Role": "dim_cliente"
+			              "Role": "dim_fuente"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_factura_cabeceras_have_dim_clientes"
+			          "ID": "dim_factura_cuerpos_have_dim_fuentes"
 			        },
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "dim_cliente"
+			              "Role": "dim_fuente"
 			            },
 			            "Object": {
-			              "Role": "fact_factura_cabecera"
+			              "Role": "dim_factura_cuerpo"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dim_clientes_have_fact_factura_cabeceras"
+			          "ID": "dim_fuentes_have_dim_factura_cuerpos"
 			        }
 			      ]
 			    },
@@ -3586,6 +3674,72 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "fact_stock_has_stock_valorizado_máximo_7_días": {
+			      "Binding": {
+			        "ConceptualEntity": "FactStock"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_stock": {
+			          "Target": {
+			            "Entity": "fact_stock"
+			          }
+			        },
+			        "fact_stock.stock_valorizado_máximo_7_días": {
+			          "Target": {
+			            "Entity": "fact_stock.stock_valorizado_máximo_7_días"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_stock"
+			            },
+			            "Object": {
+			              "Role": "fact_stock.stock_valorizado_máximo_7_días"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_stocks_have_stock_valorizado_máximo_7_días"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_fact_stock_stock_valorizado_máximo_7_días": {
+			      "Binding": {
+			        "ConceptualEntity": "DimCalendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "fact_stock.stock_valorizado_máximo_7_días": {
+			          "Target": {
+			            "Entity": "fact_stock.stock_valorizado_máximo_7_días"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "fact_stock.stock_valorizado_máximo_7_días"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_stock_valorizado_máximo_7_días"
+			        }
+			      ]
+			    },
 			    "measures_table_has_legend": {
 			      "Binding": {
 			        "ConceptualEntity": "MeasuresTable"
@@ -3649,204 +3803,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_redes_sociales_have_color_red_social"
-			        }
-			      ]
-			    },
-			    "fact_whats_app_has_measures_table_score_queen": {
-			      "Binding": {
-			        "ConceptualEntity": "FactWhatsApp"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_whats_app": {
-			          "Target": {
-			            "Entity": "fact_whats_app"
-			          }
-			        },
-			        "measures_table.score_queen": {
-			          "Target": {
-			            "Entity": "measures_table.score_queen"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_whats_app"
-			            },
-			            "Object": {
-			              "Role": "measures_table.score_queen"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_whats_apps_have_score_queen"
-			        }
-			      ]
-			    },
-			    "fact_redes_sociale_has_measures_table_score_queen": {
-			      "Binding": {
-			        "ConceptualEntity": "FactRedesSociales"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_redes_sociale": {
-			          "Target": {
-			            "Entity": "fact_redes_sociale"
-			          }
-			        },
-			        "measures_table.score_queen": {
-			          "Target": {
-			            "Entity": "measures_table.score_queen"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_redes_sociale"
-			            },
-			            "Object": {
-			              "Role": "measures_table.score_queen"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_redes_sociales_have_score_queen"
-			        }
-			      ]
-			    },
-			    "dim_sucursal_has_measures_table_score_queen": {
-			      "Binding": {
-			        "ConceptualEntity": "DimSucursal"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_sucursal": {
-			          "Target": {
-			            "Entity": "dim_sucursal"
-			          }
-			        },
-			        "measures_table.score_queen": {
-			          "Target": {
-			            "Entity": "measures_table.score_queen"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_sucursal"
-			            },
-			            "Object": {
-			              "Role": "measures_table.score_queen"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_sucursals_have_score_queen"
-			        }
-			      ]
-			    },
-			    "dim_fuente_has_measures_table_score_queen": {
-			      "Binding": {
-			        "ConceptualEntity": "DimFuente"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_fuente": {
-			          "Target": {
-			            "Entity": "dim_fuente"
-			          }
-			        },
-			        "measures_table.score_queen": {
-			          "Target": {
-			            "Entity": "measures_table.score_queen"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_fuente"
-			            },
-			            "Object": {
-			              "Role": "measures_table.score_queen"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_fuentes_have_score_queen"
-			        }
-			      ]
-			    },
-			    "dim_factura_cuerpo_has_measures_table_score_queen": {
-			      "Binding": {
-			        "ConceptualEntity": "DimFacturaCuerpo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_factura_cuerpo": {
-			          "Target": {
-			            "Entity": "dim_factura_cuerpo"
-			          }
-			        },
-			        "measures_table.score_queen": {
-			          "Target": {
-			            "Entity": "measures_table.score_queen"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_factura_cuerpo"
-			            },
-			            "Object": {
-			              "Role": "measures_table.score_queen"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_factura_cuerpos_have_score_queen"
-			        }
-			      ]
-			    },
-			    "dim_calendario_has_measures_table_score_queen": {
-			      "Binding": {
-			        "ConceptualEntity": "DimCalendario"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_calendario": {
-			          "Target": {
-			            "Entity": "dim_calendario"
-			          }
-			        },
-			        "measures_table.score_queen": {
-			          "Target": {
-			            "Entity": "measures_table.score_queen"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_calendario"
-			            },
-			            "Object": {
-			              "Role": "measures_table.score_queen"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_calendarios_have_score_queen"
 			        }
 			      ]
 			    },
@@ -6359,6 +6315,52 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "fact_factura_cabecera_has_dim_cliente": {
+			      "Binding": {
+			        "ConceptualEntity": "FactFacturaCabecera"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_factura_cabecera": {
+			          "Target": {
+			            "Entity": "fact_factura_cabecera"
+			          }
+			        },
+			        "dim_cliente": {
+			          "Target": {
+			            "Entity": "dim_cliente"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_factura_cabecera"
+			            },
+			            "Object": {
+			              "Role": "dim_cliente"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_factura_cabeceras_have_dim_clientes"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_cliente"
+			            },
+			            "Object": {
+			              "Role": "fact_factura_cabecera"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_clientes_have_fact_factura_cabeceras"
+			        }
+			      ]
+			    },
 			    "fact_factura_cabecera_has_dim_tiempo": {
 			      "Binding": {
 			        "ConceptualEntity": "FactFacturaCabecera"
@@ -6908,52 +6910,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_fuentes_have_fact_whats_apps"
-			        }
-			      ]
-			    },
-			    "dim_fuente_has_dim_sucursal": {
-			      "Binding": {
-			        "ConceptualEntity": "DimFuente"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_fuente": {
-			          "Target": {
-			            "Entity": "dim_fuente"
-			          }
-			        },
-			        "dim_sucursal": {
-			          "Target": {
-			            "Entity": "dim_sucursal"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_fuente"
-			            },
-			            "Object": {
-			              "Role": "dim_sucursal"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_fuentes_have_dim_sucursals"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_sucursal"
-			            },
-			            "Object": {
-			              "Role": "dim_fuente"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_sucursals_have_dim_fuentes"
 			        }
 			      ]
 			    }

@@ -66,6 +66,40 @@ table DimFacturaCuerpo
 
 		annotation PBI_FormatHint = {"currencyCulture":"es-AR"}
 
+	column IdFuente = ```
+			
+			VAR FacturaActual = DimFacturaCuerpo[IdFactura]
+			VAR SucursalOriginal =
+			    RELATED ( DimSucursal[IdSucursal] )
+			VAR CodigoEnvio = 7010
+			VAR EsFacturaDeReparto =
+			    IF (
+			        SucursalOriginal = "escobar",
+			        CALCULATE (
+			            COUNTROWS ( DimFacturaCuerpo ),
+			            ALL ( DimFacturaCuerpo ),
+			            DimFacturaCuerpo[IdFactura] = FacturaActual,
+			            DimFacturaCuerpo[CodigoProducto] = CodigoEnvio
+			        ) > 0,
+			        FALSE
+			    )
+			VAR EsProductoCongelado =
+			    RELATED ( DimProducto[Categoria] ) = "Congelado"
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        SucursalOriginal = "escobar"
+			            && EsFacturaDeReparto, "repartos",
+			        EsProductoCongelado, "punto-frio",
+			        SucursalOriginal
+			    )
+			
+			```
+		lineageTag: c15697d7-dae1-429d-ad88-977e0bebb4b4
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimFacturaCuerpo = m
 		mode: import
 		queryGroup: 'Dimension Tables'

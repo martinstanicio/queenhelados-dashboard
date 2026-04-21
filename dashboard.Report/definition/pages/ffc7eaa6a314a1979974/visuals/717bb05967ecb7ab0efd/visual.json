@@ -20,16 +20,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimSucursal"
+                      "Entity": "DimFuente"
                     }
                   },
-                  "Property": "NombreSucursal"
+                  "Property": "NombreFuente"
                 }
               },
-              "queryRef": "DimSucursal.NombreSucursal",
-              "nativeQueryRef": "Sucursal",
+              "queryRef": "DimFuente.NombreFuente",
+              "nativeQueryRef": "Fuente",
               "active": true,
-              "displayName": "Sucursal"
+              "displayName": "Fuente"
             }
           ]
         },
@@ -67,16 +67,16 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "FactPago"
+                          "Entity": "DimFacturaCuerpo"
                         }
                       },
-                      "Property": "MontoPagado"
+                      "Property": "SubtotalBruto"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(FactPago.MontoPagado)",
+              "queryRef": "Sum(DimFacturaCuerpo.SubtotalBruto)",
               "nativeQueryRef": "Venta Total",
               "displayName": "Venta Total"
             }
@@ -92,10 +92,10 @@
                   "Column": {
                     "Expression": {
                       "SourceRef": {
-                        "Entity": "FactPago"
+                        "Entity": "DimFacturaCuerpo"
                       }
                     },
-                    "Property": "MontoPagado"
+                    "Property": "SubtotalBruto"
                   }
                 },
                 "Function": 0
@@ -226,7 +226,7 @@
                         "Column": {
                           "Expression": {
                             "SourceRef": {
-                              "Entity": "DimSucursal"
+                              "Entity": "DimFuente"
                             }
                           },
                           "Property": "Color"
@@ -278,7 +278,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Ventas por Sucursal'"
+                  "Value": "'Ventas por Fuente'"
                 }
               }
             },
