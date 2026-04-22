@@ -376,39 +376,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "1f07c177006ed4360e05",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "DimSucursal"
-                  }
-                },
-                "Property": "Stock Crítico"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "4ee84861382a0d59a709",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FactStock"
-              }
-            },
-            "Property": "Stock Valorizado (Diario)"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }
