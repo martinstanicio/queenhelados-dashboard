@@ -253,6 +253,16 @@ cultureInfo en-US
 			          "categoria": {
 			            "State": "Generated"
 			          }
+			        },
+			        {
+			          "Categoría": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -3523,55 +3533,85 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "dim_fuente.color": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DimFuente",
+			          "ConceptualProperty": "Color"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "color": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "hue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "tint": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "shade": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "dye": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "paint": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "pigment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
-			    "dim_factura_cuerpo_has_dim_fuente": {
-			      "Binding": {
-			        "ConceptualEntity": "DimFacturaCuerpo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_factura_cuerpo": {
-			          "Target": {
-			            "Entity": "dim_factura_cuerpo"
-			          }
-			        },
-			        "dim_fuente": {
-			          "Target": {
-			            "Entity": "dim_fuente"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_factura_cuerpo"
-			            },
-			            "Object": {
-			              "Role": "dim_fuente"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_factura_cuerpos_have_dim_fuentes"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_fuente"
-			            },
-			            "Object": {
-			              "Role": "dim_factura_cuerpo"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_fuentes_have_dim_factura_cuerpos"
-			        }
-			      ]
-			    },
 			    "dim_factura_cuerpo_has_fact_factura_cabecera": {
 			      "Binding": {
 			        "ConceptualEntity": "DimFacturaCuerpo"
@@ -3661,6 +3701,39 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_productos_have_dim_factura_cuerpos"
+			        }
+			      ]
+			    },
+			    "dim_fuente_has_color": {
+			      "Binding": {
+			        "ConceptualEntity": "DimFuente"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_fuente": {
+			          "Target": {
+			            "Entity": "dim_fuente"
+			          }
+			        },
+			        "dim_fuente.color": {
+			          "Target": {
+			            "Entity": "dim_fuente.color"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_fuente"
+			            },
+			            "Object": {
+			              "Role": "dim_fuente.color"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_fuentes_have_colors"
 			        }
 			      ]
 			    },
@@ -6302,6 +6375,52 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_sucursals_are_in_direccions"
+			        }
+			      ]
+			    },
+			    "dim_factura_cuerpo_has_dim_fuente": {
+			      "Binding": {
+			        "ConceptualEntity": "DimFacturaCuerpo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_factura_cuerpo": {
+			          "Target": {
+			            "Entity": "dim_factura_cuerpo"
+			          }
+			        },
+			        "dim_fuente": {
+			          "Target": {
+			            "Entity": "dim_fuente"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_factura_cuerpo"
+			            },
+			            "Object": {
+			              "Role": "dim_fuente"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_factura_cuerpos_have_dim_fuentes"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_fuente"
+			            },
+			            "Object": {
+			              "Role": "dim_factura_cuerpo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_fuentes_have_dim_factura_cuerpos"
 			        }
 			      ]
 			    },
