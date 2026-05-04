@@ -44,6 +44,14 @@ table DimProducto
 
 		annotation SummarizationSetBy = Automatic
 
+	column MultiplicadorPuntos
+		dataType: string
+		lineageTag: 4745e23d-3104-4628-b3fb-f08996840111
+		summarizeBy: none
+		sourceColumn: MultiplicadorPuntos
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimProducto = m
 		mode: import
 		queryGroup: 'Dimension Tables'
