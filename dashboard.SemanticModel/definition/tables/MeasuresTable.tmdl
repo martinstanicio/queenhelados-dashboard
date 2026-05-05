@@ -5,6 +5,24 @@ table MeasuresTable
 		formatString: 0
 		lineageTag: 276efb4c-fbe1-4013-919f-8b102cb2b734
 
+	measure 'Date Range Legend' = ```
+			
+			VAR MinDate =
+			    FORMAT (
+			        MIN ( DimCalendario[Fecha] ),
+			        "dd/mm/yyyy"
+			    )
+			VAR MaxDate =
+			    FORMAT (
+			        MAX ( DimCalendario[Fecha] ),
+			        "dd/mm/yyyy"
+			    )
+			RETURN
+			    "Desde el " & MinDate & " Hasta el " & MaxDate
+			
+			```
+		lineageTag: 8a167dc1-ea31-4ffc-9c72-de21990ea58d
+
 	partition MeasuresTable = m
 		mode: import
 		source =

@@ -77,23 +77,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "89c18fce7bbc60060884",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimProducto"
-              }
-            },
-            "Property": "Categoria"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

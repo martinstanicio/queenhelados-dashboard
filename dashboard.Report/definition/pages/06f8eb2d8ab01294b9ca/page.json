@@ -127,26 +127,6 @@
       "type": "HighlightFilter"
     },
     {
-      "source": "5ab5551149704dd737ee",
-      "target": "ecbbf042853582d90dcc",
-      "type": "NoFilter"
-    },
-    {
-      "source": "5ab5551149704dd737ee",
-      "target": "739abb0ab64c3092acc1",
-      "type": "NoFilter"
-    },
-    {
-      "source": "5ab5551149704dd737ee",
-      "target": "56442e5266b0145ced0e",
-      "type": "NoFilter"
-    },
-    {
-      "source": "5ab5551149704dd737ee",
-      "target": "d3c757fca04e0e73389c",
-      "type": "NoFilter"
-    },
-    {
       "source": "739abb0ab64c3092acc1",
       "target": "d3c757fca04e0e73389c",
       "type": "NoFilter"
@@ -175,21 +155,6 @@
       "source": "d3c757fca04e0e73389c",
       "target": "56442e5266b0145ced0e",
       "type": "DataFilter"
-    },
-    {
-      "source": "739abb0ab64c3092acc1",
-      "target": "5ab5551149704dd737ee",
-      "type": "NoFilter"
-    },
-    {
-      "source": "ecbbf042853582d90dcc",
-      "target": "5ab5551149704dd737ee",
-      "type": "NoFilter"
-    },
-    {
-      "source": "56442e5266b0145ced0e",
-      "target": "5ab5551149704dd737ee",
-      "type": "NoFilter"
     }
   ]
 }

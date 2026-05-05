@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "3ca8c25c663c256e6ba7",
+  "name": "12ef5a9aa3c0234d5db6",
   "position": {
-    "x": 318.78197631148066,
-    "y": 0,
-    "z": 3000,
-    "height": 95.8087906947073,
+    "x": 959.829884959704,
+    "y": 95.8087906947073,
+    "z": 6000,
+    "height": 104.51868075786251,
     "width": 320.52395432411168,
-    "tabOrder": 3000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "card",
@@ -20,15 +20,15 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "FactRedesSociales"
+                      "Entity": "FactWhatsApp"
                     }
                   },
-                  "Property": "Seguidores (Diario)"
+                  "Property": "% Seguidores del Canal"
                 }
               },
-              "queryRef": "FactRedesSociales.Seguidores (Diario)",
-              "nativeQueryRef": "Cantidad de Seguidores",
-              "displayName": "Cantidad de Seguidores"
+              "queryRef": "FactWhatsApp.% Seguidores del Canal",
+              "nativeQueryRef": "De los Contactos siguen el Canal",
+              "displayName": "De los Contactos siguen el Canal"
             }
           ]
         }
@@ -40,10 +40,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "FactRedesSociales"
+                    "Entity": "FactWhatsApp"
                   }
                 },
-                "Property": "Seguidores (Diario)"
+                "Property": "% Seguidores del Canal"
               }
             },
             "direction": "Descending"

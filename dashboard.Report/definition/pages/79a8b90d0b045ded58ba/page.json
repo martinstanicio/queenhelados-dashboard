@@ -105,31 +105,6 @@
       "source": "05db7f6a9ee01b224070",
       "target": "19b526fe11de0103bb6a",
       "type": "DataFilter"
-    },
-    {
-      "source": "05db7f6a9ee01b224070",
-      "target": "8d4e5cedae74e2e74e3b",
-      "type": "NoFilter"
-    },
-    {
-      "source": "8d4e5cedae74e2e74e3b",
-      "target": "05db7f6a9ee01b224070",
-      "type": "NoFilter"
-    },
-    {
-      "source": "8d4e5cedae74e2e74e3b",
-      "target": "19b526fe11de0103bb6a",
-      "type": "NoFilter"
-    },
-    {
-      "source": "8d4e5cedae74e2e74e3b",
-      "target": "b7d57e703ab2c11a6173",
-      "type": "NoFilter"
-    },
-    {
-      "source": "8d4e5cedae74e2e74e3b",
-      "target": "94ba75886b85934dde83",
-      "type": "NoFilter"
     }
   ]
 }

@@ -4,10 +4,10 @@
   "position": {
     "x": 0,
     "y": 0,
-    "z": 2000,
-    "height": 96.291793313069917,
-    "width": 640,
-    "tabOrder": 2000
+    "z": 1000,
+    "height": 96.666666666666671,
+    "width": 321.66666666666669,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Redes sociales",
+                    "value": "Redes",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "36pt"

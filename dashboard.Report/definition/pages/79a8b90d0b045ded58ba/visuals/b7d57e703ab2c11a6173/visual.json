@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "b7d57e703ab2c11a6173",
   "position": {
-    "x": 960,
-    "y": 0,
-    "z": 3000,
-    "height": 96,
-    "width": 320,
-    "tabOrder": 3000
+    "x": 318.78197631148066,
+    "y": 95.8087906947073,
+    "z": 1000,
+    "height": 104.51868075786251,
+    "width": 320.52395432411168,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "card",
@@ -27,8 +27,8 @@
                 }
               },
               "queryRef": "FactWhatsApp.CrecimientoAcumuladoContactos",
-              "nativeQueryRef": "Contactos Nuevos",
-              "displayName": "Contactos Nuevos"
+              "nativeQueryRef": "Nuevos Contactos",
+              "displayName": "Nuevos Contactos"
             }
           ]
         }

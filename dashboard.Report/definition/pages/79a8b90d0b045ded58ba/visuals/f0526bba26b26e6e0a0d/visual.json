@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "3ca8c25c663c256e6ba7",
+  "name": "f0526bba26b26e6e0a0d",
   "position": {
-    "x": 318.78197631148066,
-    "y": 0,
-    "z": 3000,
-    "height": 95.8087906947073,
+    "x": 639.30593063559229,
+    "y": 95.8087906947073,
+    "z": 7000,
+    "height": 104.51868075786251,
     "width": 320.52395432411168,
-    "tabOrder": 3000
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "card",
@@ -20,15 +20,15 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "FactRedesSociales"
+                      "Entity": "FactWhatsApp"
                     }
                   },
-                  "Property": "Seguidores (Diario)"
+                  "Property": "CrecimientoAcumuladoSeguidoresCanal"
                 }
               },
-              "queryRef": "FactRedesSociales.Seguidores (Diario)",
-              "nativeQueryRef": "Cantidad de Seguidores",
-              "displayName": "Cantidad de Seguidores"
+              "queryRef": "FactWhatsApp.CrecimientoAcumuladoSeguidoresCanal",
+              "nativeQueryRef": "Nuevos Seguidores del Canal",
+              "displayName": "Nuevos Seguidores del Canal"
             }
           ]
         }
@@ -40,10 +40,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "FactRedesSociales"
+                    "Entity": "FactWhatsApp"
                   }
                 },
-                "Property": "Seguidores (Diario)"
+                "Property": "CrecimientoAcumuladoSeguidoresCanal"
               }
             },
             "direction": "Descending"

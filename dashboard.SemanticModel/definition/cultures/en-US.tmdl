@@ -2740,7 +2740,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Aumento de Contactos": {
+			          "Nuevos Contactos": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -2750,7 +2750,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Contactos Nuevos": {
+			          "Aumento de Contactos": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -2854,6 +2854,16 @@ cultureInfo en-US
 			        },
 			        {
 			          "Aumento de Seguidores del Canal": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Nuevos Seguidores del Canal": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -2966,6 +2976,16 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.474
+			          }
+			        },
+			        {
+			          "De los Contactos siguen el Canal": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -3609,9 +3629,200 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "dim_producto.multiplicador_punto": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DimProducto",
+			          "ConceptualProperty": "MultiplicadorPuntos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "multiplicador punto": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "MultiplicadorPuntos": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "measures_table.date_range_legend": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MeasuresTable",
+			          "ConceptualProperty": "Date Range Legend"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "date range legend": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "range legend": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "moment range legend": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "period range legend": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "date range myth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "date range tale": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "date range lore": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "date range folklore": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "date range folktale": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "range myth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "range tale": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "range lore": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "dim_factura_cuerpo_has_dim_fuente": {
+			      "Binding": {
+			        "ConceptualEntity": "DimFacturaCuerpo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_factura_cuerpo": {
+			          "Target": {
+			            "Entity": "dim_factura_cuerpo"
+			          }
+			        },
+			        "dim_fuente": {
+			          "Target": {
+			            "Entity": "dim_fuente"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_factura_cuerpo"
+			            },
+			            "Object": {
+			              "Role": "dim_fuente"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_factura_cuerpos_have_dim_fuentes"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_fuente"
+			            },
+			            "Object": {
+			              "Role": "dim_factura_cuerpo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_fuentes_have_dim_factura_cuerpos"
+			        }
+			      ]
+			    },
 			    "dim_factura_cuerpo_has_fact_factura_cabecera": {
 			      "Binding": {
 			        "ConceptualEntity": "DimFacturaCuerpo"
@@ -3701,6 +3912,72 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_productos_have_dim_factura_cuerpos"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_measures_table_date_range_legend": {
+			      "Binding": {
+			        "ConceptualEntity": "DimCalendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "measures_table.date_range_legend": {
+			          "Target": {
+			            "Entity": "measures_table.date_range_legend"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "measures_table.date_range_legend"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_date_range_legend"
+			        }
+			      ]
+			    },
+			    "dim_producto_has_multiplicador_punto": {
+			      "Binding": {
+			        "ConceptualEntity": "DimProducto"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_producto": {
+			          "Target": {
+			            "Entity": "dim_producto"
+			          }
+			        },
+			        "dim_producto.multiplicador_punto": {
+			          "Target": {
+			            "Entity": "dim_producto.multiplicador_punto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_producto"
+			            },
+			            "Object": {
+			              "Role": "dim_producto.multiplicador_punto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_productos_have_multiplicador_puntos"
 			        }
 			      ]
 			    },
@@ -6375,52 +6652,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_sucursals_are_in_direccions"
-			        }
-			      ]
-			    },
-			    "dim_factura_cuerpo_has_dim_fuente": {
-			      "Binding": {
-			        "ConceptualEntity": "DimFacturaCuerpo"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_factura_cuerpo": {
-			          "Target": {
-			            "Entity": "dim_factura_cuerpo"
-			          }
-			        },
-			        "dim_fuente": {
-			          "Target": {
-			            "Entity": "dim_fuente"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_factura_cuerpo"
-			            },
-			            "Object": {
-			              "Role": "dim_fuente"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_factura_cuerpos_have_dim_fuentes"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_fuente"
-			            },
-			            "Object": {
-			              "Role": "dim_factura_cuerpo"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_fuentes_have_dim_factura_cuerpos"
 			        }
 			      ]
 			    },

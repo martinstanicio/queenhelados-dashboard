@@ -1,38 +1,19 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "5ab5551149704dd737ee",
+  "name": "8e60c11ca0554e4a29c7",
   "position": {
     "x": 0,
-    "y": 96.291793313069917,
-    "z": 0,
-    "height": 576.77811550151978,
-    "width": 640,
-    "tabOrder": 0
+    "y": 96,
+    "z": 7000,
+    "height": 288,
+    "width": 642,
+    "tabOrder": 7000
   },
   "visual": {
-    "visualType": "stackedAreaChart",
+    "visualType": "columnChart",
     "query": {
       "queryState": {
         "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DimCalendario"
-                    }
-                  },
-                  "Property": "Fecha"
-                }
-              },
-              "queryRef": "DimCalendario.Fecha",
-              "nativeQueryRef": "Fecha",
-              "active": true
-            }
-          ]
-        },
-        "Rows": {
           "projections": [
             {
               "field": {
@@ -47,6 +28,7 @@
               },
               "queryRef": "DimFuente.NombreFuente",
               "nativeQueryRef": "Fuente",
+              "active": true,
               "displayName": "Fuente"
             }
           ]
@@ -70,6 +52,30 @@
             }
           ]
         },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FactRedesSociales"
+                        }
+                      },
+                      "Property": "Publicaciones"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(FactRedesSociales.Publicaciones)",
+              "nativeQueryRef": "Publicaciones",
+              "displayName": "Publicaciones"
+            }
+          ]
+        },
         "Y": {
           "projections": [
             {
@@ -83,7 +89,7 @@
                   "Property": "CrecimientoAcumuladoSeguidores"
                 }
               },
-              "queryRef": "FactRedesSociales.CrecimientoAcumulado",
+              "queryRef": "FactRedesSociales.CrecimientoAcumuladoSeguidores",
               "nativeQueryRef": "Aumento de Seguidores",
               "displayName": "Aumento de Seguidores"
             }
@@ -115,28 +121,14 @@
             "columnCount": {
               "expr": {
                 "Literal": {
-                  "Value": "2L"
+                  "Value": "4L"
                 }
               }
             },
             "rowCount": {
               "expr": {
                 "Literal": {
-                  "Value": "4L"
-                }
-              }
-            },
-            "advancedPaddingOptions": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "gridPadding": {
-              "expr": {
-                "Literal": {
-                  "Value": "12D"
+                  "Value": "2L"
                 }
               }
             }
@@ -285,6 +277,13 @@
                 }
               }
             },
+            "showGradientLegend": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
             "show": {
               "expr": {
                 "Literal": {
@@ -325,41 +324,6 @@
                 }
               }
             },
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "scaleToFit": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "logAxisScale": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "invertAxis": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "gridlineAutoScale": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
             "labelDisplayUnits": {
               "expr": {
                 "Literal": {
@@ -374,21 +338,53 @@
                 }
               }
             },
-            "switchAxisPosition": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableBackground": {
               "expr": {
                 "Literal": {
                   "Value": "true"
                 }
               }
             },
-            "bold": {
+            "backgroundTransparency": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "0D"
                 }
               }
             },
-            "gridlineColor": {
+            "backgroundColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "color": {
               "solid": {
                 "color": {
                   "expr": {
@@ -399,44 +395,24 @@
                   }
                 }
               }
-            }
-          }
-        }
-      ],
-      "lineStyles": [
-        {
-          "properties": {
-            "lineChartType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'linear'"
-                }
-              }
             },
-            "interpolationSmooth": {
+            "bold": {
               "expr": {
                 "Literal": {
-                  "Value": "'cardinal'"
-                }
-              }
-            },
-            "showMarker": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             }
           }
         }
       ],
-      "layout": [
+      "totals": [
         {
           "properties": {
-            "seriesOrderReversed": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             }

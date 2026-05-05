@@ -1,38 +1,19 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "8d4e5cedae74e2e74e3b",
+  "name": "ebf62e94976376bb4207",
   "position": {
     "x": 0,
-    "y": 96.291793313069917,
-    "z": 0,
-    "height": 623.46504559270522,
-    "width": 640,
-    "tabOrder": 0
+    "y": 200.3274714525698,
+    "z": 4000,
+    "height": 259.55472388202526,
+    "width": 1280.3538392838157,
+    "tabOrder": 4000
   },
   "visual": {
-    "visualType": "areaChart",
+    "visualType": "clusteredColumnChart",
     "query": {
       "queryState": {
         "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DimCalendario"
-                    }
-                  },
-                  "Property": "Fecha"
-                }
-              },
-              "queryRef": "DimCalendario.Fecha",
-              "nativeQueryRef": "Fecha",
-              "active": true
-            }
-          ]
-        },
-        "Rows": {
           "projections": [
             {
               "field": {
@@ -47,6 +28,7 @@
               },
               "queryRef": "DimFuente.NombreFuente",
               "nativeQueryRef": "Fuente",
+              "active": true,
               "displayName": "Fuente"
             }
           ]
@@ -111,21 +93,14 @@
             "columnCount": {
               "expr": {
                 "Literal": {
-                  "Value": "2L"
+                  "Value": "4L"
                 }
               }
             },
             "rowCount": {
               "expr": {
                 "Literal": {
-                  "Value": "4L"
-                }
-              }
-            },
-            "gridPadding": {
-              "expr": {
-                "Literal": {
-                  "Value": "12D"
+                  "Value": "2L"
                 }
               }
             }
@@ -141,6 +116,20 @@
                   "Value": "'TopCenter'"
                 }
               }
+            },
+            "showGradientLegend": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           }
         }
@@ -152,53 +141,6 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
-                }
-              }
-            },
-            "sharedAxis": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "switchAxisPosition": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            },
-            "labelPrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "0L"
-                }
-              }
-            },
-            "gridlineColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0.2
-                    }
-                  }
                 }
               }
             }
@@ -225,13 +167,34 @@
           }
         }
       ],
-      "y2Axis": [
+      "labels": [
         {
           "properties": {
-            "secShowAxisTitle": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
                 }
               }
             }
@@ -246,7 +209,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#2ECC71'"
+                      "Value": "'#3497D9'"
                     }
                   }
                 }
@@ -264,7 +227,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#3498DB'"
+                      "Value": "'#2DC76E'"
                     }
                   }
                 }

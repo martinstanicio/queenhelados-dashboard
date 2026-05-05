@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "3ca8c25c663c256e6ba7",
+  "name": "ef6b1786d42a9540cab3",
   "position": {
-    "x": 318.78197631148066,
+    "x": 961.57186297233511,
     "y": 0,
-    "z": 3000,
-    "height": 95.8087906947073,
-    "width": 320.52395432411168,
-    "tabOrder": 3000
+    "z": 8000,
+    "height": 97.550768707338335,
+    "width": 318.78197631148066,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "card",
@@ -20,15 +20,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "FactRedesSociales"
+                      "Entity": "MeasuresTable"
                     }
                   },
-                  "Property": "Seguidores (Diario)"
+                  "Property": "Date Range Legend"
                 }
               },
-              "queryRef": "FactRedesSociales.Seguidores (Diario)",
-              "nativeQueryRef": "Cantidad de Seguidores",
-              "displayName": "Cantidad de Seguidores"
+              "queryRef": "MeasuresTable.Date Range Legend",
+              "nativeQueryRef": "Date Range Legend"
             }
           ]
         }
@@ -37,16 +36,21 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Aggregation": {
                 "Expression": {
-                  "SourceRef": {
-                    "Entity": "FactRedesSociales"
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DimCalendario"
+                      }
+                    },
+                    "Property": "Fecha"
                   }
                 },
-                "Property": "Seguidores (Diario)"
+                "Function": 3
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ],
         "isDefaultSort": true
@@ -67,6 +71,19 @@
               "expr": {
                 "Literal": {
                   "Value": "0L"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
