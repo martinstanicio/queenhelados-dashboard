@@ -5,7 +5,7 @@
     "x": 0,
     "y": 431.85410334346506,
     "z": 8000,
-    "height": 287.90273556231006,
+    "height": 216,
     "width": 426.01823708206689,
     "tabOrder": 8000
   },
@@ -252,6 +252,19 @@
             }
           }
         }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
@@ -376,6 +389,53 @@
             }
           ]
         }
+      },
+      {
+        "name": "5039a6f1ef81a8179bbc",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactStock"
+              }
+            },
+            "Property": "Stock Valorizado (Máximo 7 Días)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5e6fd676ff664c41aaf6",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DimSucursal"
+                  }
+                },
+                "Property": "Stock Crítico"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "def638829c375f1092ac",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactStock"
+              }
+            },
+            "Property": "Stock Valorizado (Diario)"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

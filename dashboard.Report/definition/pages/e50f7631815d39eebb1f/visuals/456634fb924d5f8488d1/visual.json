@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "80cb3d63b0c009b84ce6",
+  "name": "456634fb924d5f8488d1",
   "position": {
-    "x": 853.90835579514817,
-    "y": 424.366576819407,
-    "z": 10000,
-    "height": 295.84905660377359,
-    "width": 426.09164420485172,
-    "tabOrder": 10000
+    "x": 0,
+    "y": 143.95136778115503,
+    "z": 11001,
+    "height": 216,
+    "width": 426.01823708206689,
+    "tabOrder": 11001
   },
   "visual": {
     "visualType": "gauge",
@@ -114,7 +114,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#F191CE'"
+                      "Value": "'#FE3131'"
                     }
                   }
                 }
@@ -246,7 +246,27 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Pilar'"
+                  "Value": "'Escobar'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             }
@@ -300,7 +320,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'pilar'"
+                          "Value": "'escobar'"
                         }
                       }
                     ]
@@ -328,7 +348,7 @@
                           "0": [
                             {
                               "Literal": {
-                                "Value": "'pilar'"
+                                "Value": "'escobar'"
                               }
                             }
                           ]
@@ -352,7 +372,7 @@
                   },
                   "valueMap": [
                     {
-                      "0": "Pilar"
+                      "0": "Escobar"
                     }
                   ]
                 }

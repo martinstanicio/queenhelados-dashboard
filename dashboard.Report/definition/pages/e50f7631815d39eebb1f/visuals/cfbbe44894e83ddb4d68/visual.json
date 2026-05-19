@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "89b47e339d1a81060120",
+  "name": "cfbbe44894e83ddb4d68",
   "position": {
-    "x": 426.95417789757408,
-    "y": 424.366576819407,
-    "z": 9000,
-    "height": 295.84905660377359,
-    "width": 426.09164420485172,
-    "tabOrder": 9000
+    "x": 426.99088145896661,
+    "y": 431.85410334346506,
+    "z": 11005,
+    "height": 216,
+    "width": 426.01823708206689,
+    "tabOrder": 11005
   },
   "visual": {
     "visualType": "gauge",
@@ -247,6 +247,19 @@
               "expr": {
                 "Literal": {
                   "Value": "'Del Viso'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             }

@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "65f8052a9ed4989bd7dc",
+  "name": "6684ce6414f1a56c56b4",
   "position": {
-    "x": 426.99088145896661,
-    "y": 143.95136778115503,
-    "z": 6000,
+    "x": 0,
+    "y": 431.85410334346506,
+    "z": 11004,
     "height": 216,
     "width": 426.01823708206689,
-    "tabOrder": 6000
+    "tabOrder": 11004
   },
   "visual": {
     "visualType": "gauge",
@@ -114,7 +114,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#FED12F'"
+                      "Value": "'#049882'"
                     }
                   }
                 }
@@ -246,7 +246,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Garín'"
+                  "Value": "'Luján'"
                 }
               }
             }
@@ -313,7 +313,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'garin'"
+                          "Value": "'lujan'"
                         }
                       }
                     ]
@@ -341,7 +341,7 @@
                           "0": [
                             {
                               "Literal": {
-                                "Value": "'garin'"
+                                "Value": "'lujan'"
                               }
                             }
                           ]
@@ -365,7 +365,7 @@
                   },
                   "valueMap": [
                     {
-                      "0": "Garín"
+                      "0": "Luján"
                     }
                   ]
                 }

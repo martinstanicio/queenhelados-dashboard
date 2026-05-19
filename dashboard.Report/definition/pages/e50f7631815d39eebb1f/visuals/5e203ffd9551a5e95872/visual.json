@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "65f8052a9ed4989bd7dc",
+  "name": "5e203ffd9551a5e95872",
   "position": {
-    "x": 426.99088145896661,
-    "y": 143.95136778115503,
-    "z": 6000,
+    "x": 853.98176291793322,
+    "y": 431.85410334346506,
+    "z": 11006,
     "height": 216,
     "width": 426.01823708206689,
-    "tabOrder": 6000
+    "tabOrder": 11006
   },
   "visual": {
     "visualType": "gauge",
@@ -114,7 +114,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#FED12F'"
+                      "Value": "'#F191CE'"
                     }
                   }
                 }
@@ -246,7 +246,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Garín'"
+                  "Value": "'Pilar'"
                 }
               }
             }
@@ -313,7 +313,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'garin'"
+                          "Value": "'pilar'"
                         }
                       }
                     ]
@@ -341,7 +341,7 @@
                           "0": [
                             {
                               "Literal": {
-                                "Value": "'garin'"
+                                "Value": "'pilar'"
                               }
                             }
                           ]
@@ -365,7 +365,7 @@
                   },
                   "valueMap": [
                     {
-                      "0": "Garín"
+                      "0": "Pilar"
                     }
                   ]
                 }

@@ -1,61 +1,19 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "d8415689d34eb559160b",
+  "name": "1883844239b739f65fc6",
   "position": {
-    "x": 0,
-    "y": 128.51752021563343,
-    "z": 5000,
-    "height": 294.98652291105122,
-    "width": 426.09164420485172,
-    "tabOrder": 5000
+    "x": 426,
+    "y": 648,
+    "z": 11005,
+    "height": 72,
+    "width": 426,
+    "tabOrder": 11005
   },
   "visual": {
-    "visualType": "gauge",
+    "visualType": "card",
     "query": {
       "queryState": {
-        "MaxValue": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "FactStock"
-                    }
-                  },
-                  "Property": "Stock Valorizado (Máximo 7 Días)"
-                }
-              },
-              "queryRef": "FactStock.Stock Valorizado (Máximo 7 Días)",
-              "nativeQueryRef": "Stock Valorizado (Máximo 7 Días)"
-            }
-          ]
-        },
-        "TargetValue": {
-          "projections": [
-            {
-              "field": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "DimSucursal"
-                        }
-                      },
-                      "Property": "Stock Crítico"
-                    }
-                  },
-                  "Function": 0
-                }
-              },
-              "queryRef": "Sum(DimSucursal.Stock Crítico)",
-              "nativeQueryRef": "Stock Crítico",
-              "displayName": "Stock Crítico"
-            }
-          ]
-        },
-        "Y": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -69,7 +27,8 @@
                 }
               },
               "queryRef": "FactStock.Stock Valorizado (Snapshot)",
-              "nativeQueryRef": "Stock Valorizado (Diario)"
+              "nativeQueryRef": "Stock de Congelados",
+              "displayName": "Stock de Congelados"
             }
           ]
         }
@@ -94,35 +53,6 @@
       }
     },
     "objects": {
-      "dataPoint": [
-        {
-          "properties": {
-            "target": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#FE3131'"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      ],
       "labels": [
         {
           "properties": {
@@ -139,114 +69,26 @@
                   "Value": "0L"
                 }
               }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "target": [
-        {
-          "properties": {
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            },
-            "labelPrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "0L"
-                }
-              }
-            },
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "calloutValue": [
-        {
-          "properties": {
-            "showDynamicLabels": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "dynamicLabelValue": {
-              "expr": {
-                "Literal": {
-                  "Value": "''"
-                }
-              }
-            },
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            },
-            "labelPrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "0L"
-                }
-              }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "axis": [
-        {
-          "properties": {
-            "min": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
             }
           }
         }
       ]
     },
     "visualContainerObjects": {
-      "title": [
+      "padding": [
         {
           "properties": {
-            "alignment": {
+            "top": {
               "expr": {
                 "Literal": {
-                  "Value": "'center'"
+                  "Value": "0D"
                 }
               }
             },
-            "text": {
+            "bottom": {
               "expr": {
                 "Literal": {
-                  "Value": "'Escobar'"
+                  "Value": "5D"
                 }
               }
             }
@@ -259,7 +101,76 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "eff259449bb00ea385c0",
+        "name": "150b025fe019dce6a3e5",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimProducto"
+              }
+            },
+            "Property": "Categoria"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DimProducto",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "Categoria"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Congelado'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "requireSingleSelect": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "be2b1b3d32e5c3e09edd",
         "field": {
           "Column": {
             "Expression": {
@@ -300,7 +211,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'escobar'"
+                          "Value": "'delviso'"
                         }
                       }
                     ]
@@ -328,7 +239,7 @@
                           "0": [
                             {
                               "Literal": {
-                                "Value": "'escobar'"
+                                "Value": "'delviso'"
                               }
                             }
                           ]
@@ -352,7 +263,7 @@
                   },
                   "valueMap": [
                     {
-                      "0": "Escobar"
+                      "0": "Del Viso"
                     }
                   ]
                 }
@@ -376,6 +287,20 @@
             }
           ]
         }
+      },
+      {
+        "name": "f0a6fbfc5328b72e7712",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactStock"
+              }
+            },
+            "Property": "Stock Valorizado (Diario)"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }
